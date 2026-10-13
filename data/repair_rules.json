@@ -1,0 +1,194 @@
+[
+  {
+    "category_id": "EXT-01",
+    "type": "A",
+    "type_name": "공간적 구분 (A타입)",
+    "min_unit": "1개 동의 지붕 전체 또는 명확히 구획된 지붕 면적",
+    "below_min_unit_fund": "수선유지비",
+    "guideline_note": "1개 동 단위 이상의 지붕 마감재 교체는 장기수선충당금 대상. 바람에 날아간 싱글 몇 장 땜질 수리는 수선유지비 집행 가능."
+  },
+  {
+    "category_id": "EXT-03",
+    "type": "A",
+    "type_name": "공간적 구분 (A타입)",
+    "min_unit": "1개 동 옥상 바닥 전체 또는 독립된 루프탑 1개소",
+    "below_min_unit_fund": "수선유지비",
+    "guideline_note": "1개 동 전체 옥상 방수는 전면수선(장충금). 누수 발생 부위의 일부분 덧칠(크랙 실리콘 보수 등)은 수선유지비 집행 가능."
+  },
+  {
+    "category_id": "EXT-04",
+    "type": "A",
+    "type_name": "공간적 구분 (A타입)",
+    "min_unit": "1개 동 외벽 전체 또는 단지 전체",
+    "below_min_unit_fund": "수선유지비",
+    "guideline_note": "1개 동 외벽 전체 도장은 전면수선(장충금). 특정 세대 발코니 하부 크랙 국소부위 보수 도장은 수선유지비."
+  },
+  {
+    "category_id": "EXT-06",
+    "type": "B",
+    "type_name": "기능적 구분 (B타입)",
+    "min_unit": "출입문 1개소 (프레임, 도어, 자동개폐장치 포함)",
+    "below_min_unit_fund": "수선유지비",
+    "guideline_note": "현관 자동문 본체 1세트 교체는 장충금. 도어 핸들, 힌지 교체, 센서 단품 교체는 수선유지비."
+  },
+  {
+    "category_id": "INT-01",
+    "type": "A",
+    "type_name": "공간적 구분 (A타입)",
+    "min_unit": "1개 동 계단실 전체 또는 지하주차장 구획 전체",
+    "below_min_unit_fund": "수선유지비",
+    "guideline_note": "1개 동 전체 내부 도색은 장충금. 낙서 제거 및 1개 층 국소 덧칠은 수선유지비."
+  },
+  {
+    "category_id": "INT-02",
+    "type": "A",
+    "type_name": "공간적 구분 (A타입)",
+    "min_unit": "지하주차장 독립 구획 또는 주차장 바닥 전체",
+    "below_min_unit_fund": "수선유지비",
+    "guideline_note": "지하주차장 전체 에폭시 재도막은 장충금. 파인 부위 소량 에폭시 퍼티 메꿈은 수선유지비."
+  },
+  {
+    "category_id": "ELEC-01",
+    "type": "B",
+    "type_name": "기능적 구분 (B타입)",
+    "min_unit": "비상발전기 1대 전체 (또는 별표1 부분수리 기준 충족)",
+    "below_min_unit_fund": "수선유지비",
+    "guideline_note": "발전기 본체 교체는 장충금. 엔진오일/필터/냉각수 교체 등 소모품은 수선유지비."
+  },
+  {
+    "category_id": "ELEC-02",
+    "type": "B",
+    "type_name": "기능적 구분 (B타입)",
+    "min_unit": "변압기 1대 본체",
+    "below_min_unit_fund": "장기수선충당금 (계획조정 필요)",
+    "guideline_note": "변압기 1대 교체는 전면수선(장충금). 절연유 여과 및 보충은 수선유지비."
+  },
+  {
+    "category_id": "ELEC-03",
+    "type": "B",
+    "type_name": "기능적 구분 (B타입)",
+    "min_unit": "고압차단기 1대 본체",
+    "below_min_unit_fund": "수선유지비",
+    "guideline_note": "VCB/ACB 1대 본체 교체는 전면수선(장충금). 보조 계전기 단품 교체는 수선유지비."
+  },
+  {
+    "category_id": "ELEC-05",
+    "type": "B",
+    "type_name": "기능적 구분 (B타입)",
+    "min_unit": "보안등 1개소 (등주, 램프, 안정기 포함)",
+    "below_min_unit_fund": "수선유지비",
+    "guideline_note": "보안등 1개소 전체(등주 포함) 교체는 장충금. 단순 LED 전구/안정기 단품 교체는 수선유지비."
+  },
+  {
+    "category_id": "ELEC-06",
+    "type": "B",
+    "type_name": "기능적 구분 (B타입)",
+    "min_unit": "화재 수신기 1대 (또는 별표1 부분수리 메인보드)",
+    "below_min_unit_fund": "장기수선충당금",
+    "guideline_note": "별표1에 수신기 메인보드 부분수리가 명시되어 있어 기판 교체도 장기수선충당금 집행 대상."
+  },
+  {
+    "category_id": "ELEC-08",
+    "type": "B",
+    "type_name": "기능적 구분 (B타입)",
+    "min_unit": "소방펌프 1대 (모터 또는 펌프부)",
+    "below_min_unit_fund": "수선유지비",
+    "guideline_note": "소화펌프 1대 교체는 장충금. 그랜드패킹, 게이지 교체 등 경미한 수리는 수선유지비."
+  },
+  {
+    "category_id": "ELEC-11",
+    "type": "B",
+    "type_name": "기능적 구분 (B타입)",
+    "min_unit": "승강기 1대 전체 (또는 별표 1의 5대 주요부품)",
+    "below_min_unit_fund": "수선유지비(승강기유지비)",
+    "guideline_note": "승강기 전면교체 또는 와이어로프/쉬브/제어반/조속기/도어개폐장치 교체는 반드시 장충금. 단순 롤러, 버튼, 인디케이터 교체는 수선유지비."
+  },
+  {
+    "category_id": "ELEC-12",
+    "type": "B",
+    "type_name": "기능적 구분 (B타입)",
+    "min_unit": "승강기 1대의 메인 와이어로프 전체 세트 또는 메인 쉬브 1개",
+    "below_min_unit_fund": "장기수선충당금 (부분수리 없음, 전체교체 원칙)",
+    "guideline_note": "와이어로프는 1가닥만 바꿀 수 없고 전체 세트를 교체하므로 장기수선충당금 필수 집행."
+  },
+  {
+    "category_id": "ELEC-16",
+    "type": "B",
+    "type_name": "기능적 구분 (B타입)",
+    "min_unit": "카메라 1대 또는 녹화기(DVR/NVR) 1대",
+    "below_min_unit_fund": "수선유지비",
+    "guideline_note": "국토부 유권해석상 CCTV 카메라 1대 독립 교체도 B타입 전면교체(장충금). 단순 아답터 교체, 하우징 뚜껑 수리는 수선유지비."
+  },
+  {
+    "category_id": "ELEC-17",
+    "type": "B",
+    "type_name": "기능적 구분 (B타입)",
+    "min_unit": "1개 동 공용 로비폰 1대",
+    "below_min_unit_fund": "장기수선충당금 (별표1 부분수리 명시)",
+    "guideline_note": "로비폰 본체 교체 또는 주장치 메인기판 수리는 장충금. 카메라 렌즈 클리닝 등 일상 점검은 수선유지비."
+  },
+  {
+    "category_id": "ELEC-19",
+    "type": "B",
+    "type_name": "기능적 구분 (B타입)",
+    "min_unit": "전기차 충전기 본체 1대",
+    "below_min_unit_fund": "수선유지비",
+    "guideline_note": "완속/급속 충전기 본체 1대 교체는 장충금. 충전 케이블/커넥터 단순 교체는 수선유지비."
+  },
+  {
+    "category_id": "ELEC-20",
+    "type": "B",
+    "type_name": "기능적 구분 (B타입)",
+    "min_unit": "옥상 비상문 개폐장치 1개소 세트",
+    "below_min_unit_fund": "수선유지비",
+    "guideline_note": "옥상 비상문 자동개폐장치 1세트 교체는 장충금(최근 신설). 밧데리(예비전원) 단순 교체는 수선유지비."
+  },
+  {
+    "category_id": "PLUMB-01",
+    "type": "B",
+    "type_name": "기능적 구분 (B타입)",
+    "min_unit": "급수펌프 1대 (모터 또는 펌프부)",
+    "below_min_unit_fund": "장기수선충당금 (별표1 부분수리 명시)",
+    "guideline_note": "부스터펌프 1대 교체는 전면(장충금). 인버터/메카니컬씰 수리는 부분(장충금). 압력탱크 질소 충전 등 단순 보수는 수선유지비."
+  },
+  {
+    "category_id": "PLUMB-02",
+    "type": "B",
+    "type_name": "기능적 구분 (B타입)",
+    "min_unit": "배수펌프 1대 (수중펌프 본체)",
+    "below_min_unit_fund": "수선유지비",
+    "guideline_note": "집수정 배수펌프 1대 본체 교체는 B타입 전면수선(장충금). 오뚝이볼(레벨센서) 단순 교체는 수선유지비."
+  },
+  {
+    "category_id": "PLUMB-04",
+    "type": "A",
+    "type_name": "공간적 구분 (A타입)",
+    "min_unit": "1개 동 입상관 전체 또는 주 배관 횡주관 전체 구간",
+    "below_min_unit_fund": "장기수선충당금 (별표1 부분수리 명시)",
+    "guideline_note": "공용 급수배관은 별표1에 부분수리가 명시되어 있어, 일정 구간 배관 교체도 장기수선충당금 집행 가능. 일시적 멀티조인트 밴드 조임 등 응급조치는 수선유지비."
+  },
+  {
+    "category_id": "EXTF-01",
+    "type": "C",
+    "type_name": "단지 전체 적용 (C타입)",
+    "min_unit": "단지 내 아스팔트 도로 전체",
+    "below_min_unit_fund": "수선유지비",
+    "guideline_note": "단지 도로 전체 재포장은 C타입 전면수선(장충금). 포트홀 1~2개 아스콘 포대 땜질(상온 아스콘 보수)은 수선유지비 집행 가능."
+  },
+  {
+    "category_id": "EXTF-04",
+    "type": "B",
+    "type_name": "기능적 구분 (B타입)",
+    "min_unit": "조합놀이대 1세트 전체",
+    "below_min_unit_fund": "수선유지비",
+    "guideline_note": "어린이놀이터 조합놀이대 전체 교체는 장충금. 미끄럼틀 손잡이 볼트 조임, 파손된 계단 발판 1개 교체는 수선유지비."
+  },
+  {
+    "category_id": "EXTF-06",
+    "type": "B",
+    "type_name": "기능적 구분 (B타입)",
+    "min_unit": "주차차단기 본체 1대 또는 LPR 차량번호인식기 1대",
+    "below_min_unit_fund": "수선유지비",
+    "guideline_note": "차단기 본체 교체는 장충금. 차단기 봉(LED Bar) 파손으로 인한 봉 1개 교체는 수선유지비."
+  }
+]

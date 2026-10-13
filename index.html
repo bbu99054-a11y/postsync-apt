@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>공사 재원 판별시스템 | 장기수선충당금 vs 수선유지비</title>
+  <meta name="description" content="공동주택관리법 시행규칙 [별표 1] 및 국토교통부 실무 가이드라인 기준 장기수선충당금과 수선유지비 공사를 판별하는 관리업무용 전문 검토 도구입니다.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-layout-wrapper">
+    <!-- ======================================================================
+         1. Left Matte Navy Sidebar (무광 네이비 사이드바)
+         ====================================================================== -->
+    <aside class="matte-navy-sidebar" id="app-sidebar">
+      <!-- Brand Area -->
+      <div class="sidebar-brand-area">
+        <div class="brand-icon-box">🏢</div>
+        <div class="brand-title-wrap">
+          <span class="brand-title">공사 재원 판별기</span>
+          <span class="brand-subtitle">공동주택 관리업무 지원</span>
+        </div>
+      </div>
+
+      <!-- Navigation Menu -->
+      <nav class="sidebar-nav-list">
+        <div class="nav-section-label">업무 메뉴</div>
+        <a class="navy-nav-link active" data-tab="tab-evaluator" id="nav-evaluator">
+          <div class="link-content">
+            <span>📑</span>
+            <span>공사 재원 판별기</span>
+          </div>
+          <span>›</span>
+        </a>
+        <a class="navy-nav-link" data-tab="tab-table1" id="nav-table1">
+          <div class="link-content">
+            <span>🏛️</span>
+            <span>법정 [별표 1] 기준표</span>
+          </div>
+          <span>›</span>
+        </a>
+        <a class="navy-nav-link" data-tab="tab-guideline" id="nav-guideline">
+          <div class="link-content">
+            <span>📐</span>
+            <span>국토부 가이드라인 (A/B/C)</span>
+          </div>
+          <span>›</span>
+        </a>
+        <a class="navy-nav-link" data-tab="tab-audit" id="nav-audit">
+          <div class="link-content">
+            <span>⚠️</span>
+            <span>지자체 감사 지적사례</span>
+          </div>
+          <span>›</span>
+        </a>
+
+        <div class="nav-section-label" style="margin-top: 14px;">보고서 출력</div>
+        <a class="navy-nav-link" id="nav-print-direct">
+          <div class="link-content">
+            <span>🖨️</span>
+            <span>결재용 의견서 인쇄</span>
+          </div>
+          <span>›</span>
+        </a>
+      </nav>
+
+      <!-- System Info Footer -->
+      <div class="sidebar-system-info">
+        <div><strong>공동주택관리법령 준거</strong></div>
+        <div style="margin-top: 2px;">시행규칙 [별표 1] 최신 개정판</div>
+      </div>
+    </aside>
+
+    <!-- ======================================================================
+         2. Main Application Wrapper
+         ====================================================================== -->
+    <div class="main-view-container">
+      <!-- Top Header & Work Tabs -->
+      <header class="matte-top-header">
+        <div class="tab-nav-row" id="top-tab-row">
+          <button type="button" class="work-tab-button active" data-tab="tab-evaluator" id="tab-btn-evaluator">
+            <span>📑 공사 재원 판별기</span>
+          </button>
+          <button type="button" class="work-tab-button" data-tab="tab-table1" id="tab-btn-table1">
+            <span>🏛️ 법정 [별표 1] 기준표</span>
+          </button>
+          <button type="button" class="work-tab-button" data-tab="tab-audit" id="tab-btn-audit">
+            <span>⚠️ 감사 지적사례</span>
+          </button>
+        </div>
+
+        <div class="header-status-badge">
+          <span>⚖️ 국토교통부 표준 가이드라인 판별 엔진 v2.6</span>
+        </div>
+      </header>
+
+      <!-- Main Body Content -->
+      <main class="view-body-content">
+        <!-- Notice Banner -->
+        <div class="standard-notice-banner">
+          <div class="notice-text-left">
+            <span class="notice-pill">기준 안내</span>
+            <span>공동주택관리법 시행규칙 [별표 1] 및 국토교통부·LH 실무 가이드라인(전면수선 최소단위 A/B/C 타입) 기준이 적용되어 있습니다.</span>
+          </div>
+          <a href="#" id="link-show-table1" style="color: #2563eb; font-weight: 600; text-decoration: none; font-size: 0.82rem;">기준표 보기 &rsaquo;</a>
+        </div>
+
+        <!-- ==================================================================
+             VIEW 1: 공사 재원 판별기 (Main Work View)
+             ================================================================== -->
+        <div class="tab-content-view active" id="view-evaluator">
+          <div class="evaluator-work-grid">
+            <!-- Left Main Work Column -->
+            <div class="main-form-column">
+              <!-- Search & Parameter Criteria Card -->
+              <div class="clean-white-card">
+                <div class="card-heading-row">
+                  <div class="card-heading-title">
+                    <span>🔍</span> 공사 항목 검색 및 조건 설정
+                  </div>
+                  <span class="card-heading-sub">지자체 감사 과태료 리스크 사전 예방</span>
+                </div>
+
+                <!-- Search Input Row -->
+                <div class="search-field-container">
+                  <div class="input-with-icon">
+                    <span class="search-input-icon">🔎</span>
+                    <input 
+                      type="text" 
+                      id="work-input-field" 
+                      class="office-text-input" 
+                      placeholder="공사명을 입력하세요 (예: 배수펌프 1대 교체, 차단기 봉, 옥상방수 덧칠, 세대 싱크대 등...)"
+                      autocomplete="off"
+                    >
+                  </div>
+                  <div id="candidates-dropdown-box" class="candidates-dropdown"></div>
+                </div>
+
+                <!-- Dynamic Guideline Hint Box (UX 개선 포인트 1: 스마트 힌트) -->
+                <div class="dynamic-hint-box" id="dynamic-hint-box" style="display: none;">
+                  <span class="hint-icon">💡</span>
+                  <div id="hint-text">해당 공종의 국토교통부 실무 가이드라인 최소단위 힌트가 여기에 표시됩니다.</div>
+                </div>
+
+                <!-- Dynamic Work Action Presets (UX 개선: 단골 세부작업 원클릭 선택기) -->
+                <div class="work-presets-container" id="work-presets-container" style="display: none;">
+                  <div class="presets-header">
+                    <div class="presets-title-wrap">
+                      <span class="presets-tag">원클릭 선택</span>
+                      <span class="presets-heading">현장 다빈도 세부 작업 (클릭 시 법적 기준 자동 세팅)</span>
+                    </div>
+                    <span class="presets-hint-count" id="presets-count-badge">작업 3개</span>
+                  </div>
+                  <div class="presets-chips-grid" id="presets-chips-grid"></div>
+                </div>
+
+                <!-- Recommended Keywords Chips -->
+                <div class="keyword-chips-row">
+                  <span class="chips-label">자주 찾는 공종:</span>
+                  <button type="button" class="clean-chip-btn" data-keyword="지하주차장 배수펌프 1대 교체">배수펌프 1대 교체</button>
+                  <button type="button" class="clean-chip-btn" data-keyword="승강기 와이어로프 교체">승강기 와이어로프</button>
+                  <button type="button" class="clean-chip-btn" data-keyword="옥상 우레탄 방수 1개동 전체">옥상 방수 전체</button>
+                  <button type="button" class="clean-chip-btn" data-keyword="옥상 방수 균열 실리콘 덧칠">옥상 부분 덧칠</button>
+                  <button type="button" class="clean-chip-btn" data-keyword="CCTV 카메라 1대 교체">CCTV 카메라 1대</button>
+                  <button type="button" class="clean-chip-btn" data-keyword="주차차단기 봉 파손 교체">차단기 봉 교체</button>
+                  <button type="button" class="clean-chip-btn" data-keyword="세대 내 싱크대 배관 누수">세대 싱크대 누수</button>
+                </div>
+
+                <!-- 4 Criteria Options Grid with Accordion Toggle (UX 개선: 5% 특수케이스 방어용 직접 조정) -->
+                <div class="criteria-accordion-wrapper" id="criteria-accordion-wrapper">
+                  <div class="criteria-toggle-header" id="criteria-toggle-header" title="클릭하여 세부 조건 펼치기/접기">
+                    <div class="criteria-summary-status">
+                      <span class="summary-label">현재 세부 설정:</span>
+                      <span class="summary-chip" id="summary-location-chip">🏢 공용부분</span>
+                      <span class="summary-chip" id="summary-scope-chip">전면 (1대/전체)</span>
+                      <span class="summary-chip" id="summary-plan-chip">계획서 등재됨</span>
+                      <span class="summary-chip" id="summary-emergency-chip">일반 계획공사</span>
+                    </div>
+                    <button type="button" class="btn-toggle-accordion" id="btn-toggle-accordion">
+                      <span id="accordion-toggle-text">직접 세부조정 펼치기</span>
+                      <span id="accordion-toggle-icon">▼</span>
+                    </button>
+                  </div>
+
+                  <div class="criteria-options-grid" id="criteria-options-grid" style="display: none;">
+                    <div class="criteria-cell">
+                      <label class="criteria-label">1. 공사 위치 (공용 vs 세대)</label>
+                      <div class="toggle-segment-group" id="location-toggle-group">
+                        <button type="button" class="segment-btn active" data-location="common">🏢 공용부분</button>
+                        <button type="button" class="segment-btn" data-location="exclusive">🏠 세대 내부(전유)</button>
+                      </div>
+                    </div>
+
+                    <div class="criteria-cell">
+                      <label class="criteria-label">2. 공사 범위 (전면 vs 부분)</label>
+                      <div class="toggle-segment-group" id="scope-toggle-group">
+                        <button type="button" class="segment-btn active" data-scope="full_min_unit">전면 (1대/전체)</button>
+                        <button type="button" class="segment-btn" data-scope="partial_sub_unit">부분 (단품/국소)</button>
+                      </div>
+                    </div>
+
+                    <div class="criteria-cell">
+                      <label class="criteria-label">3. 장기수선계획서</label>
+                      <div class="toggle-segment-group" id="plan-toggle-group">
+                        <button type="button" class="segment-btn active" data-plan="true">계획서 등재됨</button>
+                        <button type="button" class="segment-btn" data-plan="false">계획서 미등재</button>
+                      </div>
+                    </div>
+
+                    <div class="criteria-cell">
+                      <label class="criteria-label">4. 긴급성 (누수/안전사고)</label>
+                      <div class="toggle-segment-group" id="emergency-toggle-group">
+                        <button type="button" class="segment-btn active" data-emergency="false">일반 계획공사</button>
+                        <button type="button" class="segment-btn" data-emergency="true">긴급 응급조치</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Action Button -->
+                <button type="button" class="btn-primary-navy" id="btn-trigger-evaluate">
+                  <span>⚡</span> 공사 재원 적정성 검토 실행
+                </button>
+              </div>
+
+              <!-- Official Decision Report Paper Card (검토 실행 시 노출) -->
+              <div class="official-report-card" id="official-report-card" style="display: none;">
+                <!-- Header Stamp -->
+                <div class="report-header-row">
+                  <div>
+                    <div class="doc-sub-title">공동주택 시설물 유지보수 재원 검토의견서</div>
+                    <h3 class="doc-work-title" id="report-work-title">지하주차장 배수펌프 1대 교체</h3>
+                  </div>
+                  <div class="official-seal-badge seal-primary" id="report-seal-badge">
+                    <span id="seal-icon">🏛️</span>
+                    <span id="seal-text">장기수선충당금</span>
+                  </div>
+                </div>
+
+                <!-- 3-Box Quick Summary Trio (UX 개선 포인트 3: 3초 퀵 요약 카드) -->
+                <div class="quick-summary-trio">
+                  <div class="summary-metric-card" style="border-left: 3px solid #2563eb;">
+                    <span class="metric-label">최종 집행 재원 & 부담 주체</span>
+                    <div class="metric-value" id="quick-fund-payer" style="color: #1d4ed8;">장기수선충당금 (소유자 부담)</div>
+                  </div>
+                  <div class="summary-metric-card" style="border-left: 3px solid #10b981;">
+                    <span class="metric-label">집행 권한 & 필수 절차</span>
+                    <div class="metric-value" id="quick-procedure-auth" style="color: #047857; font-size: 0.9rem;">입대의 의결 + 경쟁입찰 발주</div>
+                  </div>
+                  <div class="summary-metric-card" style="border-left: 3px solid #d97706;">
+                    <span class="metric-label">지자체 감사 과태료 리스크</span>
+                    <div class="metric-value" id="quick-audit-risk" style="color: #b45309; font-size: 0.88rem;">수선비 편법 처리 시 500만 원</div>
+                  </div>
+                </div>
+
+                <!-- Official Standard Table -->
+                <table class="standard-doc-table">
+                  <tbody>
+                    <tr>
+                      <th>판정 집행 재원</th>
+                      <td><strong id="table-fund-type" style="color: #1d4ed8; font-size: 0.98rem;">장기수선충당금 (정규 집행)</strong></td>
+                      <th>비용 부담 주체</th>
+                      <td><span id="table-payer-type" style="font-weight: 700;">주택 소유자 (구분소유자 부담)</span></td>
+                    </tr>
+                    <tr>
+                      <th>관련 법령 근거</th>
+                      <td colspan="3" id="table-legal-basis">공동주택관리법 제30조 및 동법 시행규칙 [별표 1] (급수·배수설비)</td>
+                    </tr>
+                    <tr>
+                      <th>국토부 최소단위</th>
+                      <td colspan="3" id="table-guideline-unit">기능적 구분 (B타입): 펌프 1대 본체 교체 (최소단위 이상 전면수선 인정)</td>
+                    </tr>
+                    <tr>
+                      <th>검토 종합 의견</th>
+                      <td colspan="3" id="table-summary-opinion" style="line-height: 1.6;">
+                        국토교통부 실무 가이드라인상 배수펌프 1대 본체 교체는 B타입 기능적 전면교체에 해당하여 장기수선충당금 집행이 적법합니다.
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <!-- Audit Risk Banner -->
+                <div class="audit-risk-banner" id="report-audit-banner">
+                  <div class="risk-heading">
+                    <span>⚠️</span> 지자체 감사 적발 주의사항 (과태료 500만~1,000만 원 위험)
+                  </div>
+                  <div class="risk-desc" id="table-audit-warning">
+                    장기수선충당금 잔액이 부족하다는 이유로 입대의 의결을 거쳐 수선유지비로 편법 처리할 경우 감사 적발 및 시정명령 대상입니다.
+                  </div>
+                </div>
+
+                <!-- Action Steps Checklist -->
+                <div class="process-checklist-card">
+                  <div class="checklist-header">📋 적법 집행 행정 절차 체크리스트</div>
+                  <ol class="step-checklist" id="table-process-checklist">
+                    <li class="checklist-item"><span class="step-badge">1</span><span>장기수선계획서상 해당 연도 계획 및 배정 예산 일치 여부 확인</span></li>
+                    <li class="checklist-item"><span class="step-badge">2</span><span>장기수선충당금 사용계획서 작성 및 입주자대표회의 의결</span></li>
+                    <li class="checklist-item"><span class="step-badge">3</span><span>공동주택 주택관리업자 및 사업자 선정지침에 따라 경쟁입찰 발주</span></li>
+                  </ol>
+                </div>
+
+                <!-- Dual Copy Action Buttons (UX 개선 포인트 4: 용도별 맞춤 복사) -->
+                <div class="report-action-buttons">
+                  <button type="button" class="action-btn btn-kakao-copy" id="btn-copy-kakao-summary">
+                    <span>📱</span> 동대표 카톡용 3줄 요약 복사
+                  </button>
+                  <button type="button" class="action-btn btn-navy-copy" id="btn-copy-full-doc">
+                    <span>📄</span> 공문서 전문 복사
+                  </button>
+                  <button type="button" class="action-btn" id="btn-print-report-doc">
+                    <span>🖨️</span> A4 결재판 인쇄하기
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Reference Column -->
+            <aside class="aside-reference-column">
+              <!-- Card 1: 3대 핵심 원칙 -->
+              <div class="ref-widget-card">
+                <div class="widget-card-title">
+                  <span>⚖️ 재원 구분 3대 핵심 원칙</span>
+                </div>
+                <div class="guideline-point-item">
+                  <strong>1. 부담 주체의 원칙</strong><br>
+                  • 장충금: <strong>소유자</strong> (집주인 자산 가치 보전)<br>
+                  • 수선비: <strong>실거주자</strong> (임차인 포함 일상 관리비)
+                </div>
+                <div class="guideline-point-item">
+                  <strong>2. 지출 성격의 원칙</strong><br>
+                  • 장충금: <strong>자본적 지출</strong> (주요 시설 전면교체)<br>
+                  • 수선비: <strong>수익적 지출</strong> (단순 소모품, 기능유지)
+                </div>
+                <div class="guideline-point-item">
+                  <strong>3. 전면수선 최소단위 원칙</strong><br>
+                  국토부 가이드라인 최소단위(A/B/C) 미만의 소규모 수리는 별표 1에 명시된 경우를 제외하고 수선유지비 집행.
+                </div>
+              </div>
+
+              <!-- Card 2: 감사 지적 TOP 3 -->
+              <div class="ref-widget-card">
+                <div class="widget-card-title">
+                  <span>⚠️ 지자체 감사 빈출 적발 TOP 3</span>
+                  <a href="#" class="widget-link-btn" id="link-view-audit-all">전체보기</a>
+                </div>
+                <div class="audit-mini-block">
+                  <div class="audit-point-row">
+                    <span class="audit-tag">적발 1순위</span>
+                    <div class="audit-name">수선유지비 편법 전가</div>
+                    <div class="audit-sub">장충금 부족을 이유로 펌프·승강기 부품을 관리비(수선비)로 집행 시 과태료 500만 원.</div>
+                  </div>
+                  <div class="audit-point-row">
+                    <span class="audit-tag">적발 2순위</span>
+                    <div class="audit-name">계획 미조정 선지출</div>
+                    <div class="audit-sub">소유자 과반수 동의 없이 장충금을 앞당겨 집행 시 과태료 1,000만 원.</div>
+                  </div>
+                  <div class="audit-point-row">
+                    <span class="audit-tag">적발 3순위</span>
+                    <div class="audit-name">승강기 용역비 부품 혼용</div>
+                    <div class="audit-sub">종합유지보수 계약 시 5대 주요부품 비용을 관리비로 일괄 부과한 사례 적발.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 3: 최소단위 A/B/C -->
+              <div class="ref-widget-card">
+                <div class="widget-card-title">
+                  <span>📐 전면수선 최소단위 기준</span>
+                </div>
+                <div style="font-size: 0.8rem; line-height: 1.6; color: #475569;">
+                  <div>🔹 <strong>A타입 (공간)</strong>: 1개 동, 옥상, 지하주차장 등 구획 단위 공사</div>
+                  <div style="margin-top: 4px;">🔹 <strong>B타입 (기능)</strong>: 승강기 1대, 펌프 1대, CCTV 1대 등 독립 기기</div>
+                  <div style="margin-top: 4px;">🔹 <strong>C타입 (단지)</strong>: 아스팔트 포장, 울타리 등 단지 전체 단위</div>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+
+        <!-- ==================================================================
+             VIEW 2: 법정 [별표 1] 73개 공종 기준표 전수 조회
+             ================================================================== -->
+        <div class="tab-content-view" id="view-table1">
+          <div class="clean-white-card">
+            <div class="card-heading-row">
+              <div class="card-heading-title">
+                <span>🏛️</span> 공동주택관리법 시행규칙 [별표 1] 장기수선계획 수립기준
+              </div>
+              <span class="card-heading-sub">2024.12.27 최신 개정판 반영</span>
+            </div>
+            <div style="margin-bottom: 14px; display: flex; gap: 10px;">
+              <input type="text" id="table1-search-input" class="office-text-input" placeholder="공종명, 부품명 또는 설비 검색..." style="max-width: 380px;">
+            </div>
+            <div style="overflow-x: auto;">
+              <table class="standard-doc-table">
+                <thead>
+                  <tr>
+                    <th style="width: 12%;">대분류</th>
+                    <th style="width: 14%;">중분류</th>
+                    <th style="width: 25%;">세부 공종명</th>
+                    <th style="width: 10%;">수선주기</th>
+                    <th style="width: 10%;">수선율</th>
+                    <th style="width: 14%;">수선구분</th>
+                    <th style="width: 15%;">바로 판별</th>
+                  </tr>
+                </thead>
+                <tbody id="table1-tbody-container">
+                  <!-- Dynamically populated -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================================================================
+             VIEW 3: 지자체 감사 지적사례 전체보기
+             ================================================================== -->
+        <div class="tab-content-view" id="view-audit">
+          <div class="clean-white-card">
+            <div class="card-heading-row">
+              <div class="card-heading-title">
+                <span>⚠️</span> 지자체 공동주택 관리 감사 적발 사례집
+              </div>
+              <span class="card-heading-sub">서울시·경기도·인천시 공동주택 감사 백서 기반</span>
+            </div>
+            <div id="audit-list-container" style="display: flex; flex-direction: column; gap: 14px;">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="matte-toast" id="matte-toast">
+    <span>📋</span>
+    <span id="toast-message-text">결과가 클립보드에 복사되었습니다!</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/data-bundle.js"></script>
+  <script src="js/engine.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
