@@ -83,7 +83,7 @@ body {
 }
 
 .sidebar-brand-area {
-  padding: 18px 20px;
+  padding: 18px 16px;
   background-color: var(--navy-dark);
   border-bottom: 1px solid var(--navy-border);
   display: flex;
@@ -109,10 +109,11 @@ body {
 }
 
 .brand-title {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 800;
   color: #ffffff;
-  letter-spacing: -0.3px;
+  letter-spacing: -0.4px;
+  white-space: nowrap;
 }
 
 .brand-subtitle {
@@ -141,12 +142,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 14px;
+  padding: 10px 12px;
   border-radius: var(--radius-sm);
   color: var(--text-navy-side);
   text-decoration: none;
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   font-weight: 500;
+  letter-spacing: -0.3px;
   cursor: pointer;
   transition: all 0.15s ease;
 }
@@ -1143,6 +1145,156 @@ body {
 }
 .tab-content-view.active {
   display: block;
+}
+
+/* ==========================================================================
+   Guideline View Styles (국토부 가이드라인 A/B/C 뷰)
+   ========================================================================== */
+.guideline-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.guideline-type-card {
+  background: #f8fafc;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.guideline-type-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.guideline-type-card.type-a-card {
+  border-top: 4px solid #2563eb;
+}
+
+.guideline-type-card.type-b-card {
+  border-top: 4px solid #059669;
+}
+
+.guideline-type-card.type-c-card {
+  border-top: 4px solid #d97706;
+}
+
+.guideline-type-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.type-pill {
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: -0.2px;
+}
+
+.pill-a {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+.pill-b {
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+}
+
+.pill-c {
+  background: #fffbeb;
+  color: #b45309;
+  border: 1px solid #fde68a;
+}
+
+.type-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.type-desc {
+  font-size: 0.83rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.type-rule-box {
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.8rem;
+}
+
+.rule-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.rule-label {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
+.rule-val {
+  font-weight: 700;
+  font-size: 0.79rem;
+  text-align: right;
+}
+
+.text-navy {
+  color: #1e3a8a;
+}
+
+.text-green {
+  color: #047857;
+}
+
+.type-examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.example-tag {
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  color: #334155;
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.guideline-filter-tabs {
+  display: flex;
+  background: #e2e8f0;
+  padding: 3px;
+  border-radius: var(--radius-sm);
+  gap: 2px;
+}
+
+.guideline-filter-tabs .segment-btn {
+  padding: 6px 14px;
+  font-size: 0.82rem;
 }
 
 /* Clean A4 Print Stylesheet */

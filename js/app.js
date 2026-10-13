@@ -70,9 +70,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // 5. Views & External Links
   const table1SearchInput = document.getElementById('table1-search-input');
   const table1TbodyContainer = document.getElementById('table1-tbody-container');
+  const guidelineFilterGroup = document.getElementById('guideline-filter-group');
+  const guidelineSearchInput = document.getElementById('guideline-search-input');
+  const guidelineTbodyContainer = document.getElementById('guideline-tbody-container');
   const auditListContainer = document.getElementById('audit-list-container');
   const linkShowTable1 = document.getElementById('link-show-table1');
   const linkViewAuditAll = document.getElementById('link-view-audit-all');
+  let currentGuidelineFilter = 'all';
 
   // State
   let currentCategoryId = null;
@@ -112,7 +116,10 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (tabId === 'tab-table1') {
       document.getElementById('view-table1').classList.add('active');
       renderTable1();
-    } else if (tabId === 'tab-audit' || tabId === 'tab-guideline') {
+    } else if (tabId === 'tab-guideline') {
+      document.getElementById('view-guideline').classList.add('active');
+      renderGuideline(currentGuidelineFilter, guidelineSearchInput ? guidelineSearchInput.value : '');
+    } else if (tabId === 'tab-audit') {
       document.getElementById('view-audit').classList.add('active');
       renderAuditCases();
     }
@@ -657,7 +664,101 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 7. View 3: Audit Cases List
+  // 7. View 3: Guideline (A/B/C Type) Master Filter & Table
+  // =========================================================================
+  function renderGuideline(filterType = 'all', filterSearch = '') {
+    if (!guidelineTbodyContainer) return;
+
+    const rules = window.APP_DATA.rules || [];
+    const search = filterSearch.toLowerCase().replace(/\s+/g, '');
+
+    const filtered = rules.filter(r => {
+      if (filterType !== 'all' && r.type !== filterType) {
+        return false;
+      }
+      if (search) {
+        const cat = engine.catMap.get(r.category_id);
+        const catName = cat ? cat.name.toLowerCase().replace(/\s+/g, '') : '';
+        const minUnit = (r.min_unit || '').toLowerCase().replace(/\s+/g, '');
+        const note = (r.guideline_note || '').toLowerCase().replace(/\s+/g, '');
+        const belowFund = (r.below_min_unit_fund || '').toLowerCase().replace(/\s+/g, '');
+        return catName.includes(search) || minUnit.includes(search) || note.includes(search) || belowFund.includes(search);
+      }
+      return true;
+    });
+
+    guidelineTbodyContainer.innerHTML = filtered.map(r => {
+      const cat = engine.catMap.get(r.category_id);
+      const catName = cat ? cat.name : r.category_id;
+      const pillClass = r.type === 'A' ? 'pill-a' : r.type === 'B' ? 'pill-b' : 'pill-c';
+      const isReserveFund = r.below_min_unit_fund.includes('장기수선충당금');
+      const fundBadgeColor = isReserveFund ? '#1e3a8a' : '#047857';
+      const fundBgColor = isReserveFund ? '#eff6ff' : '#ecfdf5';
+
+      return `
+        <tr>
+          <td><strong style="color: #1e293b;">${catName}</strong></td>
+          <td>
+            <span class="type-pill ${pillClass}">
+              ${r.type}타입 (${r.type === 'A' ? '공간' : r.type === 'B' ? '기능' : '단지'})
+            </span>
+          </td>
+          <td>
+            <div style="font-size: 0.84rem; font-weight: 700; color: #1e3a8a; line-height: 1.4;">
+              ${r.min_unit}
+            </div>
+          </td>
+          <td>
+            <span style="font-size: 0.78rem; font-weight: 700; background: ${fundBgColor}; color: ${fundBadgeColor}; padding: 3px 8px; border-radius: 4px; display: inline-block;">
+              ${r.below_min_unit_fund}
+            </span>
+          </td>
+          <td>
+            <div style="font-size: 0.82rem; color: #475569; line-height: 1.45;">
+              ${r.guideline_note}
+            </div>
+          </td>
+          <td>
+            <button type="button" class="clean-chip-btn btn-guideline-eval" data-id="${r.category_id}" data-name="${catName}" style="background: #1a2b4c; color: #ffffff; border-color: #15233c;">
+              판별하기 &rsaquo;
+            </button>
+          </td>
+        </tr>
+      `;
+    }).join('');
+
+    guidelineTbodyContainer.querySelectorAll('.btn-guideline-eval').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const catId = btn.dataset.id;
+        const catName = btn.dataset.name;
+        switchTab('tab-evaluator');
+        workInput.value = catName;
+        currentCategoryId = catId;
+        const cat = engine.catMap.get(catId);
+        updateDynamicHint(cat, catName);
+      });
+    });
+  }
+
+  if (guidelineFilterGroup) {
+    guidelineFilterGroup.querySelectorAll('.segment-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        guidelineFilterGroup.querySelectorAll('.segment-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentGuidelineFilter = btn.dataset.filter;
+        renderGuideline(currentGuidelineFilter, guidelineSearchInput ? guidelineSearchInput.value : '');
+      });
+    });
+  }
+
+  if (guidelineSearchInput) {
+    guidelineSearchInput.addEventListener('input', () => {
+      renderGuideline(currentGuidelineFilter, guidelineSearchInput.value);
+    });
+  }
+
+  // =========================================================================
+  // 8. View 4: Audit Cases List
   // =========================================================================
   function renderAuditCases() {
     const auditCases = window.APP_DATA.auditCases || [];

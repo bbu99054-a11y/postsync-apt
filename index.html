@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>공사 재원 판별시스템 | 장기수선충당금 vs 수선유지비</title>
+  <title>장충금·수선유지비 판별기 | 공사 재원 판별시스템</title>
   <meta name="description" content="공동주택관리법 시행규칙 [별표 1] 및 국토교통부 실무 가이드라인 기준 장기수선충당금과 수선유지비 공사를 판별하는 관리업무용 전문 검토 도구입니다.">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -17,7 +17,7 @@
       <div class="sidebar-brand-area">
         <div class="brand-icon-box">🏢</div>
         <div class="brand-title-wrap">
-          <span class="brand-title">공사 재원 판별기</span>
+          <span class="brand-title">장충금·수선유지비 판별기</span>
           <span class="brand-subtitle">공동주택 관리업무 지원</span>
         </div>
       </div>
@@ -28,7 +28,7 @@
         <a class="navy-nav-link active" data-tab="tab-evaluator" id="nav-evaluator">
           <div class="link-content">
             <span>📑</span>
-            <span>공사 재원 판별기</span>
+            <span>장충금·수선유지비 판별기</span>
           </div>
           <span>›</span>
         </a>
@@ -79,10 +79,13 @@
       <header class="matte-top-header">
         <div class="tab-nav-row" id="top-tab-row">
           <button type="button" class="work-tab-button active" data-tab="tab-evaluator" id="tab-btn-evaluator">
-            <span>📑 공사 재원 판별기</span>
+            <span>📑 장충금·수선유지비 판별기</span>
           </button>
           <button type="button" class="work-tab-button" data-tab="tab-table1" id="tab-btn-table1">
             <span>🏛️ 법정 [별표 1] 기준표</span>
+          </button>
+          <button type="button" class="work-tab-button" data-tab="tab-guideline" id="tab-btn-guideline">
+            <span>📐 국토부 가이드라인 (A/B/C)</span>
           </button>
           <button type="button" class="work-tab-button" data-tab="tab-audit" id="tab-btn-audit">
             <span>⚠️ 감사 지적사례</span>
@@ -106,7 +109,7 @@
         </div>
 
         <!-- ==================================================================
-             VIEW 1: 공사 재원 판별기 (Main Work View)
+             VIEW 1: 장충금·수선유지비 판별기 (Main Work View)
              ================================================================== -->
         <div class="tab-content-view active" id="view-evaluator">
           <div class="evaluator-work-grid">
@@ -413,7 +416,151 @@
         </div>
 
         <!-- ==================================================================
-             VIEW 3: 지자체 감사 지적사례 전체보기
+             VIEW 3: 국토부 실무 가이드라인 (전면수선 최소단위 A/B/C 유형)
+             ================================================================== -->
+        <div class="tab-content-view" id="view-guideline">
+          <!-- 1. Guideline Concept Summary Card -->
+          <div class="clean-white-card" style="margin-bottom: 20px;">
+            <div class="card-heading-row">
+              <div class="card-heading-title">
+                <span>📐</span> 국토교통부·LH 실무 가이드라인 전면수선 최소단위 (A/B/C 유형)
+              </div>
+              <span class="card-heading-sub">중앙공동주택관리지원센터 유권해석 및 집행 기준</span>
+            </div>
+
+            <p style="font-size: 0.88rem; color: #475569; line-height: 1.6; margin-bottom: 16px;">
+              공동주택관리법 시행규칙 [별표 1]에는 공종별 수선주기와 수선율만 규정되어 있어, 현장에서 <strong>"어느 범위까지를 전면수선(장기수선충당금)으로 보아야 하는가"</strong>에 대한 분쟁이 잦았습니다. 이에 국토교통부와 LH 중앙공동주택관리지원센터는 시설물의 물리적·기능적 특성에 따라 <strong>전면수선의 최소단위를 A, B, C 3가지 유형으로 정립</strong>하여 재원 집행 기준을 명확히 제시하였습니다.
+            </p>
+
+            <!-- 3 Columns for A, B, C Type summary -->
+            <div class="guideline-summary-grid">
+              <!-- Type A -->
+              <div class="guideline-type-card type-a-card">
+                <div class="guideline-type-header">
+                  <span class="type-pill pill-a">A타입</span>
+                  <span class="type-title">공간적 구분 (구획 단위)</span>
+                </div>
+                <div class="guideline-type-body">
+                  <p class="type-desc"><strong>1개 동(棟), 옥상 바닥 전체, 지하주차장 1개 구획</strong> 등 명확히 분리·구획된 공간 단위 전체를 수선하는 경우를 '전면수선'의 최소단위로 판단합니다.</p>
+                  <div class="type-rule-box">
+                    <div class="rule-line">
+                      <span class="rule-label font-bold">최소단위 이상:</span>
+                      <span class="rule-val text-navy">장기수선충당금 (전면수선)</span>
+                    </div>
+                    <div class="rule-line">
+                      <span class="rule-label">최소단위 미달:</span>
+                      <span class="rule-val text-green">수선유지비 집행 가능 (국소 땜질·보수)</span>
+                    </div>
+                  </div>
+                  <div class="type-examples">
+                    <span class="example-tag">옥상방수 (1개동)</span>
+                    <span class="example-tag">외벽도장 (1개동)</span>
+                    <span class="example-tag">주차장에폭시</span>
+                    <span class="example-tag">계단실도색</span>
+                    <span class="example-tag">급수입상관</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Type B -->
+              <div class="guideline-type-card type-b-card">
+                <div class="guideline-type-header">
+                  <span class="type-pill pill-b">B타입</span>
+                  <span class="type-title">기능적 구분 (기기/설비 단위)</span>
+                </div>
+                <div class="guideline-type-body">
+                  <p class="type-desc"><strong>완제품 기기 1대(소) 단위</strong>로 독립된 고유 기능을 완결하는 설비의 경우, 1대 전체 완제품 교체를 '전면수선'의 최소단위로 판단합니다.</p>
+                  <div class="type-rule-box">
+                    <div class="rule-line">
+                      <span class="rule-label font-bold">최소단위 이상:</span>
+                      <span class="rule-val text-navy">장기수선충당금 (1대 교체 원칙)</span>
+                    </div>
+                    <div class="rule-line">
+                      <span class="rule-label">최소단위 미달:</span>
+                      <span class="rule-val text-green">수선유지비 집행 가능 (소모품/단순부품)</span>
+                    </div>
+                  </div>
+                  <div class="type-examples">
+                    <span class="example-tag">현관자동문 (1개소)</span>
+                    <span class="example-tag">CCTV카메라 (1대)</span>
+                    <span class="example-tag">급·배수펌프 (1대)</span>
+                    <span class="example-tag">비상발전기 / 변압기</span>
+                    <span class="example-tag">주차차단기</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Type C -->
+              <div class="guideline-type-card type-c-card">
+                <div class="guideline-type-header">
+                  <span class="type-pill pill-c">C타입</span>
+                  <span class="type-title">단지 전체 적용 (단지 단위)</span>
+                </div>
+                <div class="guideline-type-body">
+                  <p class="type-desc">동별로 구분되지 않고 <strong>아파트 단지 전체를 대상</strong>으로 일괄 시공·포장·교체되는 부대시설물에 적용됩니다.</p>
+                  <div class="type-rule-box">
+                    <div class="rule-line">
+                      <span class="rule-label font-bold">최소단위 이상:</span>
+                      <span class="rule-val text-navy">장기수선충당금 (단지 전체 포장/교체)</span>
+                    </div>
+                    <div class="rule-line">
+                      <span class="rule-label">최소단위 미달:</span>
+                      <span class="rule-val text-green">수선유지비 집행 가능 (포트홀 땜질 등)</span>
+                    </div>
+                  </div>
+                  <div class="type-examples">
+                    <span class="example-tag">단지 도로 아스콘 포장</span>
+                    <span class="example-tag">단지 보도블록 전체</span>
+                    <span class="example-tag">단지 외곽 담장/휀스</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Detailed Facility Table Card -->
+          <div class="clean-white-card">
+            <div class="card-heading-row">
+              <div class="card-heading-title">
+                <span>📋</span> 주요 25개 공종별 국토부 가이드라인 기준 상세표
+              </div>
+              <span class="card-heading-sub">타입 필터 및 실시간 검색 지원</span>
+            </div>
+
+            <!-- Filter Row -->
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 16px;">
+              <div class="guideline-filter-tabs" id="guideline-filter-group">
+                <button type="button" class="segment-btn active" data-filter="all">전체 (25개)</button>
+                <button type="button" class="segment-btn" data-filter="A">A타입 (공간적 7개)</button>
+                <button type="button" class="segment-btn" data-filter="B">B타입 (기능적 16개)</button>
+                <button type="button" class="segment-btn" data-filter="C">C타입 (단지전체 2개)</button>
+              </div>
+              <input type="text" id="guideline-search-input" class="office-text-input" placeholder="공종명, 설비명 또는 부품 검색..." style="max-width: 320px;">
+            </div>
+
+            <!-- Table -->
+            <div style="overflow-x: auto;">
+              <table class="standard-doc-table">
+                <thead>
+                  <tr>
+                    <th style="width: 14%;">공종명</th>
+                    <th style="width: 13%;">가이드라인 구분</th>
+                    <th style="width: 25%;">전면수선 최소단위 (장충금)</th>
+                    <th style="width: 15%;">최소단위 미달 시 재원</th>
+                    <th style="width: 23%;">국토부 실무 가이드라인 해설</th>
+                    <th style="width: 10%;">판별 실행</th>
+                  </tr>
+                </thead>
+                <tbody id="guideline-tbody-container">
+                  <!-- Dynamically populated -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================================================================
+             VIEW 4: 지자체 감사 지적사례 전체보기
              ================================================================== -->
         <div class="tab-content-view" id="view-audit">
           <div class="clean-white-card">
