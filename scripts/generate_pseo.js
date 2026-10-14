@@ -84,6 +84,7 @@ presets.forEach((preset, index) => {
   <meta name="description" content="${pageDesc}">
   <meta name="keywords" content="${escapeHtml(preset.title)}, 장기수선충당금, 수선유지비, 공동주택관리법 별표1, 국토부 가이드라인, 아파트 공사비 계정과목">
   <link rel="canonical" href="${canonicalUrl}">
+  <meta name="google-site-verification" content="ugoQGlNSdScisq23rSDCxHIZad-HlZLatf1TUZ5006A">
 
   <!-- Open Graph -->
   <meta property="og:type" content="article">
