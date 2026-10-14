@@ -62,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 4. Action Buttons
   const copyKakaoBtn = document.getElementById('btn-copy-kakao-summary');
   const copyFullDocBtn = document.getElementById('btn-copy-full-doc');
+  const downloadPdfBtn = document.getElementById('btn-download-pdf');
   const printBtn = document.getElementById('btn-print-report-doc');
   const navPrintBtn = document.getElementById('nav-print-direct');
   const toast = document.getElementById('matte-toast');
@@ -80,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // State
   let currentCategoryId = null;
+  let currentPresetId = null;
   let isCommonArea = true;
   let currentScope = 'full_min_unit';
   let currentInPlan = true;
@@ -122,6 +124,9 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (tabId === 'tab-audit') {
       document.getElementById('view-audit').classList.add('active');
       renderAuditCases();
+    } else if (tabId === 'tab-dictionary') {
+      const viewDict = document.getElementById('view-dictionary');
+      if (viewDict) viewDict.classList.add('active');
     }
   }
 
@@ -288,6 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
         workInput.value = preset.title;
 
         // Set state
+        currentPresetId = preset.id;
         isCommonArea = preset.isCommon;
         currentScope = preset.scope;
         currentInPlan = preset.inPlan;
@@ -561,19 +567,74 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 5. Dual Copy Actions
+  // 5. Dual Copy Actions & PDF Download
   // =========================================================================
+  function getShareUrl() {
+    let url = 'https://apt.postsyncapp.com/';
+    if (currentPresetId) {
+      url += `?preset=${encodeURIComponent(currentPresetId)}`;
+    } else if (currentCategoryId) {
+      url += `?category=${encodeURIComponent(currentCategoryId)}`;
+    }
+    return url;
+  }
+
   copyKakaoBtn.addEventListener('click', () => {
     if (!latestResult) return;
-    const kakaoText = engine.formatKakaoSummary(latestResult, latestWorkName);
-    copyTextToClipboard(kakaoText, '📱 동대표 카톡 전송용 3줄 요약이 복사되었습니다!');
+    const shareUrl = getShareUrl();
+    const kakaoText = engine.formatKakaoSummary(latestResult, latestWorkName) + 
+      `\n\n🔗 이 판별 결과 바로가기:\n${shareUrl}`;
+    copyTextToClipboard(kakaoText, '📱 동대표 카톡용 요약 및 복원 링크가 복사되었습니다!');
   });
 
   copyFullDocBtn.addEventListener('click', () => {
     if (!latestResult) return;
-    const fullText = engine.formatFullDocText(latestResult, latestWorkName);
-    copyTextToClipboard(fullText, '📄 검토의견서 전문이 복사되었습니다. (결재문/품의서용)');
+    const shareUrl = getShareUrl();
+    const fullText = engine.formatFullDocText(latestResult, latestWorkName) + 
+      `\n\n[온라인 실시간 검토 링크]\n${shareUrl}`;
+    copyTextToClipboard(fullText, '📄 검토의견서 전문 및 바로가기 링크가 복사되었습니다.');
   });
+
+  if (downloadPdfBtn) {
+    downloadPdfBtn.addEventListener('click', () => {
+      if (!officialReportCard || !latestResult) return;
+
+      if (typeof html2pdf === 'undefined') {
+        showToast('⚠️ PDF 엔진 로딩 중입니다. 인쇄창으로 전환합니다.');
+        window.print();
+        return;
+      }
+
+      const origText = downloadPdfBtn.innerHTML;
+      downloadPdfBtn.innerHTML = '<span>⏳</span> PDF 생성 중...';
+      downloadPdfBtn.disabled = true;
+
+      const actionButtons = officialReportCard.querySelector('.report-action-buttons');
+      if (actionButtons) actionButtons.style.display = 'none';
+
+      const fileName = `공사의견서_${(latestWorkName || '공사재원검토').replace(/[^\w가-힣]/g, '_')}.pdf`;
+      const opt = {
+        margin: [8, 8, 8, 8],
+        filename: fileName,
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true, logging: false },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      };
+
+      html2pdf().set(opt).from(officialReportCard).save().then(() => {
+        if (actionButtons) actionButtons.style.display = 'flex';
+        downloadPdfBtn.innerHTML = origText;
+        downloadPdfBtn.disabled = false;
+        showToast('💾 공문서 PDF 저장이 완료되었습니다!');
+      }).catch(err => {
+        console.error('PDF generation error:', err);
+        if (actionButtons) actionButtons.style.display = 'flex';
+        downloadPdfBtn.innerHTML = origText;
+        downloadPdfBtn.disabled = false;
+        window.print();
+      });
+    });
+  }
 
   function copyTextToClipboard(text, successMessage) {
     if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -777,7 +838,28 @@ document.addEventListener('DOMContentLoaded', () => {
     `).join('');
   }
 
-  // 초기 상태: 예시 단어를 기본 입력창에 살짝 넣어두되, 결과 화면으로 자동 스크롤하지 않고 조용히 대기
-  workInput.value = '지하주차장 배수펌프 1대 교체';
-  analyzeAndSelectCandidate('지하주차장 배수펌프 1대 교체', false);
+  // 초기 상태 및 URL 파라미터 연동 (?preset=PRESET-EXT01-1, ?tab=dictionary 등)
+  const urlParams = new URLSearchParams(window.location.search);
+  const tabParam = urlParams.get('tab');
+  const presetParam = urlParams.get('preset');
+
+  if (tabParam) {
+    const formattedTab = tabParam.startsWith('tab-') ? tabParam : 'tab-' + tabParam;
+    switchTab(formattedTab);
+  }
+
+  if (presetParam && window.APP_DATA && Array.isArray(window.APP_DATA.presets)) {
+    const targetPreset = window.APP_DATA.presets.find(p => p.id.toUpperCase() === presetParam.toUpperCase());
+    if (targetPreset) {
+      workInput.value = targetPreset.title;
+      applyPresetCriteria(targetPreset);
+      evaluateAndShowResult(targetPreset.title, true);
+    } else {
+      workInput.value = '지하주차장 배수펌프 1대 교체';
+      analyzeAndSelectCandidate('지하주차장 배수펌프 1대 교체', false);
+    }
+  } else {
+    workInput.value = '지하주차장 배수펌프 1대 교체';
+    analyzeAndSelectCandidate('지하주차장 배수펌프 1대 교체', false);
+  }
 });
