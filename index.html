@@ -679,913 +679,946 @@
               <span class="card-heading-sub">국토교통부 실무 가이드라인 및 시행규칙 [별표 1] 100% 매핑</span>
             </div>
             <p style="font-size: 0.9rem; color: #475569; margin-bottom: 20px; line-height: 1.6;">
-              공동주택 현장에서 가장 자주 발생하는 113개 주요 공사 항목별 판별 결과, 국토부 A/B/C 유형 분류, 관련 감사 적발 사례를 정리한 백과사전입니다. 각 공사를 클릭하시면 상세 법정 기준과 예방 가이드를 확인하실 수 있습니다.
+              공동주택 현장에서 가장 자주 발생하는 113개 주요 공사 항목별 판별 결과, 국토부 A/B/C 유형 분류, 관련 감사 적발 사례를 정리한 백과사전입니다. 각 공사를 클릭하시면 상세 법정 기준과 회의용 4줄 요약 검토서를 확인하실 수 있습니다.
             </p>
+
+            <!-- 실시간 검색 및 카테고리 필터 바 -->
+            <div class="dict-filter-toolbar">
+              <div class="dict-search-box">
+                <span class="dict-search-icon">🔍</span>
+                <input type="text" id="dict-search-input" placeholder="공사명, 설비명, 부품명 실시간 검색 (예: 방수, 승강기, CCTV, 배관, 도색...)" autocomplete="off">
+                <button type="button" id="dict-search-clear" class="dict-clear-btn" style="display: none;">✕</button>
+              </div>
+              <div class="dict-filter-chips" id="dict-filter-chips">
+                <button type="button" class="dict-chip active" data-filter="all">전체 (113)</button>
+                <button type="button" class="dict-chip" data-filter="reserve">🔵 장충금 필수</button>
+                <button type="button" class="dict-chip" data-filter="repair">🟢 수선유지비 가능</button>
+                <button type="button" class="dict-chip" data-filter="건물외부">🏢 건물외부</button>
+                <button type="button" class="dict-chip" data-filter="전기">⚡ 전기·소방</button>
+                <button type="button" class="dict-chip" data-filter="급수">🚰 급수·난방·위생</button>
+              </div>
+              <div class="dict-status-row">
+                <div class="dict-result-counter">
+                  공종 목록: <strong id="dict-count-display">113</strong>건 표시 중
+                </div>
+                <div class="dict-sort-hint">
+                  ※ 카드를 클릭하면 상세 법정 기준과 회의용 4줄 요약을 확인할 수 있습니다.
+                </div>
+              </div>
+            </div>
+
+            <!-- 검색 결과 없음 안내 -->
+            <div id="dict-empty-state" class="dict-empty-state" style="display: none;">
+              <div class="empty-icon">🔎</div>
+              <div class="empty-title">일치하는 공사 항목을 찾을 수 없습니다.</div>
+              <div class="empty-desc">다른 키워드로 검색하시거나, 상단 메뉴의 <strong>[공사 판별기]</strong>에서 직접 판별해보세요.</div>
+            </div>
+
             <div id="dictionary-list-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px;">
               <!-- DICTIONARY_GRID_START -->
-              <a href="repair/preset-ext01-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">건물외부 · 지붕</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-ext01-1.html" class="dictionary-card" data-title="1개동 지붕 아스팔트 싱글 전체 교체" data-badge="장충금" data-main="건물외부" data-sub="지붕" data-hint="A타입 공간적 최소단위: 1개동 지붕 전체 교체는 장기수선충당금 필수 집행 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">건물외부 · 지붕</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">1개동 지붕 아스팔트 싱글 전체 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">A타입 공간적 최소단위: 1개동 지붕 전체 교체는 장기수선충당금 필수 집행 대상입니다.</div>
-              </a>
-              <a href="repair/preset-ext01-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">건물외부 · 지붕</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+                <div class="dict-card-title">1개동 지붕 아스팔트 싱글 전체 교체</div>
+                <div class="dict-card-hint">A타입 공간적 최소단위: 1개동 지붕 전체 교체는 장기수선충당금 필수 집행 대상입니다.</div>
+              </a>
+              <a href="repair/preset-ext01-2.html" class="dictionary-card" data-title="강풍 탈락 싱글 몇 장 국소 땜질/보수" data-badge="수선비" data-main="건물외부" data-sub="지붕" data-hint="국토부 기준: [별표 1] 부분수선 미명시 공종의 최소단위 미달 국소 보수는 수선유지비 집행 가능합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">건물외부 · 지붕</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">강풍 탈락 싱글 몇 장 국소 땜질/보수</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">국토부 기준: [별표 1] 부분수선 미명시 공종의 최소단위 미달 국소 보수는 수선유지비 집행 가능합니다.</div>
-              </a>
-              <a href="repair/preset-ext02-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">건물외부 · 지붕</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+                <div class="dict-card-title">강풍 탈락 싱글 몇 장 국소 땜질/보수</div>
+                <div class="dict-card-hint">국토부 기준: [별표 1] 부분수선 미명시 공종의 최소단위 미달 국소 보수는 수선유지비 집행 가능합니다.</div>
+              </a>
+              <a href="repair/preset-ext02-1.html" class="dictionary-card" data-title="1개동 금속기와 전면 교체" data-badge="장충금" data-main="건물외부" data-sub="지붕" data-hint="A타입 공간적 최소단위: 1개동 전체 교체는 장기수선계획 수립 후 장충금으로 집행해야 합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">건물외부 · 지붕</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">1개동 금속기와 전면 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">A타입 공간적 최소단위: 1개동 전체 교체는 장기수선계획 수립 후 장충금으로 집행해야 합니다.</div>
-              </a>
-              <a href="repair/preset-ext02-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">건물외부 · 지붕</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+                <div class="dict-card-title">1개동 금속기와 전면 교체</div>
+                <div class="dict-card-hint">A타입 공간적 최소단위: 1개동 전체 교체는 장기수선계획 수립 후 장충금으로 집행해야 합니다.</div>
+              </a>
+              <a href="repair/preset-ext02-2.html" class="dictionary-card" data-title="금속기와 일부 들뜸 국소 피스 고정" data-badge="수선비" data-main="건물외부" data-sub="지붕" data-hint="최소단위 미달의 일상적 안전 고정 작업은 관리비(수선유지비)로 집행 가능합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">건물외부 · 지붕</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">금속기와 일부 들뜸 국소 피스 고정</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">최소단위 미달의 일상적 안전 고정 작업은 관리비(수선유지비)로 집행 가능합니다.</div>
-              </a>
-              <a href="repair/preset-ext03-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">건물외부 · 지붕</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+                <div class="dict-card-title">금속기와 일부 들뜸 국소 피스 고정</div>
+                <div class="dict-card-hint">최소단위 미달의 일상적 안전 고정 작업은 관리비(수선유지비)로 집행 가능합니다.</div>
+              </a>
+              <a href="repair/preset-ext03-1.html" class="dictionary-card" data-title="1개 동 옥상 바닥 전체 우레탄 방수공사" data-badge="장충금" data-main="건물외부" data-sub="지붕" data-hint="A타입 최소단위: 1개동 옥상 전체 방수는 전면수선으로 장기수선충당금 집행이 법적 의무입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">건물외부 · 지붕</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">1개 동 옥상 바닥 전체 우레탄 방수공사</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">A타입 최소단위: 1개동 옥상 전체 방수는 전면수선으로 장기수선충당금 집행이 법적 의무입니다.</div>
-              </a>
-              <a href="repair/preset-ext03-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">건물외부 · 지붕</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+                <div class="dict-card-title">1개 동 옥상 바닥 전체 우레탄 방수공사</div>
+                <div class="dict-card-hint">A타입 최소단위: 1개동 옥상 전체 방수는 전면수선으로 장기수선충당금 집행이 법적 의무입니다.</div>
+              </a>
+              <a href="repair/preset-ext03-2.html" class="dictionary-card" data-title="누수 부위 우레탄 실리콘/국소 덧칠 보수" data-badge="수선비" data-main="건물외부" data-sub="지붕" data-hint="국토부 기준: 옥상방수는 부분수리가 법에 없으므로, 1개동 미만의 국소 덧칠 땜질은 수선유지비 가능합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">건물외부 · 지붕</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">누수 부위 우레탄 실리콘/국소 덧칠 보수</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">국토부 기준: 옥상방수는 부분수리가 법에 없으므로, 1개동 미만의 국소 덧칠 땜질은 수선유지비 가능합니다.</div>
-              </a>
-              <a href="repair/preset-ext04-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">건물외부 · 외부</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+                <div class="dict-card-title">누수 부위 우레탄 실리콘/국소 덧칠 보수</div>
+                <div class="dict-card-hint">국토부 기준: 옥상방수는 부분수리가 법에 없으므로, 1개동 미만의 국소 덧칠 땜질은 수선유지비 가능합니다.</div>
+              </a>
+              <a href="repair/preset-ext04-1.html" class="dictionary-card" data-title="1개 동 외벽 전체 재도장 (균열보수 포함)" data-badge="장충금" data-main="건물외부" data-sub="외부" data-hint="A타입 최소단위: 1개동 외벽 전체 페인트칠은 장기수선충당금 전면수선 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">건물외부 · 외부</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">1개 동 외벽 전체 재도장 (균열보수 포함)</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">A타입 최소단위: 1개동 외벽 전체 페인트칠은 장기수선충당금 전면수선 대상입니다.</div>
-              </a>
-              <a href="repair/preset-ext04-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">건물외부 · 외부</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+                <div class="dict-card-title">1개 동 외벽 전체 재도장 (균열보수 포함)</div>
+                <div class="dict-card-hint">A타입 최소단위: 1개동 외벽 전체 페인트칠은 장기수선충당금 전면수선 대상입니다.</div>
+              </a>
+              <a href="repair/preset-ext04-2.html" class="dictionary-card" data-title="외벽 발코니 하부 크랙 국소 도색" data-badge="수선비" data-main="건물외부" data-sub="외부" data-hint="최소단위(1개동)에 미달하는 단순 국소 균열 땜질 및 부분 도색은 수선유지비로 가능합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">건물외부 · 외부</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">외벽 발코니 하부 크랙 국소 도색</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">최소단위(1개동)에 미달하는 단순 국소 균열 땜질 및 부분 도색은 수선유지비로 가능합니다.</div>
-              </a>
-              <a href="repair/preset-ext05-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">건물외부 · 외부</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+                <div class="dict-card-title">외벽 발코니 하부 크랙 국소 도색</div>
+                <div class="dict-card-hint">최소단위(1개동)에 미달하는 단순 국소 균열 땜질 및 부분 도색은 수선유지비로 가능합니다.</div>
+              </a>
+              <a href="repair/preset-ext05-1.html" class="dictionary-card" data-title="저층부 외벽 석재 마감 전면 교체" data-badge="장충금" data-main="건물외부" data-sub="외부" data-hint="외벽 대리석/화강석 전면 철거 및 재시공은 장기수선충당금 집행 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">건물외부 · 외부</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">저층부 외벽 석재 마감 전면 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">외벽 대리석/화강석 전면 철거 및 재시공은 장기수선충당금 집행 대상입니다.</div>
-              </a>
-              <a href="repair/preset-ext05-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">건물외부 · 외부</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+                <div class="dict-card-title">저층부 외벽 석재 마감 전면 교체</div>
+                <div class="dict-card-hint">외벽 대리석/화강석 전면 철거 및 재시공은 장기수선충당금 집행 대상입니다.</div>
+              </a>
+              <a href="repair/preset-ext05-2.html" class="dictionary-card" data-title="탈락 위험 외벽 석재 1~2장 앵커 재고정" data-badge="수선비" data-main="건물외부" data-sub="외부" data-hint="낙하 방지를 위한 긴급 국소 고정 및 안전조치는 수선유지비로 즉시 집행 가능합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">건물외부 · 외부</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">탈락 위험 외벽 석재 1~2장 앵커 재고정</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">낙하 방지를 위한 긴급 국소 고정 및 안전조치는 수선유지비로 즉시 집행 가능합니다.</div>
-              </a>
-              <a href="repair/preset-ext06-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">건물외부 · 외부 창·문</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+                <div class="dict-card-title">탈락 위험 외벽 석재 1~2장 앵커 재고정</div>
+                <div class="dict-card-hint">낙하 방지를 위한 긴급 국소 고정 및 안전조치는 수선유지비로 즉시 집행 가능합니다.</div>
+              </a>
+              <a href="repair/preset-ext06-1.html" class="dictionary-card" data-title="1층 공용 현관 자동문 본체 전면 교체" data-badge="장충금" data-main="건물외부" data-sub="외부 창·문" data-hint="B타입 최소단위: 자동문 1개소 전체 완제품 교체는 장기수선충당금 전면수선입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">건물외부 · 외부 창·문</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">1층 공용 현관 자동문 본체 전면 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">B타입 최소단위: 자동문 1개소 전체 완제품 교체는 장기수선충당금 전면수선입니다.</div>
-              </a>
-              <a href="repair/preset-ext06-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">건물외부 · 외부 창·문</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+                <div class="dict-card-title">1층 공용 현관 자동문 본체 전면 교체</div>
+                <div class="dict-card-hint">B타입 최소단위: 자동문 1개소 전체 완제품 교체는 장기수선충당금 전면수선입니다.</div>
+              </a>
+              <a href="repair/preset-ext06-2.html" class="dictionary-card" data-title="자동문 센서/모터벨트/롤러 소모품 교체" data-badge="수선비" data-main="건물외부" data-sub="외부 창·문" data-hint="최소단위 미달의 단순 구동 소모성 부품 교체는 관리비(수선유지비)로 집행 가능합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">건물외부 · 외부 창·문</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">자동문 센서/모터벨트/롤러 소모품 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">최소단위 미달의 단순 구동 소모성 부품 교체는 관리비(수선유지비)로 집행 가능합니다.</div>
-              </a>
-              <a href="repair/preset-ext06-3.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">건물외부 · 외부 창·문</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+                <div class="dict-card-title">자동문 센서/모터벨트/롤러 소모품 교체</div>
+                <div class="dict-card-hint">최소단위 미달의 단순 구동 소모성 부품 교체는 관리비(수선유지비)로 집행 가능합니다.</div>
+              </a>
+              <a href="repair/preset-ext06-3.html" class="dictionary-card" data-title="강화유리문 플로어힌지 교체" data-badge="수선비" data-main="건물외부" data-sub="외부 창·문" data-hint="플로어힌지는 도어 하부 소모품 부속으로 통상 수선유지비 집행이 권장됩니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">건물외부 · 외부 창·문</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">강화유리문 플로어힌지 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">플로어힌지는 도어 하부 소모품 부속으로 통상 수선유지비 집행이 권장됩니다.</div>
+                <div class="dict-card-title">강화유리문 플로어힌지 교체</div>
+                <div class="dict-card-hint">플로어힌지는 도어 하부 소모품 부속으로 통상 수선유지비 집행이 권장됩니다.</div>
               </a>
-              <a href="repair/preset-ext07-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">건물외부 · 외부 창·문</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-ext07-1.html" class="dictionary-card" data-title="계단실/복도 창호 샤시 전면 교체" data-badge="장충금" data-main="건물외부" data-sub="외부 창·문" data-hint="1개동 복도 창호 전면 교체는 장기수선충당금 집행 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">건물외부 · 외부 창·문</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">계단실/복도 창호 샤시 전면 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">1개동 복도 창호 전면 교체는 장기수선충당금 집행 대상입니다.</div>
+                <div class="dict-card-title">계단실/복도 창호 샤시 전면 교체</div>
+                <div class="dict-card-hint">1개동 복도 창호 전면 교체는 장기수선충당금 집행 대상입니다.</div>
               </a>
-              <a href="repair/preset-ext07-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">건물외부 · 외부 창·문</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-ext07-2.html" class="dictionary-card" data-title="창문 유리 1장 파손 교체 및 실리콘 코킹" data-badge="수선비" data-main="건물외부" data-sub="외부 창·문" data-hint="파손된 창유리 1장 단순 교체 및 코킹 보수는 수선유지비로 가능합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">건물외부 · 외부 창·문</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">창문 유리 1장 파손 교체 및 실리콘 코킹</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">파손된 창유리 1장 단순 교체 및 코킹 보수는 수선유지비로 가능합니다.</div>
+                <div class="dict-card-title">창문 유리 1장 파손 교체 및 실리콘 코킹</div>
+                <div class="dict-card-hint">파손된 창유리 1장 단순 교체 및 코킹 보수는 수선유지비로 가능합니다.</div>
               </a>
-              <a href="repair/preset-int01-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">건물내부 · 내벽 및 천장</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-int01-1.html" class="dictionary-card" data-title="1개 동 계단실 전체 재도장 공사" data-badge="장충금" data-main="건물내부" data-sub="내벽 및 천장" data-hint="A타입 최소단위: 1개동 계단실/내벽 전체 도장공사는 장기수선충당금 전면수선입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">건물내부 · 내벽 및 천장</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">1개 동 계단실 전체 재도장 공사</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">A타입 최소단위: 1개동 계단실/내벽 전체 도장공사는 장기수선충당금 전면수선입니다.</div>
+                <div class="dict-card-title">1개 동 계단실 전체 재도장 공사</div>
+                <div class="dict-card-hint">A타입 최소단위: 1개동 계단실/내벽 전체 도장공사는 장기수선충당금 전면수선입니다.</div>
               </a>
-              <a href="repair/preset-int01-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">건물내부 · 내벽 및 천장</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-int01-2.html" class="dictionary-card" data-title="낙서 부위 또는 오염 벽면 국소 덧칠" data-badge="수선비" data-main="건물내부" data-sub="내벽 및 천장" data-hint="1개동 미만의 국소 부위 오염 제거 및 터치업 도색은 수선유지비 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">건물내부 · 내벽 및 천장</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">낙서 부위 또는 오염 벽면 국소 덧칠</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">1개동 미만의 국소 부위 오염 제거 및 터치업 도색은 수선유지비 대상입니다.</div>
+                <div class="dict-card-title">낙서 부위 또는 오염 벽면 국소 덧칠</div>
+                <div class="dict-card-hint">1개동 미만의 국소 부위 오염 제거 및 터치업 도색은 수선유지비 대상입니다.</div>
               </a>
-              <a href="repair/preset-int02-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">건물내부 · 바닥</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-int02-1.html" class="dictionary-card" data-title="지하주차장 바닥 전체 에폭시/우레탄 재도장" data-badge="장충금" data-main="건물내부" data-sub="바닥" data-hint="A타입 최소단위: 지하주차장 바닥 전면 재도장은 장기수선충당금 집행 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">건물내부 · 바닥</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">지하주차장 바닥 전체 에폭시/우레탄 재도장</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">A타입 최소단위: 지하주차장 바닥 전면 재도장은 장기수선충당금 집행 대상입니다.</div>
+                <div class="dict-card-title">지하주차장 바닥 전체 에폭시/우레탄 재도장</div>
+                <div class="dict-card-hint">A타입 최소단위: 지하주차장 바닥 전면 재도장은 장기수선충당금 집행 대상입니다.</div>
               </a>
-              <a href="repair/preset-int02-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">건물내부 · 바닥</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-int02-2.html" class="dictionary-card" data-title="주차장 바닥 크랙/패임 에폭시 퍼티 보수" data-badge="수선비" data-main="건물내부" data-sub="바닥" data-hint="패임이나 균열 부위의 일상적 국소 보수는 수선유지비로 집행합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">건물내부 · 바닥</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">주차장 바닥 크랙/패임 에폭시 퍼티 보수</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">패임이나 균열 부위의 일상적 국소 보수는 수선유지비로 집행합니다.</div>
+                <div class="dict-card-title">주차장 바닥 크랙/패임 에폭시 퍼티 보수</div>
+                <div class="dict-card-hint">패임이나 균열 부위의 일상적 국소 보수는 수선유지비로 집행합니다.</div>
               </a>
-              <a href="repair/preset-int03-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">건물내부 · 계단</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-int03-1.html" class="dictionary-card" data-title="1개 동 계단실 논슬립 전체 교체" data-badge="장충금" data-main="건물내부" data-sub="계단" data-hint="A타입 최소단위: 1개동 계단 논슬립 전체 교체는 장기수선충당금 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">건물내부 · 계단</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">1개 동 계단실 논슬립 전체 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">A타입 최소단위: 1개동 계단 논슬립 전체 교체는 장기수선충당금 대상입니다.</div>
+                <div class="dict-card-title">1개 동 계단실 논슬립 전체 교체</div>
+                <div class="dict-card-hint">A타입 최소단위: 1개동 계단 논슬립 전체 교체는 장기수선충당금 대상입니다.</div>
               </a>
-              <a href="repair/preset-int03-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">건물내부 · 계단</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-int03-2.html" class="dictionary-card" data-title="파손된 계단 1~2칸 논슬립 부분 보수" data-badge="수선비" data-main="건물내부" data-sub="계단" data-hint="계단 몇 칸의 탈락 방지 부분 보수는 일상 관리 수선유지비로 가능합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">건물내부 · 계단</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">파손된 계단 1~2칸 논슬립 부분 보수</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">계단 몇 칸의 탈락 방지 부분 보수는 일상 관리 수선유지비로 가능합니다.</div>
+                <div class="dict-card-title">파손된 계단 1~2칸 논슬립 부분 보수</div>
+                <div class="dict-card-hint">계단 몇 칸의 탈락 방지 부분 보수는 일상 관리 수선유지비로 가능합니다.</div>
               </a>
-              <a href="repair/preset-elec01-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 예비전원설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-elec01-1.html" class="dictionary-card" data-title="비상발전기 1대 본체 전면 교체" data-badge="장충금" data-main="전기·소방·승강기" data-sub="예비전원설비" data-hint="B타입 최소단위: 비상발전기 1대 본체 완제품 교체는 장충금 전면수선입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 예비전원설비</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">비상발전기 1대 본체 전면 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">B타입 최소단위: 비상발전기 1대 본체 완제품 교체는 장충금 전면수선입니다.</div>
+                <div class="dict-card-title">비상발전기 1대 본체 전면 교체</div>
+                <div class="dict-card-hint">B타입 최소단위: 비상발전기 1대 본체 완제품 교체는 장충금 전면수선입니다.</div>
               </a>
-              <a href="repair/preset-elec01-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 예비전원설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-elec01-2.html" class="dictionary-card" data-title="발전기 엔진 헤드/실린더 부품 보수" data-badge="장충금" data-main="전기·소방·승강기" data-sub="예비전원설비" data-hint="시행규칙 [별표 1]: 비상발전기는 부분수리가 법에 명시되어 있어 장기수선계획 반영 후 장충금으로 집행해야 합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 예비전원설비</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">발전기 엔진 헤드/실린더 부품 보수</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">시행규칙 [별표 1]: 비상발전기는 부분수리가 법에 명시되어 있어 장기수선계획 반영 후 장충금으로 집행해야 합니다.</div>
+                <div class="dict-card-title">발전기 엔진 헤드/실린더 부품 보수</div>
+                <div class="dict-card-hint">시행규칙 [별표 1]: 비상발전기는 부분수리가 법에 명시되어 있어 장기수선계획 반영 후 장충금으로 집행해야 합니다.</div>
               </a>
-              <a href="repair/preset-elec01-3.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 예비전원설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-elec01-3.html" class="dictionary-card" data-title="발전기 시동용 배터리(축전지) 교체" data-badge="수선비" data-main="전기·소방·승강기" data-sub="예비전원설비" data-hint="국토부 기준: 시동 배터리는 주기적 교체 소모품으로 수선유지비 집행이 일반적입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 예비전원설비</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">발전기 시동용 배터리(축전지) 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">국토부 기준: 시동 배터리는 주기적 교체 소모품으로 수선유지비 집행이 일반적입니다.</div>
+                <div class="dict-card-title">발전기 시동용 배터리(축전지) 교체</div>
+                <div class="dict-card-hint">국토부 기준: 시동 배터리는 주기적 교체 소모품으로 수선유지비 집행이 일반적입니다.</div>
               </a>
-              <a href="repair/preset-elec02-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 변전설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-elec02-1.html" class="dictionary-card" data-title="수변전실 변압기(Tr) 1대 본체 전면 교체" data-badge="장충금" data-main="전기·소방·승강기" data-sub="변전설비" data-hint="B타입 최소단위: 변압기 1대 완제품 교체는 장충금 필수 전면수선 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 변전설비</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">수변전실 변압기(Tr) 1대 본체 전면 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">B타입 최소단위: 변압기 1대 완제품 교체는 장충금 필수 전면수선 대상입니다.</div>
+                <div class="dict-card-title">수변전실 변압기(Tr) 1대 본체 전면 교체</div>
+                <div class="dict-card-hint">B타입 최소단위: 변압기 1대 완제품 교체는 장충금 필수 전면수선 대상입니다.</div>
               </a>
-              <a href="repair/preset-elec02-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 변전설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-elec02-2.html" class="dictionary-card" data-title="변압기 절연유(절연기름) 교체 및 여과" data-badge="장충금" data-main="전기·소방·승강기" data-sub="변전설비" data-hint="장기수선계획서 상의 변압기 성능 보전 계획에 따라 장충금으로 집행합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 변전설비</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">변압기 절연유(절연기름) 교체 및 여과</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">장기수선계획서 상의 변압기 성능 보전 계획에 따라 장충금으로 집행합니다.</div>
+                <div class="dict-card-title">변압기 절연유(절연기름) 교체 및 여과</div>
+                <div class="dict-card-hint">장기수선계획서 상의 변압기 성능 보전 계획에 따라 장충금으로 집행합니다.</div>
               </a>
-              <a href="repair/preset-elec03-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 변전설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-elec03-1.html" class="dictionary-card" data-title="고압 진공차단기(VCB)/기중차단기(ACB) 본체 교체" data-badge="장충금" data-main="전기·소방·승강기" data-sub="변전설비" data-hint="B타입 최소단위: VCB, ACB 등 고압차단기 1대 본체 교체는 장충금 전면수선입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 변전설비</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">고압 진공차단기(VCB)/기중차단기(ACB) 본체 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">B타입 최소단위: VCB, ACB 등 고압차단기 1대 본체 교체는 장충금 전면수선입니다.</div>
+                <div class="dict-card-title">고압 진공차단기(VCB)/기중차단기(ACB) 본체 교체</div>
+                <div class="dict-card-hint">B타입 최소단위: VCB, ACB 등 고압차단기 1대 본체 교체는 장충금 전면수선입니다.</div>
               </a>
-              <a href="repair/preset-elec03-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 변전설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-elec03-2.html" class="dictionary-card" data-title="차단기 보조계전기(릴레이) 부품 교체" data-badge="수선비" data-main="전기·소방·승강기" data-sub="변전설비" data-hint="차단기 본체가 아닌 내부 보조계전기 소모품 교체는 수선유지비로 가능합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 변전설비</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">차단기 보조계전기(릴레이) 부품 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">차단기 본체가 아닌 내부 보조계전기 소모품 교체는 수선유지비로 가능합니다.</div>
+                <div class="dict-card-title">차단기 보조계전기(릴레이) 부품 교체</div>
+                <div class="dict-card-hint">차단기 본체가 아닌 내부 보조계전기 소모품 교체는 수선유지비로 가능합니다.</div>
               </a>
-              <a href="repair/preset-elec04-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 변전설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-elec04-1.html" class="dictionary-card" data-title="수배전반 캐비닛 패널 전면 교체" data-badge="장충금" data-main="전기·소방·승강기" data-sub="변전설비" data-hint="수배전반 함체 및 전체 패널 교체는 장기수선충당금 집행 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 변전설비</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">수배전반 캐비닛 패널 전면 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">수배전반 함체 및 전체 패널 교체는 장기수선충당금 집행 대상입니다.</div>
+                <div class="dict-card-title">수배전반 캐비닛 패널 전면 교체</div>
+                <div class="dict-card-hint">수배전반 함체 및 전체 패널 교체는 장기수선충당금 집행 대상입니다.</div>
               </a>
-              <a href="repair/preset-elec04-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 변전설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-elec04-2.html" class="dictionary-card" data-title="분전반 내부 누전차단기(MCCB/ELB) 1개 교체" data-badge="수선비" data-main="전기·소방·승강기" data-sub="변전설비" data-hint="공용 분전반 내부의 개별 차단기 1개 단순 교체는 수선유지비로 집행합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 변전설비</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">분전반 내부 누전차단기(MCCB/ELB) 1개 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">공용 분전반 내부의 개별 차단기 1개 단순 교체는 수선유지비로 집행합니다.</div>
+                <div class="dict-card-title">분전반 내부 누전차단기(MCCB/ELB) 1개 교체</div>
+                <div class="dict-card-hint">공용 분전반 내부의 개별 차단기 1개 단순 교체는 수선유지비로 집행합니다.</div>
               </a>
-              <a href="repair/preset-elec05-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 피뢰 및 조명</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-elec05-1.html" class="dictionary-card" data-title="단지 내 가로등/보안등 등주 1본 신설 및 전면교체" data-badge="장충금" data-main="전기·소방·승강기" data-sub="피뢰 및 조명" data-hint="B타입 최소단위: 보안등 등주 1본 본체 교체는 장기수선충당금 전면수선입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 피뢰 및 조명</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">단지 내 가로등/보안등 등주 1본 신설 및 전면교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">B타입 최소단위: 보안등 등주 1본 본체 교체는 장기수선충당금 전면수선입니다.</div>
+                <div class="dict-card-title">단지 내 가로등/보안등 등주 1본 신설 및 전면교체</div>
+                <div class="dict-card-hint">B타입 최소단위: 보안등 등주 1본 본체 교체는 장기수선충당금 전면수선입니다.</div>
               </a>
-              <a href="repair/preset-elec05-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 피뢰 및 조명</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-elec05-2.html" class="dictionary-card" data-title="보안등 LED 램프/안정기 단품 교체" data-badge="수선비" data-main="전기·소방·승강기" data-sub="피뢰 및 조명" data-hint="가이드라인 기준: 등기구 내부의 램프/안정기는 소모품으로 수선유지비 집행 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 피뢰 및 조명</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">보안등 LED 램프/안정기 단품 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">가이드라인 기준: 등기구 내부의 램프/안정기는 소모품으로 수선유지비 집행 대상입니다.</div>
+                <div class="dict-card-title">보안등 LED 램프/안정기 단품 교체</div>
+                <div class="dict-card-hint">가이드라인 기준: 등기구 내부의 램프/안정기는 소모품으로 수선유지비 집행 대상입니다.</div>
               </a>
-              <a href="repair/preset-elec06-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 소방설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-elec06-1.html" class="dictionary-card" data-title="화재 수신기(R형/P형) 주장치 전면 교체" data-badge="장충금" data-main="전기·소방·승강기" data-sub="소방설비" data-hint="B타입 최소단위: 수신기 1대 본체 전면교체는 장기수선충당금 필수입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 소방설비</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">화재 수신기(R형/P형) 주장치 전면 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">B타입 최소단위: 수신기 1대 본체 전면교체는 장기수선충당금 필수입니다.</div>
+                <div class="dict-card-title">화재 수신기(R형/P형) 주장치 전면 교체</div>
+                <div class="dict-card-hint">B타입 최소단위: 수신기 1대 본체 전면교체는 장기수선충당금 필수입니다.</div>
               </a>
-              <a href="repair/preset-elec06-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 소방설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-elec06-2.html" class="dictionary-card" data-title="수신기 파워서플라이/메인보드 수리" data-badge="장충금" data-main="전기·소방·승강기" data-sub="소방설비" data-hint="시행규칙 [별표 1]: 자동화재탐지설비는 부분수리가 법에 명시되어 있어 장충금 집행 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 소방설비</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">수신기 파워서플라이/메인보드 수리</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">시행규칙 [별표 1]: 자동화재탐지설비는 부분수리가 법에 명시되어 있어 장충금 집행 대상입니다.</div>
+                <div class="dict-card-title">수신기 파워서플라이/메인보드 수리</div>
+                <div class="dict-card-hint">시행규칙 [별표 1]: 자동화재탐지설비는 부분수리가 법에 명시되어 있어 장충금 집행 대상입니다.</div>
               </a>
-              <a href="repair/preset-elec06-3.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 소방설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-elec06-3.html" class="dictionary-card" data-title="소방 중계기 1개 단품 교체" data-badge="수선비" data-main="전기·소방·승강기" data-sub="소방설비" data-hint="국토부 질의회신: 소방 중계기 개별 단품 교체는 통상 수선유지비로 처리 가능합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 소방설비</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">소방 중계기 1개 단품 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">국토부 질의회신: 소방 중계기 개별 단품 교체는 통상 수선유지비로 처리 가능합니다.</div>
+                <div class="dict-card-title">소방 중계기 1개 단품 교체</div>
+                <div class="dict-card-hint">국토부 질의회신: 소방 중계기 개별 단품 교체는 통상 수선유지비로 처리 가능합니다.</div>
               </a>
-              <a href="repair/preset-elec07-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 소방설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-elec07-1.html" class="dictionary-card" data-title="1개 동 화재감지기 일괄 전면 교체" data-badge="장충금" data-main="전기·소방·승강기" data-sub="소방설비" data-hint="1개동 단위 감지기 일괄 교체는 장기수선충당금 전면수선으로 집행합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 소방설비</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">1개 동 화재감지기 일괄 전면 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">1개동 단위 감지기 일괄 교체는 장기수선충당금 전면수선으로 집행합니다.</div>
+                <div class="dict-card-title">1개 동 화재감지기 일괄 전면 교체</div>
+                <div class="dict-card-hint">1개동 단위 감지기 일괄 교체는 장기수선충당금 전면수선으로 집행합니다.</div>
               </a>
-              <a href="repair/preset-elec07-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 소방설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-elec07-2.html" class="dictionary-card" data-title="오작동 화재감지기 1~2개 개별 교체" data-badge="수선비" data-main="전기·소방·승강기" data-sub="소방설비" data-hint="오작동 감지기 개별 1~2개 단품 교체는 일상 소모품으로 수선유지비 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 소방설비</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">오작동 화재감지기 1~2개 개별 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">오작동 감지기 개별 1~2개 단품 교체는 일상 소모품으로 수선유지비 대상입니다.</div>
+                <div class="dict-card-title">오작동 화재감지기 1~2개 개별 교체</div>
+                <div class="dict-card-hint">오작동 감지기 개별 1~2개 단품 교체는 일상 소모품으로 수선유지비 대상입니다.</div>
               </a>
-              <a href="repair/preset-elec08-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 소방설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-elec08-1.html" class="dictionary-card" data-title="소화 주펌프/예비펌프 1대 본체 전면 교체" data-badge="장충금" data-main="전기·소방·승강기" data-sub="소방설비" data-hint="B타입 최소단위: 소화펌프 1대 본체 완제품 교체는 장기수선충당금 전면수선입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 소방설비</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">소화 주펌프/예비펌프 1대 본체 전면 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">B타입 최소단위: 소화펌프 1대 본체 완제품 교체는 장기수선충당금 전면수선입니다.</div>
+                <div class="dict-card-title">소화 주펌프/예비펌프 1대 본체 전면 교체</div>
+                <div class="dict-card-hint">B타입 최소단위: 소화펌프 1대 본체 완제품 교체는 장기수선충당금 전면수선입니다.</div>
               </a>
-              <a href="repair/preset-elec08-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 소방설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-elec08-2.html" class="dictionary-card" data-title="소화 충압펌프 1대 본체 교체" data-badge="장충금" data-main="전기·소방·승강기" data-sub="소방설비" data-hint="B타입 최소단위: 충압펌프 1대 완제품 교체는 장충금 집행 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 소방설비</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">소화 충압펌프 1대 본체 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">B타입 최소단위: 충압펌프 1대 완제품 교체는 장충금 집행 대상입니다.</div>
+                <div class="dict-card-title">소화 충압펌프 1대 본체 교체</div>
+                <div class="dict-card-hint">B타입 최소단위: 충압펌프 1대 완제품 교체는 장충금 집행 대상입니다.</div>
               </a>
-              <a href="repair/preset-elec08-3.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 소방설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-elec08-3.html" class="dictionary-card" data-title="소화펌프 메카니컬씰/패킹 단순 부품 교체" data-badge="수선비" data-main="전기·소방·승강기" data-sub="소방설비" data-hint="가이드라인 최소단위 미달 소모품: 패킹/씰 단순 교체는 수선유지비로 집행합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 소방설비</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">소화펌프 메카니컬씰/패킹 단순 부품 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">가이드라인 최소단위 미달 소모품: 패킹/씰 단순 교체는 수선유지비로 집행합니다.</div>
+                <div class="dict-card-title">소화펌프 메카니컬씰/패킹 단순 부품 교체</div>
+                <div class="dict-card-hint">가이드라인 최소단위 미달 소모품: 패킹/씰 단순 교체는 수선유지비로 집행합니다.</div>
               </a>
-              <a href="repair/preset-elec09-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 소방설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-elec09-1.html" class="dictionary-card" data-title="옥내소화전 박스 함체 전면 교체" data-badge="장충금" data-main="전기·소방·승강기" data-sub="소방설비" data-hint="소화전함 함체 본체 교체는 장기수선충당금 전면수선입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 소방설비</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">옥내소화전 박스 함체 전면 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">소화전함 함체 본체 교체는 장기수선충당금 전면수선입니다.</div>
+                <div class="dict-card-title">옥내소화전 박스 함체 전면 교체</div>
+                <div class="dict-card-hint">소화전함 함체 본체 교체는 장기수선충당금 전면수선입니다.</div>
               </a>
-              <a href="repair/preset-elec09-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 소방설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-elec09-2.html" class="dictionary-card" data-title="소화전 소방호스 및 노즐(관창) 교체" data-badge="수선비" data-main="전기·소방·승강기" data-sub="소방설비" data-hint="국토부 기준: 호스 및 관창은 소모품 성격으로 관리비(수선유지비)로 집행합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 소방설비</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">소화전 소방호스 및 노즐(관창) 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">국토부 기준: 호스 및 관창은 소모품 성격으로 관리비(수선유지비)로 집행합니다.</div>
+                <div class="dict-card-title">소화전 소방호스 및 노즐(관창) 교체</div>
+                <div class="dict-card-hint">국토부 기준: 호스 및 관창은 소모품 성격으로 관리비(수선유지비)로 집행합니다.</div>
               </a>
-              <a href="repair/preset-elec10-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 소방설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-elec10-1.html" class="dictionary-card" data-title="알람밸브(유수검지장치) 1대 본체 전면 교체" data-badge="장충금" data-main="전기·소방·승강기" data-sub="소방설비" data-hint="B타입 최소단위: 알람밸브 1대 완제품 교체는 장기수선충당금 전면수선입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 소방설비</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">알람밸브(유수검지장치) 1대 본체 전면 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">B타입 최소단위: 알람밸브 1대 완제품 교체는 장기수선충당금 전면수선입니다.</div>
+                <div class="dict-card-title">알람밸브(유수검지장치) 1대 본체 전면 교체</div>
+                <div class="dict-card-hint">B타입 최소단위: 알람밸브 1대 완제품 교체는 장기수선충당금 전면수선입니다.</div>
               </a>
-              <a href="repair/preset-elec10-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 소방설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-elec10-2.html" class="dictionary-card" data-title="스프링클러 헤드 1~2개 파손 단순 교체" data-badge="수선비" data-main="전기·소방·승강기" data-sub="소방설비" data-hint="헤드 개별 1~2개 교체는 최소단위 미달 소모품으로 수선유지비 처리합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 소방설비</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">스프링클러 헤드 1~2개 파손 단순 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">헤드 개별 1~2개 교체는 최소단위 미달 소모품으로 수선유지비 처리합니다.</div>
+                <div class="dict-card-title">스프링클러 헤드 1~2개 파손 단순 교체</div>
+                <div class="dict-card-hint">헤드 개별 1~2개 교체는 최소단위 미달 소모품으로 수선유지비 처리합니다.</div>
               </a>
-              <a href="repair/preset-elec11-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 승강기</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-elec11-1.html" class="dictionary-card" data-title="승강기 1대 전체 전면 교체 (완제품 리모델링)" data-badge="장충금" data-main="전기·소방·승강기" data-sub="승강기" data-hint="승강기 1대 전체 교체는 장충금 대표 전면수선 공사입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 승강기</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">승강기 1대 전체 전면 교체 (완제품 리모델링)</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">승강기 1대 전체 교체는 장충금 대표 전면수선 공사입니다.</div>
+                <div class="dict-card-title">승강기 1대 전체 전면 교체 (완제품 리모델링)</div>
+                <div class="dict-card-hint">승강기 1대 전체 교체는 장충금 대표 전면수선 공사입니다.</div>
               </a>
-              <a href="repair/preset-elec11-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 승강기</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-elec11-2.html" class="dictionary-card" data-title="승강기 권상기(모터/감속기) 전면 교체" data-badge="장충금" data-main="전기·소방·승강기" data-sub="승강기" data-hint="승강기 5대 핵심부품: 권상기 전면교체는 장기수선충당금 필수 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 승강기</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">승강기 권상기(모터/감속기) 전면 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">승강기 5대 핵심부품: 권상기 전면교체는 장기수선충당금 필수 대상입니다.</div>
+                <div class="dict-card-title">승강기 권상기(모터/감속기) 전면 교체</div>
+                <div class="dict-card-hint">승강기 5대 핵심부품: 권상기 전면교체는 장기수선충당금 필수 대상입니다.</div>
               </a>
-              <a href="repair/preset-elec12-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 승강기</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-elec12-1.html" class="dictionary-card" data-title="승강기 메인 와이어로프 세트 전체 교체" data-badge="장충금" data-main="전기·소방·승강기" data-sub="승강기" data-hint="승강기 5대 핵심부품: 와이어로프 전체 교체는 무조건 장기수선충당금 전면수선입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 승강기</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">승강기 메인 와이어로프 세트 전체 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">승강기 5대 핵심부품: 와이어로프 전체 교체는 무조건 장기수선충당금 전면수선입니다.</div>
+                <div class="dict-card-title">승강기 메인 와이어로프 세트 전체 교체</div>
+                <div class="dict-card-hint">승강기 5대 핵심부품: 와이어로프 전체 교체는 무조건 장기수선충당금 전면수선입니다.</div>
               </a>
-              <a href="repair/preset-elec12-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 승강기</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-elec12-2.html" class="dictionary-card" data-title="승강기 권상기 메인 쉬브(도르래) 전면 교체" data-badge="장충금" data-main="전기·소방·승강기" data-sub="승강기" data-hint="승강기 5대 핵심부품: 메인 쉬브 교체는 장기수선충당금 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 승강기</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">승강기 권상기 메인 쉬브(도르래) 전면 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">승강기 5대 핵심부품: 메인 쉬브 교체는 장기수선충당금 대상입니다.</div>
+                <div class="dict-card-title">승강기 권상기 메인 쉬브(도르래) 전면 교체</div>
+                <div class="dict-card-hint">승강기 5대 핵심부품: 메인 쉬브 교체는 장기수선충당금 대상입니다.</div>
               </a>
-              <a href="repair/preset-elec13-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 승강기</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-elec13-1.html" class="dictionary-card" data-title="승강기 제어반 제어판넬 1대 전면 교체" data-badge="장충금" data-main="전기·소방·승강기" data-sub="승강기" data-hint="승강기 5대 핵심부품: 제어반 전면 교체는 장기수선충당금 필수입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 승강기</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">승강기 제어반 제어판넬 1대 전면 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">승강기 5대 핵심부품: 제어반 전면 교체는 장기수선충당금 필수입니다.</div>
+                <div class="dict-card-title">승강기 제어반 제어판넬 1대 전면 교체</div>
+                <div class="dict-card-hint">승강기 5대 핵심부품: 제어반 전면 교체는 장기수선충당금 필수입니다.</div>
               </a>
-              <a href="repair/preset-elec13-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 승강기</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-elec13-2.html" class="dictionary-card" data-title="승강기 제어반 인버터(Inverter) 유닛 교체" data-badge="장충금" data-main="전기·소방·승강기" data-sub="승강기" data-hint="B타입 최소단위: 인버터 1대 완제품 교체는 장기수선충당금 전면수선입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 승강기</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">승강기 제어반 인버터(Inverter) 유닛 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">B타입 최소단위: 인버터 1대 완제품 교체는 장기수선충당금 전면수선입니다.</div>
+                <div class="dict-card-title">승강기 제어반 인버터(Inverter) 유닛 교체</div>
+                <div class="dict-card-hint">B타입 최소단위: 인버터 1대 완제품 교체는 장기수선충당금 전면수선입니다.</div>
               </a>
-              <a href="repair/preset-elec13-3.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 승강기</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-elec13-3.html" class="dictionary-card" data-title="제어반 메인보드(CPU기판) 수리 교체" data-badge="장충금" data-main="전기·소방·승강기" data-sub="승강기" data-hint="시행규칙 [별표 1]: 제어반은 부분수리가 법에 명시되어 있어 장충금으로 집행해야 합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 승강기</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">제어반 메인보드(CPU기판) 수리 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">시행규칙 [별표 1]: 제어반은 부분수리가 법에 명시되어 있어 장충금으로 집행해야 합니다.</div>
+                <div class="dict-card-title">제어반 메인보드(CPU기판) 수리 교체</div>
+                <div class="dict-card-hint">시행규칙 [별표 1]: 제어반은 부분수리가 법에 명시되어 있어 장충금으로 집행해야 합니다.</div>
               </a>
-              <a href="repair/preset-elec14-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 승강기</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-elec14-1.html" class="dictionary-card" data-title="승강기 조속기(과속안전장치) 1대 본체 교체" data-badge="장충금" data-main="전기·소방·승강기" data-sub="승강기" data-hint="승강기 5대 핵심부품: 조속기 본체 교체는 장기수선충당금 전면수선입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 승강기</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">승강기 조속기(과속안전장치) 1대 본체 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">승강기 5대 핵심부품: 조속기 본체 교체는 장기수선충당금 전면수선입니다.</div>
+                <div class="dict-card-title">승강기 조속기(과속안전장치) 1대 본체 교체</div>
+                <div class="dict-card-hint">승강기 5대 핵심부품: 조속기 본체 교체는 장기수선충당금 전면수선입니다.</div>
               </a>
-              <a href="repair/preset-elec15-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 승강기</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-elec15-1.html" class="dictionary-card" data-title="승강기 카 도어머신 1대 전체 전면 교체" data-badge="장충금" data-main="전기·소방·승강기" data-sub="승강기" data-hint="B타입 최소단위: 도어머신 1대 전면교체는 장기수선충당금 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 승강기</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">승강기 카 도어머신 1대 전체 전면 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">B타입 최소단위: 도어머신 1대 전면교체는 장기수선충당금 대상입니다.</div>
+                <div class="dict-card-title">승강기 카 도어머신 1대 전체 전면 교체</div>
+                <div class="dict-card-hint">B타입 최소단위: 도어머신 1대 전면교체는 장기수선충당금 대상입니다.</div>
               </a>
-              <a href="repair/preset-elec15-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 승강기</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-elec15-2.html" class="dictionary-card" data-title="승강기 도어 인버터/모터 교체" data-badge="장충금" data-main="전기·소방·승강기" data-sub="승강기" data-hint="B타입 최소단위: 도어 모터 1대 완제품 교체는 장기수선충당금 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 승강기</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">승강기 도어 인버터/모터 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">B타입 최소단위: 도어 모터 1대 완제품 교체는 장기수선충당금 대상입니다.</div>
+                <div class="dict-card-title">승강기 도어 인버터/모터 교체</div>
+                <div class="dict-card-hint">B타입 최소단위: 도어 모터 1대 완제품 교체는 장기수선충당금 대상입니다.</div>
               </a>
-              <a href="repair/preset-elec15-3.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 승강기</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-elec15-3.html" class="dictionary-card" data-title="도어 행거롤러 및 슈 소모품 교체" data-badge="수선비" data-main="전기·소방·승강기" data-sub="승강기" data-hint="가이드라인 최소단위 미달: 도어 롤러 및 슈 등 소모품 교체는 수선유지비로 집행합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 승강기</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">도어 행거롤러 및 슈 소모품 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">가이드라인 최소단위 미달: 도어 롤러 및 슈 등 소모품 교체는 수선유지비로 집행합니다.</div>
+                <div class="dict-card-title">도어 행거롤러 및 슈 소모품 교체</div>
+                <div class="dict-card-hint">가이드라인 최소단위 미달: 도어 롤러 및 슈 등 소모품 교체는 수선유지비로 집행합니다.</div>
               </a>
-              <a href="repair/preset-elec16-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 통신·네트워크</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-elec16-1.html" class="dictionary-card" data-title="CCTV 카메라 1대 신품 교체" data-badge="장충금" data-main="전기·소방·승강기" data-sub="통신·네트워크" data-hint="B타입 최소단위: CCTV 카메라는 1대라도 독립 기기로서 장기수선충당금 전면수선입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 통신·네트워크</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">CCTV 카메라 1대 신품 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">B타입 최소단위: CCTV 카메라는 1대라도 독립 기기로서 장기수선충당금 전면수선입니다.</div>
+                <div class="dict-card-title">CCTV 카메라 1대 신품 교체</div>
+                <div class="dict-card-hint">B타입 최소단위: CCTV 카메라는 1대라도 독립 기기로서 장기수선충당금 전면수선입니다.</div>
               </a>
-              <a href="repair/preset-elec16-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 통신·네트워크</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-elec16-2.html" class="dictionary-card" data-title="방재실 녹화기(NVR/DVR) 본체 전면 교체" data-badge="장충금" data-main="전기·소방·승강기" data-sub="통신·네트워크" data-hint="B타입 최소단위: 녹화기 본체 1대 완제품 교체는 장기수선충당금 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 통신·네트워크</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">방재실 녹화기(NVR/DVR) 본체 전면 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">B타입 최소단위: 녹화기 본체 1대 완제품 교체는 장기수선충당금 대상입니다.</div>
+                <div class="dict-card-title">방재실 녹화기(NVR/DVR) 본체 전면 교체</div>
+                <div class="dict-card-hint">B타입 최소단위: 녹화기 본체 1대 완제품 교체는 장기수선충당금 대상입니다.</div>
               </a>
-              <a href="repair/preset-elec16-3.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 통신·네트워크</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-elec16-3.html" class="dictionary-card" data-title="CCTV 카메라 아답터 교체 및 케이블 수선" data-badge="수선비" data-main="전기·소방·승강기" data-sub="통신·네트워크" data-hint="단순 아답터 교체, 단자 수선, 렌즈 청소 등은 관리비(수선유지비)로 집행합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 통신·네트워크</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">CCTV 카메라 아답터 교체 및 케이블 수선</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">단순 아답터 교체, 단자 수선, 렌즈 청소 등은 관리비(수선유지비)로 집행합니다.</div>
+                <div class="dict-card-title">CCTV 카메라 아답터 교체 및 케이블 수선</div>
+                <div class="dict-card-hint">단순 아답터 교체, 단자 수선, 렌즈 청소 등은 관리비(수선유지비)로 집행합니다.</div>
               </a>
-              <a href="repair/preset-elec17-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 통신·네트워크</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-elec17-1.html" class="dictionary-card" data-title="1층 공용 로비폰(공동현관기) 본체 전면 교체" data-badge="장충금" data-main="전기·소방·승강기" data-sub="통신·네트워크" data-hint="B타입 최소단위: 로비폰 1대 완제품 교체는 장기수선충당금 전면수선 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 통신·네트워크</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">1층 공용 로비폰(공동현관기) 본체 전면 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">B타입 최소단위: 로비폰 1대 완제품 교체는 장기수선충당금 전면수선 대상입니다.</div>
+                <div class="dict-card-title">1층 공용 로비폰(공동현관기) 본체 전면 교체</div>
+                <div class="dict-card-hint">B타입 최소단위: 로비폰 1대 완제품 교체는 장기수선충당금 전면수선 대상입니다.</div>
               </a>
-              <a href="repair/preset-elec17-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 통신·네트워크</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-elec17-2.html" class="dictionary-card" data-title="로비폰 메인보드(PCB) 수리 교체" data-badge="장충금" data-main="전기·소방·승강기" data-sub="통신·네트워크" data-hint="시행규칙 [별표 1]: 로비폰은 부분수리가 법에 명시되어 있어 장충금으로 집행해야 합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 통신·네트워크</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">로비폰 메인보드(PCB) 수리 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">시행규칙 [별표 1]: 로비폰은 부분수리가 법에 명시되어 있어 장충금으로 집행해야 합니다.</div>
+                <div class="dict-card-title">로비폰 메인보드(PCB) 수리 교체</div>
+                <div class="dict-card-hint">시행규칙 [별표 1]: 로비폰은 부분수리가 법에 명시되어 있어 장충금으로 집행해야 합니다.</div>
               </a>
-              <a href="repair/preset-elec17-3.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 통신·네트워크</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-elec17-3.html" class="dictionary-card" data-title="로비폰 카메라 렌즈/키패드 청소 및 경미 보수" data-badge="수선비" data-main="전기·소방·승강기" data-sub="통신·네트워크" data-hint="최소단위 미달의 일상적 유지보수 및 클리닝은 수선유지비로 가능합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 통신·네트워크</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">로비폰 카메라 렌즈/키패드 청소 및 경미 보수</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">최소단위 미달의 일상적 유지보수 및 클리닝은 수선유지비로 가능합니다.</div>
+                <div class="dict-card-title">로비폰 카메라 렌즈/키패드 청소 및 경미 보수</div>
+                <div class="dict-card-hint">최소단위 미달의 일상적 유지보수 및 클리닝은 수선유지비로 가능합니다.</div>
               </a>
-              <a href="repair/preset-elec18-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 통신·네트워크</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-elec18-1.html" class="dictionary-card" data-title="방재실 비상방송 주장치 앰프 전면 교체" data-badge="장충금" data-main="전기·소방·승강기" data-sub="통신·네트워크" data-hint="B타입 최소단위: 방송 앰프 1대 본체 교체는 장기수선충당금 전면수선입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 통신·네트워크</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">방재실 비상방송 주장치 앰프 전면 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">B타입 최소단위: 방송 앰프 1대 본체 교체는 장기수선충당금 전면수선입니다.</div>
+                <div class="dict-card-title">방재실 비상방송 주장치 앰프 전면 교체</div>
+                <div class="dict-card-hint">B타입 최소단위: 방송 앰프 1대 본체 교체는 장기수선충당금 전면수선입니다.</div>
               </a>
-              <a href="repair/preset-elec18-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 통신·네트워크</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-elec18-2.html" class="dictionary-card" data-title="계단실 방송 스피커 1~2개 단품 교체" data-badge="수선비" data-main="전기·소방·승강기" data-sub="통신·네트워크" data-hint="스피커 1~2개 단순 교체는 소모품으로 수선유지비 집행이 가능합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 통신·네트워크</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">계단실 방송 스피커 1~2개 단품 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">스피커 1~2개 단순 교체는 소모품으로 수선유지비 집행이 가능합니다.</div>
+                <div class="dict-card-title">계단실 방송 스피커 1~2개 단품 교체</div>
+                <div class="dict-card-hint">스피커 1~2개 단순 교체는 소모품으로 수선유지비 집행이 가능합니다.</div>
               </a>
-              <a href="repair/preset-elec19-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 친환경·신설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-elec19-1.html" class="dictionary-card" data-title="공용 전기차 충전기 본체 1대 전면 교체" data-badge="장충금" data-main="전기·소방·승강기" data-sub="친환경·신설비" data-hint="시행규칙 신설 공종: 전기차 충전기 본체 교체는 장기수선충당금 집행 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 친환경·신설비</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">공용 전기차 충전기 본체 1대 전면 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">시행규칙 신설 공종: 전기차 충전기 본체 교체는 장기수선충당금 집행 대상입니다.</div>
+                <div class="dict-card-title">공용 전기차 충전기 본체 1대 전면 교체</div>
+                <div class="dict-card-hint">시행규칙 신설 공종: 전기차 충전기 본체 교체는 장기수선충당금 집행 대상입니다.</div>
               </a>
-              <a href="repair/preset-elec19-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 친환경·신설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-elec19-2.html" class="dictionary-card" data-title="전기차 충전 케이블 및 커넥터 단품 교체" data-badge="수선비" data-main="전기·소방·승강기" data-sub="친환경·신설비" data-hint="파손된 충전 케이블 및 플러그 단품 보수는 소모품으로 수선유지비 가능합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 친환경·신설비</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">전기차 충전 케이블 및 커넥터 단품 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">파손된 충전 케이블 및 플러그 단품 보수는 소모품으로 수선유지비 가능합니다.</div>
+                <div class="dict-card-title">전기차 충전 케이블 및 커넥터 단품 교체</div>
+                <div class="dict-card-hint">파손된 충전 케이블 및 플러그 단품 보수는 소모품으로 수선유지비 가능합니다.</div>
               </a>
-              <a href="repair/preset-elec20-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 피난설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-elec20-1.html" class="dictionary-card" data-title="옥상 비상문 자동개폐장치 본체 세트 교체" data-badge="장충금" data-main="전기·소방·승강기" data-sub="피난설비" data-hint="시행규칙 신설 공종: 옥상문 자동개폐장치 본체 세트 교체는 장충금 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 피난설비</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">옥상 비상문 자동개폐장치 본체 세트 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">시행규칙 신설 공종: 옥상문 자동개폐장치 본체 세트 교체는 장충금 대상입니다.</div>
+                <div class="dict-card-title">옥상 비상문 자동개폐장치 본체 세트 교체</div>
+                <div class="dict-card-hint">시행규칙 신설 공종: 옥상문 자동개폐장치 본체 세트 교체는 장충금 대상입니다.</div>
               </a>
-              <a href="repair/preset-elec20-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 피난설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-elec20-2.html" class="dictionary-card" data-title="자동개폐장치 예비전원 배터리 단순 교체" data-badge="수선비" data-main="전기·소방·승강기" data-sub="피난설비" data-hint="방전된 제어부 내부 배터리 단품 교체는 일상 소모품으로 수선유지비 집행 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 피난설비</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">자동개폐장치 예비전원 배터리 단순 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">방전된 제어부 내부 배터리 단품 교체는 일상 소모품으로 수선유지비 집행 대상입니다.</div>
+                <div class="dict-card-title">자동개폐장치 예비전원 배터리 단순 교체</div>
+                <div class="dict-card-hint">방전된 제어부 내부 배터리 단품 교체는 일상 소모품으로 수선유지비 집행 대상입니다.</div>
               </a>
-              <a href="repair/preset-elec21-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 피난설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-elec21-1.html" class="dictionary-card" data-title="공용 계단실 방화문 1개소 철거 후 신설 교체" data-badge="장충금" data-main="전기·소방·승강기" data-sub="피난설비" data-hint="시행규칙 신설 공종: 방화문 1틀 전면 교체는 장기수선충당금 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 피난설비</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">공용 계단실 방화문 1개소 철거 후 신설 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">시행규칙 신설 공종: 방화문 1틀 전면 교체는 장기수선충당금 대상입니다.</div>
+                <div class="dict-card-title">공용 계단실 방화문 1개소 철거 후 신설 교체</div>
+                <div class="dict-card-hint">시행규칙 신설 공종: 방화문 1틀 전면 교체는 장기수선충당금 대상입니다.</div>
               </a>
-              <a href="repair/preset-elec21-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">전기·소방·승강기 · 피난설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-elec21-2.html" class="dictionary-card" data-title="방화문 도어클로저(도어체크)/힌지 교체" data-badge="수선비" data-main="전기·소방·승강기" data-sub="피난설비" data-hint="도어클로저 및 힌지는 최소단위 미달 소모품으로 수선유지비로 집행합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">전기·소방·승강기 · 피난설비</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">방화문 도어클로저(도어체크)/힌지 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">도어클로저 및 힌지는 최소단위 미달 소모품으로 수선유지비로 집행합니다.</div>
+                <div class="dict-card-title">방화문 도어클로저(도어체크)/힌지 교체</div>
+                <div class="dict-card-hint">도어클로저 및 힌지는 최소단위 미달 소모품으로 수선유지비로 집행합니다.</div>
               </a>
-              <a href="repair/preset-plumb01-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">급수·배수·환기 · 급수설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-plumb01-1.html" class="dictionary-card" data-title="급수 부스터펌프 1대 본체 전면 교체" data-badge="장충금" data-main="급수·배수·환기" data-sub="급수설비" data-hint="B타입 최소단위: 부스터펌프 1대 완제품 교체는 장기수선충당금 전면수선입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">급수·배수·환기 · 급수설비</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">급수 부스터펌프 1대 본체 전면 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">B타입 최소단위: 부스터펌프 1대 완제품 교체는 장기수선충당금 전면수선입니다.</div>
+                <div class="dict-card-title">급수 부스터펌프 1대 본체 전면 교체</div>
+                <div class="dict-card-hint">B타입 최소단위: 부스터펌프 1대 완제품 교체는 장기수선충당금 전면수선입니다.</div>
               </a>
-              <a href="repair/preset-plumb01-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">급수·배수·환기 · 급수설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-plumb01-2.html" class="dictionary-card" data-title="부스터펌프 모터 전면 교체" data-badge="장충금" data-main="급수·배수·환기" data-sub="급수설비" data-hint="B타입 최소단위: 펌프 구동 모터 1대 교체는 장기수선충당금 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">급수·배수·환기 · 급수설비</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">부스터펌프 모터 전면 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">B타입 최소단위: 펌프 구동 모터 1대 교체는 장기수선충당금 대상입니다.</div>
+                <div class="dict-card-title">부스터펌프 모터 전면 교체</div>
+                <div class="dict-card-hint">B타입 최소단위: 펌프 구동 모터 1대 교체는 장기수선충당금 대상입니다.</div>
               </a>
-              <a href="repair/preset-plumb01-3.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">급수·배수·환기 · 급수설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-plumb01-3.html" class="dictionary-card" data-title="펌프 메카니컬씰/체크밸브 소모품 교체" data-badge="수선비" data-main="급수·배수·환기" data-sub="급수설비" data-hint="가이드라인 최소단위 미달: 패킹/메카니컬씰 교체는 수선유지비 집행이 가능합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">급수·배수·환기 · 급수설비</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">펌프 메카니컬씰/체크밸브 소모품 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">가이드라인 최소단위 미달: 패킹/메카니컬씰 교체는 수선유지비 집행이 가능합니다.</div>
+                <div class="dict-card-title">펌프 메카니컬씰/체크밸브 소모품 교체</div>
+                <div class="dict-card-hint">가이드라인 최소단위 미달: 패킹/메카니컬씰 교체는 수선유지비 집행이 가능합니다.</div>
               </a>
-              <a href="repair/preset-plumb02-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">급수·배수·환기 · 배수설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-plumb02-1.html" class="dictionary-card" data-title="집수정 수중 배수펌프 1대 본체 전면 교체" data-badge="장충금" data-main="급수·배수·환기" data-sub="배수설비" data-hint="B타입 최소단위: 배수펌프 1대 완제품 교체는 장기수선충당금 전면수선입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">급수·배수·환기 · 배수설비</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">집수정 수중 배수펌프 1대 본체 전면 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">B타입 최소단위: 배수펌프 1대 완제품 교체는 장기수선충당금 전면수선입니다.</div>
+                <div class="dict-card-title">집수정 수중 배수펌프 1대 본체 전면 교체</div>
+                <div class="dict-card-hint">B타입 최소단위: 배수펌프 1대 완제품 교체는 장기수선충당금 전면수선입니다.</div>
               </a>
-              <a href="repair/preset-plumb02-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">급수·배수·환기 · 배수설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-plumb02-2.html" class="dictionary-card" data-title="오뚝이볼(수위센서/플로트스위치) 단품 교체" data-badge="수선비" data-main="급수·배수·환기" data-sub="배수설비" data-hint="가이드라인 최소단위 미달: 오뚝이볼 수위조절 센서는 소모품으로 수선유지비 처리합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">급수·배수·환기 · 배수설비</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">오뚝이볼(수위센서/플로트스위치) 단품 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">가이드라인 최소단위 미달: 오뚝이볼 수위조절 센서는 소모품으로 수선유지비 처리합니다.</div>
+                <div class="dict-card-title">오뚝이볼(수위센서/플로트스위치) 단품 교체</div>
+                <div class="dict-card-hint">가이드라인 최소단위 미달: 오뚝이볼 수위조절 센서는 소모품으로 수선유지비 처리합니다.</div>
               </a>
-              <a href="repair/preset-plumb02-3.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">급수·배수·환기 · 배수설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-plumb02-3.html" class="dictionary-card" data-title="배수펌프 토출측 체크밸브 교체" data-badge="장충금" data-main="급수·배수·환기" data-sub="배수설비" data-hint="B타입 최소단위: 주배관 밸브류 교체는 장기수선충당금 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">급수·배수·환기 · 배수설비</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">배수펌프 토출측 체크밸브 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">B타입 최소단위: 주배관 밸브류 교체는 장기수선충당금 대상입니다.</div>
+                <div class="dict-card-title">배수펌프 토출측 체크밸브 교체</div>
+                <div class="dict-card-hint">B타입 최소단위: 주배관 밸브류 교체는 장기수선충당금 대상입니다.</div>
               </a>
-              <a href="repair/preset-plumb03-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">급수·배수·환기 · 물탱크</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-plumb03-1.html" class="dictionary-card" data-title="SMC/스테인리스 저수조 1동 본체 전면 교체" data-badge="장충금" data-main="급수·배수·환기" data-sub="물탱크" data-hint="B타입 최소단위: 물탱크 1개소 전체 교체는 장기수선충당금 필수입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">급수·배수·환기 · 물탱크</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">SMC/스테인리스 저수조 1동 본체 전면 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">B타입 최소단위: 물탱크 1개소 전체 교체는 장기수선충당금 필수입니다.</div>
+                <div class="dict-card-title">SMC/스테인리스 저수조 1동 본체 전면 교체</div>
+                <div class="dict-card-hint">B타입 최소단위: 물탱크 1개소 전체 교체는 장기수선충당금 필수입니다.</div>
               </a>
-              <a href="repair/preset-plumb03-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">급수·배수·환기 · 물탱크</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-plumb03-2.html" class="dictionary-card" data-title="물탱크 정수위밸브 1개 본체 전면 교체" data-badge="장충금" data-main="급수·배수·환기" data-sub="물탱크" data-hint="B타입 최소단위: 메인 정수위밸브 1대 교체는 장기수선충당금 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">급수·배수·환기 · 물탱크</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">물탱크 정수위밸브 1개 본체 전면 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">B타입 최소단위: 메인 정수위밸브 1대 교체는 장기수선충당금 대상입니다.</div>
+                <div class="dict-card-title">물탱크 정수위밸브 1개 본체 전면 교체</div>
+                <div class="dict-card-hint">B타입 최소단위: 메인 정수위밸브 1대 교체는 장기수선충당금 대상입니다.</div>
               </a>
-              <a href="repair/preset-plumb03-3.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">급수·배수·환기 · 물탱크</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-plumb03-3.html" class="dictionary-card" data-title="물탱크 볼트 패킹 조임 및 미세 누수 보수" data-badge="수선비" data-main="급수·배수·환기" data-sub="물탱크" data-hint="탱크 본체 교체가 아닌 패킹 조임 등 일상 보수는 수선유지비로 집행합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">급수·배수·환기 · 물탱크</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">물탱크 볼트 패킹 조임 및 미세 누수 보수</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">탱크 본체 교체가 아닌 패킹 조임 등 일상 보수는 수선유지비로 집행합니다.</div>
+                <div class="dict-card-title">물탱크 볼트 패킹 조임 및 미세 누수 보수</div>
+                <div class="dict-card-hint">탱크 본체 교체가 아닌 패킹 조임 등 일상 보수는 수선유지비로 집행합니다.</div>
               </a>
-              <a href="repair/preset-plumb04-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">급수·배수·환기 · 배관설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-plumb04-1.html" class="dictionary-card" data-title="1개 동 급수 메인 입상관/횡주관 전면 교체" data-badge="장충금" data-main="급수·배수·환기" data-sub="배관설비" data-hint="A타입 최소단위: 1개동 전체 배관 교체는 장기수선충당금 전면수선입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">급수·배수·환기 · 배관설비</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">1개 동 급수 메인 입상관/횡주관 전면 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">A타입 최소단위: 1개동 전체 배관 교체는 장기수선충당금 전면수선입니다.</div>
+                <div class="dict-card-title">1개 동 급수 메인 입상관/횡주관 전면 교체</div>
+                <div class="dict-card-hint">A타입 최소단위: 1개동 전체 배관 교체는 장기수선충당금 전면수선입니다.</div>
               </a>
-              <a href="repair/preset-plumb04-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">급수·배수·환기 · 배관설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-plumb04-2.html" class="dictionary-card" data-title="공용 급수관 누수 구간 멀티클램프 응급 보수" data-badge="수선비" data-main="급수·배수·환기" data-sub="배관설비" data-hint="누수로 인한 단수 방지 긴급 클램프 체결은 긴급 수선유지비로 즉시 집행 가능합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">급수·배수·환기 · 배관설비</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">공용 급수관 누수 구간 멀티클램프 응급 보수</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">누수로 인한 단수 방지 긴급 클램프 체결은 긴급 수선유지비로 즉시 집행 가능합니다.</div>
+                <div class="dict-card-title">공용 급수관 누수 구간 멀티클램프 응급 보수</div>
+                <div class="dict-card-hint">누수로 인한 단수 방지 긴급 클램프 체결은 긴급 수선유지비로 즉시 집행 가능합니다.</div>
               </a>
-              <a href="repair/preset-plumb05-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">급수·배수·환기 · 배관설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-plumb05-1.html" class="dictionary-card" data-title="지하 횡주관 전체 고압세척 공사" data-badge="장충금" data-main="급수·배수·환기" data-sub="배관설비" data-hint="단지 전체 횡주관 계획 세척은 장기수선계획 수립 후 장충금 집행 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">급수·배수·환기 · 배관설비</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">지하 횡주관 전체 고압세척 공사</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">단지 전체 횡주관 계획 세척은 장기수선계획 수립 후 장충금 집행 대상입니다.</div>
+                <div class="dict-card-title">지하 횡주관 전체 고압세척 공사</div>
+                <div class="dict-card-hint">단지 전체 횡주관 계획 세척은 장기수선계획 수립 후 장충금 집행 대상입니다.</div>
               </a>
-              <a href="repair/preset-plumb05-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">급수·배수·환기 · 배관설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-plumb05-2.html" class="dictionary-card" data-title="배수 횡주관 파열 부위 배관 구간 교체" data-badge="장충금" data-main="급수·배수·환기" data-sub="배관설비" data-hint="시행규칙 [별표 1]: 배수관은 부분수리가 법에 명시되어 있어 장충금으로 집행해야 합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">급수·배수·환기 · 배관설비</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">배수 횡주관 파열 부위 배관 구간 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">시행규칙 [별표 1]: 배수관은 부분수리가 법에 명시되어 있어 장충금으로 집행해야 합니다.</div>
+                <div class="dict-card-title">배수 횡주관 파열 부위 배관 구간 교체</div>
+                <div class="dict-card-hint">시행규칙 [별표 1]: 배수관은 부분수리가 법에 명시되어 있어 장충금으로 집행해야 합니다.</div>
               </a>
-              <a href="repair/preset-plumb05-3.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">급수·배수·환기 · 배관설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-plumb05-3.html" class="dictionary-card" data-title="막힌 공용 배수관 단순 전동스프링 통수" data-badge="수선비" data-main="급수·배수·환기" data-sub="배관설비" data-hint="배관 교체가 없는 단순 막힘 뚫음 통수 작업은 수선유지비로 집행합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">급수·배수·환기 · 배관설비</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">막힌 공용 배수관 단순 전동스프링 통수</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">배관 교체가 없는 단순 막힘 뚫음 통수 작업은 수선유지비로 집행합니다.</div>
+                <div class="dict-card-title">막힌 공용 배수관 단순 전동스프링 통수</div>
+                <div class="dict-card-hint">배관 교체가 없는 단순 막힘 뚫음 통수 작업은 수선유지비로 집행합니다.</div>
               </a>
-              <a href="repair/preset-plumb06-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">급수·배수·환기 · 밸브류</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-plumb06-1.html" class="dictionary-card" data-title="공용 메인 배관 감압밸브/게이트밸브 전면 교체" data-badge="장충금" data-main="급수·배수·환기" data-sub="밸브류" data-hint="B타입 최소단위: 메인 밸브 1개 본체 교체는 장기수선충당금 전면수선입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">급수·배수·환기 · 밸브류</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">공용 메인 배관 감압밸브/게이트밸브 전면 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">B타입 최소단위: 메인 밸브 1개 본체 교체는 장기수선충당금 전면수선입니다.</div>
+                <div class="dict-card-title">공용 메인 배관 감압밸브/게이트밸브 전면 교체</div>
+                <div class="dict-card-hint">B타입 최소단위: 메인 밸브 1개 본체 교체는 장기수선충당금 전면수선입니다.</div>
               </a>
-              <a href="repair/preset-plumb06-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">급수·배수·환기 · 밸브류</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-plumb06-2.html" class="dictionary-card" data-title="밸브 핸들 파손 교체 및 글랜드 패킹 조임" data-badge="수선비" data-main="급수·배수·환기" data-sub="밸브류" data-hint="밸브 본체 교체가 아닌 패킹 조임 등 일상 보수는 수선유지비 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">급수·배수·환기 · 밸브류</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">밸브 핸들 파손 교체 및 글랜드 패킹 조임</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">밸브 본체 교체가 아닌 패킹 조임 등 일상 보수는 수선유지비 대상입니다.</div>
+                <div class="dict-card-title">밸브 핸들 파손 교체 및 글랜드 패킹 조임</div>
+                <div class="dict-card-hint">밸브 본체 교체가 아닌 패킹 조임 등 일상 보수는 수선유지비 대상입니다.</div>
               </a>
-              <a href="repair/preset-heat01-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">난방 및 급탕 · 열원기기</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-heat01-1.html" class="dictionary-card" data-title="지역난방 판형 열교환기 본체 1대 전면 교체" data-badge="장충금" data-main="난방 및 급탕" data-sub="열원기기" data-hint="B타입 최소단위: 열교환기 1대 본체 교체는 장기수선충당금 전면수선입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">난방 및 급탕 · 열원기기</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">지역난방 판형 열교환기 본체 1대 전면 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">B타입 최소단위: 열교환기 1대 본체 교체는 장기수선충당금 전면수선입니다.</div>
+                <div class="dict-card-title">지역난방 판형 열교환기 본체 1대 전면 교체</div>
+                <div class="dict-card-hint">B타입 최소단위: 열교환기 1대 본체 교체는 장기수선충당금 전면수선입니다.</div>
               </a>
-              <a href="repair/preset-heat01-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">난방 및 급탕 · 열원기기</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-heat01-2.html" class="dictionary-card" data-title="열교환기 플레이트/가스켓 분해 세척 보수" data-badge="장충금" data-main="난방 및 급탕" data-sub="열원기기" data-hint="시행규칙 [별표 1]: 열교환기는 부분수리가 법에 명시되어 있어 장충금으로 집행해야 합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">난방 및 급탕 · 열원기기</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">열교환기 플레이트/가스켓 분해 세척 보수</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">시행규칙 [별표 1]: 열교환기는 부분수리가 법에 명시되어 있어 장충금으로 집행해야 합니다.</div>
+                <div class="dict-card-title">열교환기 플레이트/가스켓 분해 세척 보수</div>
+                <div class="dict-card-hint">시행규칙 [별표 1]: 열교환기는 부분수리가 법에 명시되어 있어 장충금으로 집행해야 합니다.</div>
               </a>
-              <a href="repair/preset-heat02-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">난방 및 급탕 · 열원기기</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-heat02-1.html" class="dictionary-card" data-title="중앙난방 온수보일러 본체 1대 전면 교체" data-badge="장충금" data-main="난방 및 급탕" data-sub="열원기기" data-hint="B타입 최소단위: 보일러 1대 본체 교체는 장기수선충당금 전면수선입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">난방 및 급탕 · 열원기기</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">중앙난방 온수보일러 본체 1대 전면 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">B타입 최소단위: 보일러 1대 본체 교체는 장기수선충당금 전면수선입니다.</div>
+                <div class="dict-card-title">중앙난방 온수보일러 본체 1대 전면 교체</div>
+                <div class="dict-card-hint">B타입 최소단위: 보일러 1대 본체 교체는 장기수선충당금 전면수선입니다.</div>
               </a>
-              <a href="repair/preset-heat02-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">난방 및 급탕 · 열원기기</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-heat02-2.html" class="dictionary-card" data-title="보일러 버너(Burner) 전면 교체" data-badge="장충금" data-main="난방 및 급탕" data-sub="열원기기" data-hint="B타입 최소단위: 버너 1대 완제품 교체는 장기수선충당금 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">난방 및 급탕 · 열원기기</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">보일러 버너(Burner) 전면 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">B타입 최소단위: 버너 1대 완제품 교체는 장기수선충당금 대상입니다.</div>
+                <div class="dict-card-title">보일러 버너(Burner) 전면 교체</div>
+                <div class="dict-card-hint">B타입 최소단위: 버너 1대 완제품 교체는 장기수선충당금 대상입니다.</div>
               </a>
-              <a href="repair/preset-heat02-3.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">난방 및 급탕 · 열원기기</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-heat02-3.html" class="dictionary-card" data-title="보일러 열교환 튜브 화학세관 및 청소" data-badge="수선비" data-main="난방 및 급탕" data-sub="열원기기" data-hint="단순 정기 세관 청소는 일상 관리 수선유지비로 집행 가능합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">난방 및 급탕 · 열원기기</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">보일러 열교환 튜브 화학세관 및 청소</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">단순 정기 세관 청소는 일상 관리 수선유지비로 집행 가능합니다.</div>
+                <div class="dict-card-title">보일러 열교환 튜브 화학세관 및 청소</div>
+                <div class="dict-card-hint">단순 정기 세관 청소는 일상 관리 수선유지비로 집행 가능합니다.</div>
               </a>
-              <a href="repair/preset-heat03-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">난방 및 급탕 · 순환설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-heat03-1.html" class="dictionary-card" data-title="난방/급탕 순환펌프 1대 본체 전면 교체" data-badge="장충금" data-main="난방 및 급탕" data-sub="순환설비" data-hint="B타입 최소단위: 순환펌프 1대 완제품 교체는 장기수선충당금 전면수선입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">난방 및 급탕 · 순환설비</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">난방/급탕 순환펌프 1대 본체 전면 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">B타입 최소단위: 순환펌프 1대 완제품 교체는 장기수선충당금 전면수선입니다.</div>
+                <div class="dict-card-title">난방/급탕 순환펌프 1대 본체 전면 교체</div>
+                <div class="dict-card-hint">B타입 최소단위: 순환펌프 1대 완제품 교체는 장기수선충당금 전면수선입니다.</div>
               </a>
-              <a href="repair/preset-heat03-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">난방 및 급탕 · 순환설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-heat03-2.html" class="dictionary-card" data-title="순환펌프 모터 권선 수리 및 베어링 교체" data-badge="수선비" data-main="난방 및 급탕" data-sub="순환설비" data-hint="펌프 본체 교체가 아닌 내부 베어링 교체 및 권선 수리는 수선유지비 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">난방 및 급탕 · 순환설비</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">순환펌프 모터 권선 수리 및 베어링 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">펌프 본체 교체가 아닌 내부 베어링 교체 및 권선 수리는 수선유지비 대상입니다.</div>
+                <div class="dict-card-title">순환펌프 모터 권선 수리 및 베어링 교체</div>
+                <div class="dict-card-hint">펌프 본체 교체가 아닌 내부 베어링 교체 및 권선 수리는 수선유지비 대상입니다.</div>
               </a>
-              <a href="repair/preset-heat04-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">난방 및 급탕 · 배관설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-heat04-1.html" class="dictionary-card" data-title="1개 동 난방 공급/환수 배관 전면 교체" data-badge="장충금" data-main="난방 및 급탕" data-sub="배관설비" data-hint="A타입 최소단위: 1개동 전체 배관 교체는 장기수선충당금 전면수선입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">난방 및 급탕 · 배관설비</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">1개 동 난방 공급/환수 배관 전면 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">A타입 최소단위: 1개동 전체 배관 교체는 장기수선충당금 전면수선입니다.</div>
+                <div class="dict-card-title">1개 동 난방 공급/환수 배관 전면 교체</div>
+                <div class="dict-card-hint">A타입 최소단위: 1개동 전체 배관 교체는 장기수선충당금 전면수선입니다.</div>
               </a>
-              <a href="repair/preset-heat04-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">난방 및 급탕 · 배관설비</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-heat04-2.html" class="dictionary-card" data-title="난방 주배관 누수 부위 용접 땜질 및 보온재 보수" data-badge="수선비" data-main="난방 및 급탕" data-sub="배관설비" data-hint="긴급 누수 부위 국소 용접 및 보온재 재시공은 긴급 수선유지비로 가능합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">난방 및 급탕 · 배관설비</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">난방 주배관 누수 부위 용접 땜질 및 보온재 보수</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">긴급 누수 부위 국소 용접 및 보온재 재시공은 긴급 수선유지비로 가능합니다.</div>
+                <div class="dict-card-title">난방 주배관 누수 부위 용접 땜질 및 보온재 보수</div>
+                <div class="dict-card-hint">긴급 누수 부위 국소 용접 및 보온재 재시공은 긴급 수선유지비로 가능합니다.</div>
               </a>
-              <a href="repair/preset-extf01-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">옥외부대·복리시설 · 단지 포장</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-extf01-1.html" class="dictionary-card" data-title="단지 내 도로 전체 아스콘 덧씌우기/절삭포장" data-badge="장충금" data-main="옥외부대·복리시설" data-sub="단지 포장" data-hint="C타입 단지전체 최소단위: 아스콘 포장은 장기수선충당금 대표 전면수선입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">옥외부대·복리시설 · 단지 포장</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">단지 내 도로 전체 아스콘 덧씌우기/절삭포장</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">C타입 단지전체 최소단위: 아스콘 포장은 장기수선충당금 대표 전면수선입니다.</div>
+                <div class="dict-card-title">단지 내 도로 전체 아스콘 덧씌우기/절삭포장</div>
+                <div class="dict-card-hint">C타입 단지전체 최소단위: 아스콘 포장은 장기수선충당금 대표 전면수선입니다.</div>
               </a>
-              <a href="repair/preset-extf01-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">옥외부대·복리시설 · 단지 포장</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-extf01-2.html" class="dictionary-card" data-title="단지 도로 포트홀 1~2개 상온아스콘 국소 땜질" data-badge="수선비" data-main="옥외부대·복리시설" data-sub="단지 포장" data-hint="가이드라인 최소단위 미달: 포트홀 안전사고 방지 국소 땜질은 수선유지비 집행 가능합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">옥외부대·복리시설 · 단지 포장</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">단지 도로 포트홀 1~2개 상온아스콘 국소 땜질</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">가이드라인 최소단위 미달: 포트홀 안전사고 방지 국소 땜질은 수선유지비 집행 가능합니다.</div>
+                <div class="dict-card-title">단지 도로 포트홀 1~2개 상온아스콘 국소 땜질</div>
+                <div class="dict-card-hint">가이드라인 최소단위 미달: 포트홀 안전사고 방지 국소 땜질은 수선유지비 집행 가능합니다.</div>
               </a>
-              <a href="repair/preset-extf02-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">옥외부대·복리시설 · 단지 포장</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-extf02-1.html" class="dictionary-card" data-title="단지 내 보도블록 전체 철거 후 신설 포장" data-badge="장충금" data-main="옥외부대·복리시설" data-sub="단지 포장" data-hint="C타입 단지전체 최소단위: 보도블록 전체 재포장은 장충금 집행 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">옥외부대·복리시설 · 단지 포장</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">단지 내 보도블록 전체 철거 후 신설 포장</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">C타입 단지전체 최소단위: 보도블록 전체 재포장은 장충금 집행 대상입니다.</div>
+                <div class="dict-card-title">단지 내 보도블록 전체 철거 후 신설 포장</div>
+                <div class="dict-card-hint">C타입 단지전체 최소단위: 보도블록 전체 재포장은 장충금 집행 대상입니다.</div>
               </a>
-              <a href="repair/preset-extf02-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">옥외부대·복리시설 · 단지 포장</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-extf02-2.html" class="dictionary-card" data-title="침하된 보도블록 1~2평 재배열 및 모래 채움" data-badge="수선비" data-main="옥외부대·복리시설" data-sub="단지 포장" data-hint="국소 침하 부위의 평탄화 부분 보수는 수선유지비로 집행합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">옥외부대·복리시설 · 단지 포장</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">침하된 보도블록 1~2평 재배열 및 모래 채움</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">국소 침하 부위의 평탄화 부분 보수는 수선유지비로 집행합니다.</div>
+                <div class="dict-card-title">침하된 보도블록 1~2평 재배열 및 모래 채움</div>
+                <div class="dict-card-hint">국소 침하 부위의 평탄화 부분 보수는 수선유지비로 집행합니다.</div>
               </a>
-              <a href="repair/preset-extf03-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">옥외부대·복리시설 · 담장 및 울타리</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-extf03-1.html" class="dictionary-card" data-title="단지 외곽 담장/메쉬휀스 전면 교체" data-badge="장충금" data-main="옥외부대·복리시설" data-sub="담장 및 울타리" data-hint="C타입 단지전체 최소단위: 외곽 담장 전체 교체는 장충금 집행 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">옥외부대·복리시설 · 담장 및 울타리</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">단지 외곽 담장/메쉬휀스 전면 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">C타입 단지전체 최소단위: 외곽 담장 전체 교체는 장충금 집행 대상입니다.</div>
+                <div class="dict-card-title">단지 외곽 담장/메쉬휀스 전면 교체</div>
+                <div class="dict-card-hint">C타입 단지전체 최소단위: 외곽 담장 전체 교체는 장충금 집행 대상입니다.</div>
               </a>
-              <a href="repair/preset-extf03-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">옥외부대·복리시설 · 담장 및 울타리</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-extf03-2.html" class="dictionary-card" data-title="파손된 휀스 1~2경간 부분 교체 및 용접" data-badge="수선비" data-main="옥외부대·복리시설" data-sub="담장 및 울타리" data-hint="일부 경간의 국소 용접 및 부분 보수는 수선유지비로 가능합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">옥외부대·복리시설 · 담장 및 울타리</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">파손된 휀스 1~2경간 부분 교체 및 용접</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">일부 경간의 국소 용접 및 부분 보수는 수선유지비로 가능합니다.</div>
+                <div class="dict-card-title">파손된 휀스 1~2경간 부분 교체 및 용접</div>
+                <div class="dict-card-hint">일부 경간의 국소 용접 및 부분 보수는 수선유지비로 가능합니다.</div>
               </a>
-              <a href="repair/preset-extf04-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">옥외부대·복리시설 · 어린이놀이시설</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-extf04-1.html" class="dictionary-card" data-title="어린이놀이터 메인 조합놀이대 전면 교체" data-badge="장충금" data-main="옥외부대·복리시설" data-sub="어린이놀이시설" data-hint="B타입 최소단위: 조합놀이대 1조 완제품 교체는 장기수선충당금 전면수선입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">옥외부대·복리시설 · 어린이놀이시설</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">어린이놀이터 메인 조합놀이대 전면 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">B타입 최소단위: 조합놀이대 1조 완제품 교체는 장기수선충당금 전면수선입니다.</div>
+                <div class="dict-card-title">어린이놀이터 메인 조합놀이대 전면 교체</div>
+                <div class="dict-card-hint">B타입 최소단위: 조합놀이대 1조 완제품 교체는 장기수선충당금 전면수선입니다.</div>
               </a>
-              <a href="repair/preset-extf04-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">옥외부대·복리시설 · 어린이놀이시설</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-extf04-2.html" class="dictionary-card" data-title="미끄럼틀 연결볼트 조임 및 그네 줄 1개 교체" data-badge="수선비" data-main="옥외부대·복리시설" data-sub="어린이놀이시설" data-hint="가이드라인 최소단위 미달: 볼트 조임 및 그네 줄 부속 교체는 수선유지비 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">옥외부대·복리시설 · 어린이놀이시설</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">미끄럼틀 연결볼트 조임 및 그네 줄 1개 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">가이드라인 최소단위 미달: 볼트 조임 및 그네 줄 부속 교체는 수선유지비 대상입니다.</div>
+                <div class="dict-card-title">미끄럼틀 연결볼트 조임 및 그네 줄 1개 교체</div>
+                <div class="dict-card-hint">가이드라인 최소단위 미달: 볼트 조임 및 그네 줄 부속 교체는 수선유지비 대상입니다.</div>
               </a>
-              <a href="repair/preset-extf05-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">옥외부대·복리시설 · 어린이놀이시설</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-extf05-1.html" class="dictionary-card" data-title="놀이터 바닥 탄성고무칩 전체 재포장" data-badge="장충금" data-main="옥외부대·복리시설" data-sub="어린이놀이시설" data-hint="A타입 최소단위: 놀이터 1개소 바닥 전체 재시공은 장기수선충당금 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">옥외부대·복리시설 · 어린이놀이시설</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">놀이터 바닥 탄성고무칩 전체 재포장</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">A타입 최소단위: 놀이터 1개소 바닥 전체 재시공은 장기수선충당금 대상입니다.</div>
+                <div class="dict-card-title">놀이터 바닥 탄성고무칩 전체 재포장</div>
+                <div class="dict-card-hint">A타입 최소단위: 놀이터 1개소 바닥 전체 재시공은 장기수선충당금 대상입니다.</div>
               </a>
-              <a href="repair/preset-extf05-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">옥외부대·복리시설 · 어린이놀이시설</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-extf05-2.html" class="dictionary-card" data-title="패임/뜯김 부위 탄성패치 국소 보수" data-badge="수선비" data-main="옥외부대·복리시설" data-sub="어린이놀이시설" data-hint="놀이터 바닥의 경미한 국소 보수는 수선유지비로 집행합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">옥외부대·복리시설 · 어린이놀이시설</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">패임/뜯김 부위 탄성패치 국소 보수</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">놀이터 바닥의 경미한 국소 보수는 수선유지비로 집행합니다.</div>
+                <div class="dict-card-title">패임/뜯김 부위 탄성패치 국소 보수</div>
+                <div class="dict-card-hint">놀이터 바닥의 경미한 국소 보수는 수선유지비로 집행합니다.</div>
               </a>
-              <a href="repair/preset-extf06-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">옥외부대·복리시설 · 보안·안내시설</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-extf06-1.html" class="dictionary-card" data-title="주차차단기 본체 1대 전체 교체" data-badge="장충금" data-main="옥외부대·복리시설" data-sub="보안·안내시설" data-hint="B타입 최소단위: 차단기 본체 1대 완제품 교체는 장기수선충당금 전면수선입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">옥외부대·복리시설 · 보안·안내시설</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">주차차단기 본체 1대 전체 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">B타입 최소단위: 차단기 본체 1대 완제품 교체는 장기수선충당금 전면수선입니다.</div>
+                <div class="dict-card-title">주차차단기 본체 1대 전체 교체</div>
+                <div class="dict-card-hint">B타입 최소단위: 차단기 본체 1대 완제품 교체는 장기수선충당금 전면수선입니다.</div>
               </a>
-              <a href="repair/preset-extf06-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">옥외부대·복리시설 · 보안·안내시설</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-extf06-2.html" class="dictionary-card" data-title="주차차단기 봉(Bar) 1개 파손 단순 교체" data-badge="수선비" data-main="옥외부대·복리시설" data-sub="보안·안내시설" data-hint="국토부 기준: 차단기 바(Bar)는 최소단위 미달 소모품으로 수선유지비 집행 가능합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">옥외부대·복리시설 · 보안·안내시설</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">주차차단기 봉(Bar) 1개 파손 단순 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">국토부 기준: 차단기 바(Bar)는 최소단위 미달 소모품으로 수선유지비 집행 가능합니다.</div>
+                <div class="dict-card-title">주차차단기 봉(Bar) 1개 파손 단순 교체</div>
+                <div class="dict-card-hint">국토부 기준: 차단기 바(Bar)는 최소단위 미달 소모품으로 수선유지비 집행 가능합니다.</div>
               </a>
-              <a href="repair/preset-extf06-3.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">옥외부대·복리시설 · 보안·안내시설</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-extf06-3.html" class="dictionary-card" data-title="차량번호인식기(LPR) 카메라 교체" data-badge="장충금" data-main="옥외부대·복리시설" data-sub="보안·안내시설" data-hint="B타입 최소단위: LPR 카메라는 독립 기능 기기로 장기수선충당금 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">옥외부대·복리시설 · 보안·안내시설</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">차량번호인식기(LPR) 카메라 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">B타입 최소단위: LPR 카메라는 독립 기능 기기로 장기수선충당금 대상입니다.</div>
+                <div class="dict-card-title">차량번호인식기(LPR) 카메라 교체</div>
+                <div class="dict-card-hint">B타입 최소단위: LPR 카메라는 독립 기능 기기로 장기수선충당금 대상입니다.</div>
               </a>
-              <a href="repair/preset-extf07-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">옥외부대·복리시설 · 조경·조성시설</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #1e3a8a; color: #ffffff;">장충금</span>
+              <a href="repair/preset-extf07-1.html" class="dictionary-card" data-title="단지 내 파고라(쉼터) 신설 및 전면 교체" data-badge="장충금" data-main="옥외부대·복리시설" data-sub="조경·조성시설" data-hint="B타입 최소단위: 파고라 1동 전면 교체는 장기수선충당금 대상입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">옥외부대·복리시설 · 조경·조성시설</span>
+                  <span class="dict-card-badge badge-reserve">장충금</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">단지 내 파고라(쉼터) 신설 및 전면 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">B타입 최소단위: 파고라 1동 전면 교체는 장기수선충당금 대상입니다.</div>
+                <div class="dict-card-title">단지 내 파고라(쉼터) 신설 및 전면 교체</div>
+                <div class="dict-card-hint">B타입 최소단위: 파고라 1동 전면 교체는 장기수선충당금 대상입니다.</div>
               </a>
-              <a href="repair/preset-extf07-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">옥외부대·복리시설 · 조경·조성시설</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">수선비</span>
+              <a href="repair/preset-extf07-2.html" class="dictionary-card" data-title="야외 평의자/벤치 목재 살 1~2개 교체" data-badge="수선비" data-main="옥외부대·복리시설" data-sub="조경·조성시설" data-hint="벤치 파손 부위의 경미한 목재 보수는 수선유지비로 가능합니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">옥외부대·복리시설 · 조경·조성시설</span>
+                  <span class="dict-card-badge badge-repair">수선비</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">야외 평의자/벤치 목재 살 1~2개 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">벤치 파손 부위의 경미한 목재 보수는 수선유지비로 가능합니다.</div>
+                <div class="dict-card-title">야외 평의자/벤치 목재 살 1~2개 교체</div>
+                <div class="dict-card-hint">벤치 파손 부위의 경미한 목재 보수는 수선유지비로 가능합니다.</div>
               </a>
-              <a href="repair/preset-excl-1.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">공용부 · 기타</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">세대부담</span>
+              <a href="repair/preset-excl-1.html" class="dictionary-card" data-title="세대 내 싱크대 하부 배관 누수 수리" data-badge="세대부담" data-main="공용부" data-sub="기타" data-hint="관리규약 기준: 세대 내부 싱크대 및 전유 배관은 해당 입주자(세대) 자체 부담입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">공용부 · 기타</span>
+                  <span class="dict-card-badge badge-repair">세대부담</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">세대 내 싱크대 하부 배관 누수 수리</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">관리규약 기준: 세대 내부 싱크대 및 전유 배관은 해당 입주자(세대) 자체 부담입니다.</div>
+                <div class="dict-card-title">세대 내 싱크대 하부 배관 누수 수리</div>
+                <div class="dict-card-hint">관리규약 기준: 세대 내부 싱크대 및 전유 배관은 해당 입주자(세대) 자체 부담입니다.</div>
               </a>
-              <a href="repair/preset-excl-2.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">공용부 · 기타</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">세대부담</span>
+              <a href="repair/preset-excl-2.html" class="dictionary-card" data-title="세대 현관 디지털 도어락 신규 교체" data-badge="세대부담" data-main="공용부" data-sub="기타" data-hint="세대 현관 방화문 내부의 디지털 도어락은 전유물로서 개별 세대 부담입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">공용부 · 기타</span>
+                  <span class="dict-card-badge badge-repair">세대부담</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">세대 현관 디지털 도어락 신규 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">세대 현관 방화문 내부의 디지털 도어락은 전유물로서 개별 세대 부담입니다.</div>
+                <div class="dict-card-title">세대 현관 디지털 도어락 신규 교체</div>
+                <div class="dict-card-hint">세대 현관 방화문 내부의 디지털 도어락은 전유물로서 개별 세대 부담입니다.</div>
               </a>
-              <a href="repair/preset-excl-3.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">공용부 · 기타</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">세대부담</span>
+              <a href="repair/preset-excl-3.html" class="dictionary-card" data-title="세대 화장실 양변기/세면대 교체" data-badge="세대부담" data-main="공용부" data-sub="기타" data-hint="세대 전유 위생도기는 장충금/관리비 집행 불가하며 개별 세대 부담입니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">공용부 · 기타</span>
+                  <span class="dict-card-badge badge-repair">세대부담</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">세대 화장실 양변기/세면대 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">세대 전유 위생도기는 장충금/관리비 집행 불가하며 개별 세대 부담입니다.</div>
+                <div class="dict-card-title">세대 화장실 양변기/세면대 교체</div>
+                <div class="dict-card-hint">세대 전유 위생도기는 장충금/관리비 집행 불가하며 개별 세대 부담입니다.</div>
               </a>
-              <a href="repair/preset-excl-4.html" style="display: block; padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: inherit; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.15s ease, border-color 0.15s ease;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">공용부 · 기타</span>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #047857; color: #ffffff;">세대부담</span>
+              <a href="repair/preset-excl-4.html" class="dictionary-card" data-title="세대 월패드/인터폰 개별 세대 교체" data-badge="세대부담" data-main="공용부" data-sub="기타" data-hint="단지 전체 홈넷 메인 서버가 아닌 세대 단말기 개별 고장은 단지 규약에 따라 전유 처리됩니다.">
+                <div class="dict-card-header">
+                  <span class="dict-card-cat">공용부 · 기타</span>
+                  <span class="dict-card-badge badge-repair">세대부담</span>
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.4; margin-bottom: 6px;">세대 월패드/인터폰 개별 세대 교체</div>
-                <div style="font-size: 0.8rem; color: #64748b; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">단지 전체 홈넷 메인 서버가 아닌 세대 단말기 개별 고장은 단지 규약에 따라 전유 처리됩니다.</div>
+                <div class="dict-card-title">세대 월패드/인터폰 개별 세대 교체</div>
+                <div class="dict-card-hint">단지 전체 홈넷 메인 서버가 아닌 세대 단말기 개별 고장은 단지 규약에 따라 전유 처리됩니다.</div>
               </a>
               <!-- DICTIONARY_GRID_END -->
             </div>

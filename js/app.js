@@ -838,6 +838,94 @@ document.addEventListener('DOMContentLoaded', () => {
     `).join('');
   }
 
+  // =========================================================================
+  // 9. View 5: 113선 공종별 백과사전 실시간 검색 & 카테고리 필터
+  // =========================================================================
+  function initDictionarySearch() {
+    const searchInput = document.getElementById('dict-search-input');
+    const clearBtn = document.getElementById('dict-search-clear');
+    const chipButtons = document.querySelectorAll('#dict-filter-chips .dict-chip');
+    const countDisplay = document.getElementById('dict-count-display');
+    const emptyState = document.getElementById('dict-empty-state');
+    const grid = document.getElementById('dictionary-list-grid');
+
+    if (!searchInput || !grid) return;
+
+    let activeFilter = 'all';
+
+    function filterDictionaryCards() {
+      const query = searchInput.value.trim().toLowerCase();
+      const cards = grid.querySelectorAll('.dictionary-card');
+      let visibleCount = 0;
+
+      if (clearBtn) {
+        clearBtn.style.display = query ? 'flex' : 'none';
+      }
+
+      cards.forEach(card => {
+        const title = (card.dataset.title || card.textContent || '').toLowerCase();
+        const badge = (card.dataset.badge || '').toLowerCase();
+        const mainCat = (card.dataset.main || '').toLowerCase();
+        const subCat = (card.dataset.sub || '').toLowerCase();
+        const hint = (card.dataset.hint || '').toLowerCase();
+
+        // 1. Category Chip Matching
+        let matchesCategory = false;
+        if (activeFilter === 'all') {
+          matchesCategory = true;
+        } else if (activeFilter === 'reserve') {
+          matchesCategory = badge === '장충금';
+        } else if (activeFilter === 'repair') {
+          matchesCategory = badge === '수선비' || badge === '수선유지비';
+        } else {
+          matchesCategory = mainCat.includes(activeFilter.toLowerCase()) || subCat.includes(activeFilter.toLowerCase());
+        }
+
+        // 2. Text Search Query Matching
+        let matchesQuery = true;
+        if (query) {
+          matchesQuery = title.includes(query) || hint.includes(query) || mainCat.includes(query) || subCat.includes(query);
+        }
+
+        if (matchesCategory && matchesQuery) {
+          card.style.display = 'block';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      if (countDisplay) {
+        countDisplay.textContent = visibleCount;
+      }
+
+      if (emptyState) {
+        emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+      }
+    }
+
+    searchInput.addEventListener('input', filterDictionaryCards);
+
+    if (clearBtn) {
+      clearBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        searchInput.focus();
+        filterDictionaryCards();
+      });
+    }
+
+    chipButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        chipButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeFilter = btn.dataset.filter || 'all';
+        filterDictionaryCards();
+      });
+    });
+  }
+
+  initDictionarySearch();
+
   // 초기 상태 및 URL 파라미터 연동 (?preset=PRESET-EXT01-1, ?tab=dictionary 등)
   const urlParams = new URLSearchParams(window.location.search);
   const tabParam = urlParams.get('tab');
