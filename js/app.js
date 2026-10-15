@@ -7,6 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize Decision Engine
   const engine = new RepairDecisionEngine(window.APP_DATA);
 
+  // GA4 Event Tracking Helper
+  function trackEvent(eventName, params = {}) {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', eventName, params);
+    }
+  }
+
   // 1. Navigation & Tab Switching
   const navLinks = document.querySelectorAll('.sidebar-nav-list .navy-nav-link');
   const tabButtons = document.querySelectorAll('.tab-nav-row .work-tab-button');
@@ -563,6 +570,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // 사용자가 '검토 실행' 버튼을 명시적으로 눌렀을 때만 부드럽게 스크롤 이동
     if (shouldScroll) {
       officialReportCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      trackEvent('evaluator_run', {
+        work_name: workName,
+        fund_type: res.fundType
+      });
     }
   }
 
@@ -585,6 +596,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const kakaoText = engine.formatKakaoSummary(latestResult, latestWorkName) + 
       `\n\n🔗 이 판별 결과 바로가기:\n${shareUrl}`;
     copyTextToClipboard(kakaoText, '📱 동대표 카톡용 요약 및 복원 링크가 복사되었습니다!');
+    trackEvent('copy_summary', { work_name: latestWorkName, format: 'kakao' });
   });
 
   copyFullDocBtn.addEventListener('click', () => {
@@ -593,6 +605,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const fullText = engine.formatFullDocText(latestResult, latestWorkName) + 
       `\n\n[온라인 실시간 검토 링크]\n${shareUrl}`;
     copyTextToClipboard(fullText, '📄 검토의견서 전문 및 바로가기 링크가 복사되었습니다.');
+    trackEvent('copy_summary', { work_name: latestWorkName, format: 'full_doc' });
   });
 
   if (downloadPdfBtn) {
@@ -626,6 +639,7 @@ document.addEventListener('DOMContentLoaded', () => {
         downloadPdfBtn.innerHTML = origText;
         downloadPdfBtn.disabled = false;
         showToast('💾 공문서 PDF 저장이 완료되었습니다!');
+        trackEvent('pdf_download', { work_name: latestWorkName });
       }).catch(err => {
         console.error('PDF generation error:', err);
         if (actionButtons) actionButtons.style.display = 'flex';
@@ -877,6 +891,8 @@ document.addEventListener('DOMContentLoaded', () => {
           matchesCategory = badge === '장충금';
         } else if (activeFilter === 'repair') {
           matchesCategory = badge === '수선비' || badge === '수선유지비';
+        } else if (activeFilter === 'household') {
+          matchesCategory = badge === '세대부담';
         } else {
           matchesCategory = mainCat.includes(activeFilter.toLowerCase()) || subCat.includes(activeFilter.toLowerCase());
         }
@@ -904,7 +920,17 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    searchInput.addEventListener('input', filterDictionaryCards);
+    let searchDebounceTimer;
+    searchInput.addEventListener('input', () => {
+      filterDictionaryCards();
+      const q = searchInput.value.trim();
+      clearTimeout(searchDebounceTimer);
+      if (q.length >= 2) {
+        searchDebounceTimer = setTimeout(() => {
+          trackEvent('dict_search', { search_term: q });
+        }, 800);
+      }
+    });
 
     if (clearBtn) {
       clearBtn.addEventListener('click', () => {
@@ -936,8 +962,8 @@ document.addEventListener('DOMContentLoaded', () => {
     switchTab(formattedTab);
   }
 
-  if (presetParam && window.APP_DATA && Array.isArray(window.APP_DATA.presets)) {
-    const targetPreset = window.APP_DATA.presets.find(p => p.id.toUpperCase() === presetParam.toUpperCase());
+  if (presetParam && window.APP_DATA && Array.isArray(window.APP_DATA.workPresets)) {
+    const targetPreset = window.APP_DATA.workPresets.find(p => p.id.toUpperCase() === presetParam.toUpperCase());
     if (targetPreset) {
       workInput.value = targetPreset.title;
       applyPresetCriteria(targetPreset);

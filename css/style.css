@@ -1556,6 +1556,12 @@ body {
   border: 1px solid #a7f3d0;
 }
 
+.dict-card-badge.badge-household {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+}
+
 .dict-card-title {
   font-size: 0.95rem;
   font-weight: 700;
@@ -1572,4 +1578,32 @@ body {
   white-space: nowrap;
   overflow: hidden;
 }
+
+/* 메인 보고서 하단 법적 면책 고지 배너 */
+.report-disclaimer-box {
+  margin-top: 24px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #64748b;
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+}
+
+.disclaimer-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #334155;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.disclaimer-text {
+  font-size: 0.78rem;
+  color: #64748b;
+  line-height: 1.55;
+  margin: 0;
+}
+
 

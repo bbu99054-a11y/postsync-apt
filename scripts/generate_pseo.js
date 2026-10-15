@@ -64,18 +64,35 @@ presets.forEach((preset, index) => {
   const canonicalUrl = `https://apt.postsyncapp.com/repair/${fileName}`;
   generatedUrls.push(canonicalUrl);
 
+  const isHousehold = preset.badge === '세대부담';
   const isReserve = preset.badge === '장충금';
-  const badgeBg = isReserve ? '#1d4ed8' : '#059669';
-  const badgeLightBg = isReserve ? '#eff6ff' : '#ecfdf5';
-  const badgeBorder = isReserve ? '#3b82f6' : '#10b981';
-  const badgeTextColor = isReserve ? '#1e40af' : '#065f46';
-  const badgeTitle = isReserve ? '장기수선충당금 필수 집행 대상' : '수선유지비(일반관리비) 집행 가능 항목';
-  const badgeSub = isReserve 
-    ? '입주자대표회의 의결 및 장기수선계획 반영 필수 (소유자 부담)' 
-    : '경상적 보수 또는 최소단위 미달 공사 (입주자·세입자 부담 관리비)';
 
-  const pageTitle = `${escapeHtml(preset.title)} - 장기수선충당금 vs 수선유지비 판별 | 국토부 가이드라인`;
-  const pageDesc = `${escapeHtml(preset.title)} 판별 결과: [${preset.badge}]. 공동주택관리법 [별표 1] 및 국토교통부 실무 가이드라인 기준 회계 계정과목 및 감사 지적 예방 체크리스트`;
+  // Badge styling & wording 3-way branching
+  let badgeBg = '#059669';
+  let badgeLightBg = '#ecfdf5';
+  let badgeBorder = '#10b981';
+  let badgeTextColor = '#065f46';
+  let badgeTitle = '수선유지비(일반관리비) 집행 가능 항목';
+  let badgeSub = '소액·경상적 보수 또는 최소단위 미달 공사 (입주자·세입자 포함 관리비)';
+
+  if (isHousehold) {
+    badgeBg = '#475569';
+    badgeLightBg = '#f1f5f9';
+    badgeBorder = '#cbd5e1';
+    badgeTextColor = '#334155';
+    badgeTitle = '세대(입주자) 개별 부담 대상 (관리비 집행 불가)';
+    badgeSub = '전유부분 설비·소모품으로 공용 관리비 및 장충금 지출 불가 (세대 자체 수리)';
+  } else if (isReserve) {
+    badgeBg = '#1d4ed8';
+    badgeLightBg = '#eff6ff';
+    badgeBorder = '#3b82f6';
+    badgeTextColor = '#1e40af';
+    badgeTitle = '장기수선충당금 집행 검토 대상';
+    badgeSub = '입주자대표회의 의결 및 장기수선계획 수시조정 반영 검토 (소유자 부담)';
+  }
+
+  const pageTitle = `${escapeHtml(preset.title)} - 장충금 vs 수선비 구분 가이드 | 국토부 실무 기준`;
+  const pageDesc = `${escapeHtml(preset.title)} 검토 의견: [${preset.badge}]. 공동주택관리법 시행규칙 [별표 1] 및 국토교통부 실무 가이드라인 기준 참고용 사전 검토 자료`;
 
   const html = `<!DOCTYPE html>
 <html lang="ko">
@@ -88,6 +105,16 @@ presets.forEach((preset, index) => {
   <link rel="canonical" href="${canonicalUrl}">
   <meta name="google-site-verification" content="ugoQGlNSdScisq23rSDCxHIZad-HlZLatf1TUZ5006A">
   <meta name="naver-site-verification" content="e753fc2c2ccfc7188552b45f7e1a4dec559d09f6">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWJER4PB2N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-PWJER4PB2N');
+  </script>
 
   <!-- Open Graph -->
   <meta property="og:type" content="article">
@@ -247,6 +274,17 @@ presets.forEach((preset, index) => {
       color: #991b1b;
       line-height: 1.6;
     }
+    .pseo-disclaimer-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-left: 4px solid #64748b;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-top: 16px;
+      font-size: 13px;
+      color: #475569;
+      line-height: 1.6;
+    }
     .share-action-bar {
       display: flex;
       gap: 10px;
@@ -322,7 +360,7 @@ presets.forEach((preset, index) => {
     }
     @media print {
       body { background: #fff !important; }
-      .pseo-breadcrumb, .share-action-bar, .pseo-cta-card, .pseo-back-nav { display: none !important; }
+      .pseo-breadcrumb, .share-action-bar, .pseo-cta-card, .pseo-back-nav, .pseo-disclaimer-box { display: none !important; }
       .pseo-container { padding: 0 !important; max-width: 100% !important; }
       .pseo-hero-card, .pseo-section { border: 1px solid #ccc !important; box-shadow: none !important; margin-bottom: 16px !important; }
     }
@@ -364,7 +402,7 @@ presets.forEach((preset, index) => {
             "name": "${escapeHtml(preset.title)} 공사는 어떤 재원으로 지출해야 하나요?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "판별 결과 [${escapeHtml(preset.badge)}] 집행 대상입니다. ${escapeHtml(preset.hint)}"
+              "text": "사전 검토 의견: [${escapeHtml(preset.badge)}] 구분 대상입니다. ${escapeHtml(preset.hint)}"
             }
           },
           {
@@ -397,7 +435,7 @@ presets.forEach((preset, index) => {
     <header class="pseo-hero-card">
       <span class="pseo-badge-pill">
         <span>●</span>
-        <span>공동주택관리법 [별표 1] 법정 공종</span>
+        <span>공동주택관리법 [별표 1] 관련 공종</span>
       </span>
       <h1 class="pseo-h1">${escapeHtml(preset.title)}</h1>
       <p style="font-size: 15px; color: #475569; margin: 0; line-height: 1.6;">
@@ -405,16 +443,21 @@ presets.forEach((preset, index) => {
       </p>
 
       <div class="pseo-verdict-box">
-        <div class="pseo-verdict-title">판정 결과: [${escapeHtml(preset.badge)}] ${badgeTitle}</div>
+        <div class="pseo-verdict-title">검토 의견: [${escapeHtml(preset.badge)}] ${badgeTitle}</div>
         <div class="pseo-verdict-sub">${badgeSub}</div>
         <div style="margin-top: 10px; font-size: 14px; color: #1e293b; font-weight: 600;">
-          📌 <strong>핵심 판별 근거:</strong> ${escapeHtml(preset.hint)}
+          📌 <strong>핵심 판단 근거:</strong> ${escapeHtml(preset.hint)}
         </div>
       </div>
 
       <!-- Risk Alert -->
       <div class="risk-alert-box">
-        ⚠️ <strong>지자체 감사 과태료 주의:</strong> 장기수선계획에 반영된 공사를 관리비(수선유지비)로 부당 집행하거나, 반대로 소유자 장충금을 일반 수선에 유용할 경우 <strong>공동주택관리법 제90조 제3항 위반으로 최대 1,000만원 이하의 과태료</strong>가 부과될 수 있습니다.
+        ⚠️ <strong>공사비 집행 시 법적 주의:</strong> 장기수선계획에 반영된 공사를 일반 관리비(수선유지비)로 부당 전가하거나 장기수선충당금을 목적 외로 사용할 경우, 공동주택관리법령에 따라 <strong>지자체 행정지도 및 과태료 부과 대상</strong>이 될 수 있습니다.
+      </div>
+
+      <!-- Legal Disclaimer -->
+      <div class="pseo-disclaimer-box">
+        ⚖️ <strong>법적 면책 고지:</strong> 본 검토 의견은 공동주택관리법령, 시행규칙 [별표 1], 국토교통부 실무 가이드라인 및 공개 행정해석을 바탕으로 산출된 <strong>사전 참고용 자료</strong>이며 법적 구속력이 없습니다. 실제 집행 시에는 관할 지자체의 행정지도, 단지 관리규약 및 장기수선계획서를 반드시 최종 대조하시기 바라며, 최종 판단과 집행 책임은 해당 관리주체에 있습니다.
       </div>
 
       <!-- Action Buttons -->
@@ -511,6 +554,14 @@ presets.forEach((preset, index) => {
     <div class="pseo-back-nav">
       <a href="../index.html#tab-dictionary">← 공종별 백과 113선 목록으로 돌아가기</a>
     </div>
+
+    <!-- Bottom Footer -->
+    <footer style="margin-top: 48px; padding-top: 20px; border-top: 1px solid #e2e8f0; font-size: 13px; color: #64748b; text-align: center;">
+      <div>© 2026 장충금·수선유지비 판별기 · 아파트 공사 재원 사전검토 시스템</div>
+      <div style="margin-top: 6px;">
+        <a href="../privacy.html" style="color: #475569; text-decoration: none; font-weight: 600;">개인정보처리방침</a>
+      </div>
+    </footer>
   </div>
 
   <script>
@@ -518,13 +569,42 @@ presets.forEach((preset, index) => {
       const summaryText = 
 \`[아파트 공사 재원 사전검토 의견서]
 - 공사명: ${escapeHtml(preset.title).replace(/&#39;/g, "'")}
-- 판별결과: [${preset.badge}] ${badgeTitle}
+- 검토의견: [${preset.badge}] ${badgeTitle}
 - 핵심근거: ${escapeHtml(preset.hint).replace(/&#39;/g, "'")}
-- 법적주의: 공동주택관리법 제90조제3항 오집행 시 과태료 최대 1,000만원
+- 법적주의: 장충금·수선비 용도 외 사용 시 지자체 과태료 부과 대상 (참고용 자료)
 상세보기: ${canonicalUrl}\`;
 
-      try {
-        await navigator.clipboard.writeText(summaryText);
+      let success = false;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        try {
+          await navigator.clipboard.writeText(summaryText);
+          success = true;
+        } catch (e) {
+          success = false;
+        }
+      }
+
+      if (!success) {
+        try {
+          const t = document.createElement('textarea');
+          t.value = summaryText;
+          t.style.position = 'fixed';
+          t.style.top = '-9999px';
+          t.style.left = '-9999px';
+          document.body.appendChild(t);
+          t.focus();
+          t.select();
+          success = document.execCommand('copy');
+          document.body.removeChild(t);
+        } catch (err) {
+          success = false;
+        }
+      }
+
+      if (success) {
+        if (typeof gtag === 'function') {
+          gtag('event', 'copy_summary', { work_title: '${escapeHtml(preset.title).replace(/&#39;/g, "\\'")}' });
+        }
         const originalText = this.innerHTML;
         this.innerHTML = '✅ 복사 완료! 단톡방에 붙여넣으세요';
         this.style.background = '#10b981';
@@ -534,8 +614,8 @@ presets.forEach((preset, index) => {
           this.style.background = '#fee500';
           this.style.color = '#191919';
         }, 2500);
-      } catch (err) {
-        alert('클립보드 복사에 실패했습니다. 수동으로 복사해주세요.');
+      } else {
+        prompt('아래 텍스트를 복사하여 단톡방에 공유하세요:', summaryText);
       }
     });
   </script>
@@ -582,6 +662,12 @@ let sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://apt.postsyncapp.com/privacy.html</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
 
   <!-- Programmatic SEO Pages (100+ repair cases) -->
 `;
@@ -612,9 +698,9 @@ if (fs.existsSync(INDEX_PATH)) {
     let gridCardsHtml = '\n';
     presets.forEach(p => {
       const cat = categoryMap.get(p.categoryId) || { main_category: '공용부', sub_category: '기타' };
+      const isHousehold = p.badge === '세대부담';
       const isReserve = p.badge === '장충금';
-      const badgeBg = isReserve ? '#1d4ed8' : '#059669';
-      const badgeClass = isReserve ? 'badge-reserve' : 'badge-repair';
+      const badgeClass = isHousehold ? 'badge-household' : (isReserve ? 'badge-reserve' : 'badge-repair');
       const slug = p.id.toLowerCase();
 
       gridCardsHtml += `              <a href="repair/${slug}.html" class="dictionary-card" data-title="${escapeHtml(p.title)}" data-badge="${p.badge}" data-main="${escapeHtml(cat.main_category)}" data-sub="${escapeHtml(cat.sub_category)}" data-hint="${escapeHtml(p.hint)}">
