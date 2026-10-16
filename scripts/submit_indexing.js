@@ -11,6 +11,7 @@ const crypto = require('crypto');
 
 const SITEMAP_PATH = path.join(__dirname, '..', 'sitemap.xml');
 const KEY_PATH = path.join(__dirname, '..', 'service_account.json');
+const PENDING_PATH = path.join(__dirname, '..', 'data', 'pending_indexing.json');
 
 // Base64Url helper
 function base64Url(str) {
@@ -43,21 +44,26 @@ if (!fs.existsSync(KEY_PATH)) {
 
 const keyData = JSON.parse(fs.readFileSync(KEY_PATH, 'utf8'));
 
-// 2. Read sitemap.xml & extract URLs
-if (!fs.existsSync(SITEMAP_PATH)) {
-  console.error('❌ sitemap.xml 파일을 찾을 수 없습니다.');
-  process.exit(1);
-}
+// 2. Read URLs (pending mode or full sitemap)
+const isPendingMode = process.argv.includes('--pending');
+let urls = [];
 
-const sitemapContent = fs.readFileSync(SITEMAP_PATH, 'utf8');
-const urlRegex = /<loc>(https?:\/\/[^<]+)<\/loc>/g;
-const urls = [];
-let match;
-while ((match = urlRegex.exec(sitemapContent)) !== null) {
-  urls.push(match[1]);
+if (isPendingMode && fs.existsSync(PENDING_PATH)) {
+  urls = JSON.parse(fs.readFileSync(PENDING_PATH, 'utf8'));
+  console.log(`📌 pending_indexing.json에서 대기 중인 ${urls.length}개의 URL을 불러왔습니다.`);
+} else {
+  if (!fs.existsSync(SITEMAP_PATH)) {
+    console.error('❌ sitemap.xml 파일을 찾을 수 없습니다.');
+    process.exit(1);
+  }
+  const sitemapContent = fs.readFileSync(SITEMAP_PATH, 'utf8');
+  const urlRegex = /<loc>(https?:\/\/[^<]+)<\/loc>/g;
+  let match;
+  while ((match = urlRegex.exec(sitemapContent)) !== null) {
+    urls.push(match[1]);
+  }
+  console.log(`📡 sitemap.xml에서 총 ${urls.length}개의 URL을 감지했습니다.`);
 }
-
-console.log(`📡 sitemap.xml에서 총 ${urls.length}개의 URL을 감지했습니다.`);
 
 // 3. Generate OAuth 2.0 JWT Access Token
 function getAccessToken() {
@@ -163,6 +169,7 @@ async function run() {
   console.log(`\n🚀 ${urls.length}개 URL 일괄 색인 요청 시작...\n`);
   let successCount = 0;
   let failCount = 0;
+  const failedUrls = [];
 
   for (let i = 0; i < urls.length; i++) {
     const targetUrl = urls[i];
@@ -172,12 +179,21 @@ async function run() {
       console.log(`[${i + 1}/${urls.length}] ✅ 색인 요청 성공: ${targetUrl}`);
     } else {
       failCount++;
+      failedUrls.push(targetUrl);
       console.error(`[${i + 1}/${urls.length}] ❌ 요청 실패: ${targetUrl} (Status: ${res.status})`);
       if (res.error) console.error(`   상세 사유: ${res.error}`);
     }
 
     // Rate-limit buffer (100ms)
     await new Promise(r => setTimeout(r, 100));
+  }
+
+  if (failedUrls.length > 0) {
+    fs.writeFileSync(PENDING_PATH, JSON.stringify(failedUrls, null, 2), 'utf8');
+    console.log(`\n💾 ${failedUrls.length}개의 미완료 URL이 data/pending_indexing.json에 저장되었습니다.`);
+    console.log(`   내일 오전 9시 이후 'node scripts/submit_indexing.js --pending'으로 이어서 제출할 수 있습니다.`);
+  } else if (fs.existsSync(PENDING_PATH)) {
+    fs.unlinkSync(PENDING_PATH);
   }
 
   console.log('\n================================================================');
