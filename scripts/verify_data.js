@@ -106,6 +106,28 @@ assert(sitemapText.includes('<loc>https://apt.postsyncapp.com/privacy.html</loc>
 const urlMatches = sitemapText.match(/<loc>/g) || [];
 assert(urlMatches.length === 119, `Sitemap must contain 119 total URLs (Actual: ${urlMatches.length})`);
 
+// 8. Tone & Assertive Language Check ("필수 집행" elimination)
+const presetsRaw = fs.readFileSync(path.join(DATA_DIR, 'work_presets.json'), 'utf8');
+const rulesRaw = fs.readFileSync(path.join(DATA_DIR, 'repair_rules.json'), 'utf8');
+const presetsMandatoryMatches = (presetsRaw.match(/필수\s*집행/g) || []).length;
+const rulesMandatoryMatches = (rulesRaw.match(/필수\s*집행/g) || []).length;
+assert(presetsMandatoryMatches === 0, `work_presets.json must contain 0 instances of '필수 집행' (Found: ${presetsMandatoryMatches})`);
+assert(rulesMandatoryMatches === 0, `repair_rules.json must contain 0 instances of '필수 집행' (Found: ${rulesMandatoryMatches})`);
+
+// 9. Vercel Security Headers Verification
+const VERCEL_PATH = path.join(__dirname, '..', 'vercel.json');
+assert(fs.existsSync(VERCEL_PATH), 'vercel.json must exist in project root');
+if (fs.existsSync(VERCEL_PATH)) {
+  try {
+    const vercelConfig = JSON.parse(fs.readFileSync(VERCEL_PATH, 'utf8'));
+    const allHeaders = (vercelConfig.headers || []).flatMap(h => h.headers || []);
+    const xFrameOpt = allHeaders.find(h => h.key === 'X-Frame-Options');
+    assert(xFrameOpt && xFrameOpt.value === 'DENY', 'vercel.json must configure X-Frame-Options: DENY');
+  } catch (e) {
+    assert(false, `vercel.json is invalid JSON: ${e.message}`);
+  }
+}
+
 console.log('\n====================================================');
 if (errorCount === 0) {
   console.log('🎉 ALL INTEGRITY AUDITS PASSED WITH 0 ERRORS! (Ready for promotion)');

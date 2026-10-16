@@ -119,7 +119,7 @@ presets.forEach((preset, index) => {
   }
 
   const pageTitle = `${escapeHtml(preset.title)} - 장충금 vs 수선비 구분 가이드 | 국토부 실무 기준`;
-  const pageDesc = `${escapeHtml(preset.title)} 사전 검토 의견: [${preset.badge}]. 공동주택관리법 시행규칙 [별표 1] 및 국토교통부 실무 가이드라인 기준 참고용 사전 검토 자료`;
+  const pageDesc = `${escapeHtml(preset.title)} 사전 검토 의견: [${preset.badge}]. 공동주택관리법 시행규칙 [별표 1] 및 국토교통부·중앙공동주택관리지원센터 실무 가이드라인 기준 참고용 사전 검토 자료`;
 
   const html = `<!DOCTYPE html>
 <html lang="ko">
@@ -479,7 +479,7 @@ presets.forEach((preset, index) => {
 
       <!-- Legal Disclaimer -->
       <div class="pseo-disclaimer-box">
-        ⚖️ <strong>법적 면책 고지:</strong> 본 검토 의견은 공동주택관리법령, 시행규칙 [별표 1], 국토교통부 실무 가이드라인 및 시·도 공동주택 관리규약 준칙을 바탕으로 산출된 <strong>사전 참고용 자료</strong>이며 법적 구속력이 없습니다. 실제 집행 시에는 관할 지자체의 행정지도, 단지 관리규약 및 장기수선계획서를 반드시 최종 대조하시기 바라며, 최종 판단과 집행 책임은 해당 관리주체에 있습니다.
+        ⚖️ <strong>법적 면책 고지:</strong> 본 검토 의견은 공동주택관리법령, 시행규칙 [별표 1], 국토교통부·중앙공동주택관리지원센터 발간 「장기수선계획 실무가이드라인」 및 시·도 공동주택 관리규약 준칙을 바탕으로 산출된 <strong>사전 참고용 자료</strong>이며 법적 구속력이 없습니다. 실제 집행 시에는 관할 지자체의 행정지도, 단지 관리규약 및 장기수선계획서를 반드시 최종 대조하시기 바라며, 최종 판단과 집행 책임은 해당 관리주체에 있습니다.
       </div>
 
       <!-- Action Buttons -->
@@ -551,7 +551,7 @@ presets.forEach((preset, index) => {
           </tr>
           <tr>
             <th>부분수리 규정 여부</th>
-            <td>${category.has_partial_repair ? '부분수리 법정 기준 있음 (시행규칙 [별표 1])' : '부분수리 미규정 (국토부 가이드라인 A/B/C 원칙 적용)'}</td>
+            <td>${category.has_partial_repair ? '부분수리 법정 기준 있음 (시행규칙 [별표 1])' : '부분수리 미규정 (국토교통부·중앙공동주택관리지원센터 실무가이드라인 A/B/C 원칙 적용)'}</td>
           </tr>
         </tbody>
       </table>
@@ -575,7 +575,7 @@ presets.forEach((preset, index) => {
         국토교통부 유권해석 및 법원 판례에 따르면, 세대 내부에 위치하여 특정 세대만 배타적으로 사용하는 설비는 전유부분으로 보며, 해당 공사비용을 전체 입주자가 납부하는 수선유지비나 소유자의 장기수선충당금으로 지출하는 것은 엄격히 금지됩니다.
       </p>
       ` : `
-      <h2 class="pseo-sec-title">🏛️ 국토교통부 실무 가이드라인 (A/B/C 유형) 적용</h2>
+      <h2 class="pseo-sec-title">🏛️ 국토교통부·중앙공동주택관리지원센터 실무가이드라인 (A/B/C 유형) 적용</h2>
       <div style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 16px 20px; border-radius: 10px; margin-bottom: 16px;">
         <div style="font-weight: 700; color: #1e40af; font-size: 15px; margin-bottom: 6px;">
           적용 유형: ${escapeHtml(rule.type_name)}
@@ -588,6 +588,9 @@ presets.forEach((preset, index) => {
       <p style="font-size: 14px; color: #475569; line-height: 1.6;">
         ${escapeHtml(rule.guideline_note)}
       </p>
+      <div style="font-size: 12px; color: #64748b; margin-top: 8px;">
+        출처: 국토교통부 & 한국토지주택공사(LH) 중앙공동주택관리지원센터 발간 「장기수선계획 실무가이드라인」
+      </div>
       `}
     </section>
 

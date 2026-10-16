@@ -9,7 +9,7 @@
     "isCommon": true,
     "inPlan": true,
     "isEmergency": false,
-    "hint": "A타입 공간적 최소단위: 1개동 지붕 전체 교체는 장기수선충당금 필수 집행 대상입니다."
+    "hint": "A타입 공간적 최소단위: 1개동 지붕 전체 교체는 장기수선충당금 집행 검토 대상입니다."
   },
   {
     "id": "PRESET-EXT01-2",
@@ -297,7 +297,7 @@
     "isCommon": true,
     "inPlan": true,
     "isEmergency": false,
-    "hint": "B타입 최소단위: 변압기 1대 완제품 교체는 장충금 필수 전면수선 대상입니다."
+    "hint": "B타입 최소단위: 변압기 1대 완제품 교체는 장기수선충당금 전면수선 검토 대상입니다."
   },
   {
     "id": "PRESET-ELEC02-2",
@@ -393,7 +393,7 @@
     "isCommon": true,
     "inPlan": true,
     "isEmergency": false,
-    "hint": "B타입 최소단위: 수신기 1대 본체 전면교체는 장기수선충당금 필수입니다."
+    "hint": "B타입 최소단위: 수신기 1대 본체 전면교체는 장기수선충당금 집행 검토 대상입니다."
   },
   {
     "id": "PRESET-ELEC06-2",
@@ -549,7 +549,7 @@
     "isCommon": true,
     "inPlan": true,
     "isEmergency": false,
-    "hint": "승강기 5대 핵심부품: 권상기 전면교체는 장기수선충당금 필수 대상입니다."
+    "hint": "승강기 5대 핵심부품: 권상기 전면교체는 장기수선충당금 집행 검토 대상입니다."
   },
   {
     "id": "PRESET-ELEC12-1",
@@ -585,7 +585,7 @@
     "isCommon": true,
     "inPlan": true,
     "isEmergency": false,
-    "hint": "승강기 5대 핵심부품: 제어반 전면 교체는 장기수선충당금 필수입니다."
+    "hint": "승강기 5대 핵심부품: 제어반 전면 교체는 장기수선충당금 집행 검토 대상입니다."
   },
   {
     "id": "PRESET-ELEC13-2",
@@ -909,7 +909,7 @@
     "isCommon": true,
     "inPlan": true,
     "isEmergency": false,
-    "hint": "B타입 최소단위: 물탱크 1개소 전체 교체는 장기수선충당금 필수입니다."
+    "hint": "B타입 최소단위: 물탱크 1개소 전체 교체는 장기수선충당금 집행 검토 대상입니다."
   },
   {
     "id": "PRESET-PLUMB03-2",

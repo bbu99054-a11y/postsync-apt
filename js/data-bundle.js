@@ -706,7 +706,7 @@ window.APP_DATA = {
     "type_name": "기능적 구분 (B타입)",
     "min_unit": "승강기 1대의 메인 와이어로프 전체 세트 또는 메인 쉬브 1개",
     "below_min_unit_fund": "장기수선충당금 (부분수리 없음, 전체교체 원칙)",
-    "guideline_note": "와이어로프는 1가닥만 바꿀 수 없고 전체 세트를 교체하므로 장기수선충당금 필수 집행."
+    "guideline_note": "와이어로프는 1가닥만 바꿀 수 없고 전체 세트를 교체하므로 장기수선충당금 집행 대상."
   },
   {
     "category_id": "ELEC-13",
@@ -722,7 +722,7 @@ window.APP_DATA = {
     "type_name": "기능적 구분 (B타입)",
     "min_unit": "승강기 조속기(과속안전장치) 1대 본체",
     "below_min_unit_fund": "장기수선충당금 (5대 핵심부품 전면교체)",
-    "guideline_note": "승강기 안전을 책임지는 5대 핵심부품으로, 조속기 본체 교체는 장기수선충당금 필수 집행 대상."
+    "guideline_note": "승강기 안전을 책임지는 5대 핵심부품으로, 조속기 본체 교체는 장기수선충당금 집행 검토 대상."
   },
   {
     "category_id": "ELEC-15",
@@ -1420,7 +1420,7 @@ window.APP_DATA = {
     "isCommon": true,
     "inPlan": true,
     "isEmergency": false,
-    "hint": "A타입 공간적 최소단위: 1개동 지붕 전체 교체는 장기수선충당금 필수 집행 대상입니다."
+    "hint": "A타입 공간적 최소단위: 1개동 지붕 전체 교체는 장기수선충당금 집행 검토 대상입니다."
   },
   {
     "id": "PRESET-EXT01-2",
@@ -1708,7 +1708,7 @@ window.APP_DATA = {
     "isCommon": true,
     "inPlan": true,
     "isEmergency": false,
-    "hint": "B타입 최소단위: 변압기 1대 완제품 교체는 장충금 필수 전면수선 대상입니다."
+    "hint": "B타입 최소단위: 변압기 1대 완제품 교체는 장기수선충당금 전면수선 검토 대상입니다."
   },
   {
     "id": "PRESET-ELEC02-2",
@@ -1804,7 +1804,7 @@ window.APP_DATA = {
     "isCommon": true,
     "inPlan": true,
     "isEmergency": false,
-    "hint": "B타입 최소단위: 수신기 1대 본체 전면교체는 장기수선충당금 필수입니다."
+    "hint": "B타입 최소단위: 수신기 1대 본체 전면교체는 장기수선충당금 집행 검토 대상입니다."
   },
   {
     "id": "PRESET-ELEC06-2",
@@ -1960,7 +1960,7 @@ window.APP_DATA = {
     "isCommon": true,
     "inPlan": true,
     "isEmergency": false,
-    "hint": "승강기 5대 핵심부품: 권상기 전면교체는 장기수선충당금 필수 대상입니다."
+    "hint": "승강기 5대 핵심부품: 권상기 전면교체는 장기수선충당금 집행 검토 대상입니다."
   },
   {
     "id": "PRESET-ELEC12-1",
@@ -1996,7 +1996,7 @@ window.APP_DATA = {
     "isCommon": true,
     "inPlan": true,
     "isEmergency": false,
-    "hint": "승강기 5대 핵심부품: 제어반 전면 교체는 장기수선충당금 필수입니다."
+    "hint": "승강기 5대 핵심부품: 제어반 전면 교체는 장기수선충당금 집행 검토 대상입니다."
   },
   {
     "id": "PRESET-ELEC13-2",
@@ -2320,7 +2320,7 @@ window.APP_DATA = {
     "isCommon": true,
     "inPlan": true,
     "isEmergency": false,
-    "hint": "B타입 최소단위: 물탱크 1개소 전체 교체는 장기수선충당금 필수입니다."
+    "hint": "B타입 최소단위: 물탱크 1개소 전체 교체는 장기수선충당금 집행 검토 대상입니다."
   },
   {
     "id": "PRESET-PLUMB03-2",
