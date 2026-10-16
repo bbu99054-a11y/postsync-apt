@@ -622,27 +622,68 @@ document.addEventListener('DOMContentLoaded', () => {
       downloadPdfBtn.innerHTML = '<span>⏳</span> PDF 생성 중...';
       downloadPdfBtn.disabled = true;
 
-      const actionButtons = officialReportCard.querySelector('.report-action-buttons');
-      if (actionButtons) actionButtons.style.display = 'none';
+      // 1. A4 출력을 위한 독립 클론 엘리먼트 생성 (스크롤 및 상단 여백 오프셋 버그 원천 차단)
+      const clone = officialReportCard.cloneNode(true);
+      clone.classList.add('pdf-print-mode');
+
+      // 불필요한 액션 버튼 제거
+      const cloneActionBtns = clone.querySelector('.report-action-buttons');
+      if (cloneActionBtns) cloneActionBtns.remove();
+
+      // 인쇄/PDF 전용 A4 최적화 스타일 주입
+      clone.style.margin = '0';
+      clone.style.padding = '24px 28px';
+      clone.style.width = '750px';
+      clone.style.boxSizing = 'border-box';
+      clone.style.background = '#ffffff';
+      clone.style.border = '2px solid #0f172a';
+      clone.style.borderRadius = '0px';
+      clone.style.boxShadow = 'none';
+
+      // 2. 화면 최상단(0, 0) 독립 오프스크린 샌드박스에 부착 (html2canvas 좌표계 (0,0) 보장)
+      const container = document.createElement('div');
+      container.id = 'pdf-render-sandbox';
+      container.style.position = 'fixed';
+      container.style.top = '0';
+      container.style.left = '0';
+      container.style.width = '750px';
+      container.style.zIndex = '-9999';
+      container.style.background = '#ffffff';
+      container.style.overflow = 'visible';
+      container.style.pointerEvents = 'none';
+      container.appendChild(clone);
+      document.body.appendChild(container);
 
       const fileName = `공사의견서_${(latestWorkName || '공사재원검토').replace(/[^\w가-힣]/g, '_')}.pdf`;
       const opt = {
-        margin: [8, 8, 8, 8],
+        margin: [10, 10, 10, 10],
         filename: fileName,
         image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true, logging: false },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        html2canvas: {
+          scale: 2,
+          useCORS: true,
+          logging: false,
+          scrollY: 0,
+          scrollX: 0,
+          windowWidth: 750
+        },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+        pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
       };
 
-      html2pdf().set(opt).from(officialReportCard).save().then(() => {
-        if (actionButtons) actionButtons.style.display = 'flex';
+      html2pdf().set(opt).from(clone).save().then(() => {
+        if (document.body.contains(container)) {
+          document.body.removeChild(container);
+        }
         downloadPdfBtn.innerHTML = origText;
         downloadPdfBtn.disabled = false;
         showToast('💾 공문서 PDF 저장이 완료되었습니다!');
         trackEvent('pdf_download', { work_name: latestWorkName });
       }).catch(err => {
         console.error('PDF generation error:', err);
-        if (actionButtons) actionButtons.style.display = 'flex';
+        if (document.body.contains(container)) {
+          document.body.removeChild(container);
+        }
         downloadPdfBtn.innerHTML = origText;
         downloadPdfBtn.disabled = false;
         window.print();

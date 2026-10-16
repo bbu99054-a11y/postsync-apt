@@ -1297,32 +1297,93 @@ body {
   font-size: 0.82rem;
 }
 
-/* Clean A4 Print Stylesheet */
+/* ==========================================================================
+   PDF Generation & Clean A4 Print Stylesheet
+   ========================================================================== */
+.pdf-print-mode {
+  width: 750px !important;
+  max-width: 750px !important;
+  box-sizing: border-box !important;
+  background: #ffffff !important;
+  font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif !important;
+}
+
+.pdf-print-mode .quick-summary-trio {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 10px !important;
+  margin-bottom: 18px !important;
+}
+
+.pdf-print-mode .standard-doc-table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin-bottom: 16px !important;
+}
+
+.pdf-print-mode .standard-doc-table th {
+  background: #f1f5f9 !important;
+  color: #1e293b !important;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+.pdf-print-mode .report-action-buttons {
+  display: none !important;
+}
+
 @media print {
-  body {
-    background: #ffffff !important;
+  html, body, .app-viewport, .main-view-container, .view-body-content, #view-evaluator, .evaluator-work-grid, .main-form-column {
+    display: block !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
     padding: 0 !important;
-    font-size: 11pt !important;
+    background: #ffffff !important;
+    font-size: 10pt !important;
   }
   .matte-navy-sidebar,
   .matte-top-header,
   .standard-notice-banner,
   .clean-white-card,
   .aside-reference-column,
-  .report-action-buttons {
+  .report-action-buttons,
+  footer,
+  .matte-toast {
     display: none !important;
   }
-  .evaluator-work-grid {
-    display: block !important;
-  }
   .official-report-card {
-    border: none !important;
+    display: block !important;
+    border: 1.5px solid #0f172a !important;
     box-shadow: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
+    padding: 20px 24px !important;
+    margin: 0 auto !important;
+    max-width: 100% !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+  .quick-summary-trio {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8px !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+  .standard-doc-table {
+    width: 100% !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
   }
   .standard-doc-table th {
     background: #f1f5f9 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .audit-risk-banner,
+  .process-checklist-card,
+  .report-disclaimer-box {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
   }
 }
 

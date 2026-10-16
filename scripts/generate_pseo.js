@@ -373,10 +373,11 @@ presets.forEach((preset, index) => {
       background: #e2e8f0;
     }
     @media print {
-      body { background: #fff !important; }
-      .pseo-breadcrumb, .share-action-bar, .pseo-cta-card, .pseo-back-nav, .pseo-disclaimer-box { display: none !important; }
+      body { background: #fff !important; font-size: 10pt !important; }
+      .pseo-breadcrumb, .share-action-bar, .pseo-cta-card, .pseo-back-nav { display: none !important; }
       .pseo-container { padding: 0 !important; max-width: 100% !important; }
-      .pseo-hero-card, .pseo-section { border: 1px solid #ccc !important; box-shadow: none !important; margin-bottom: 16px !important; }
+      .pseo-hero-card, .pseo-section { border: 1px solid #ccc !important; box-shadow: none !important; margin-bottom: 14px !important; page-break-inside: avoid !important; break-inside: avoid !important; }
+      .pseo-disclaimer-box { border: 1px solid #94a3b8 !important; background: #f8fafc !important; page-break-inside: avoid !important; break-inside: avoid !important; }
     }
   </style>
 
