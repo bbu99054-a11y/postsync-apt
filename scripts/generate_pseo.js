@@ -134,13 +134,13 @@ presets.forEach((preset, index) => {
   <meta name="naver-site-verification" content="e753fc2c2ccfc7188552b45f7e1a4dec559d09f6">
 
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWJER4PB2N"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QBVSWKN92P"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'G-PWJER4PB2N');
+    gtag('config', 'G-QBVSWKN92P');
   </script>
 
   <!-- Open Graph -->

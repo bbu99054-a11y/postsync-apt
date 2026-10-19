@@ -84,7 +84,7 @@ let fakeHouseholdDataCount = 0;
 htmlFiles.forEach(file => {
   const content = fs.readFileSync(path.join(REPAIR_DIR, file), 'utf8');
   if (content.includes('법적 면책 고지')) hasDisclaimerCount++;
-  if (content.includes('G-PWJER4PB2N')) hasGA4Count++;
+  if (content.includes('G-QBVSWKN92P')) hasGA4Count++;
 
   if (file.startsWith('preset-excl-')) {
     // Household pages must NOT have fake legal spec

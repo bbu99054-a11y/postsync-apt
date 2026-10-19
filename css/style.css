@@ -690,6 +690,83 @@ body {
   font-weight: 600;
 }
 
+/* 원터치 인터랙티브 스코프 토글 칩 */
+.summary-chip.clickable-scope-chip {
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-color: #93c5fd;
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.summary-chip.clickable-scope-chip:hover {
+  background: #dbeafe;
+  border-color: #3b82f6;
+  box-shadow: 0 1px 3px rgba(37, 99, 235, 0.2);
+  transform: translateY(-1px);
+}
+
+.summary-chip.clickable-scope-chip:active {
+  transform: translateY(0);
+}
+
+.summary-chip.clickable-scope-chip::after {
+  content: ' ⇄';
+  font-size: 0.8rem;
+  color: #2563eb;
+  font-weight: 800;
+}
+
+/* 미지정 공종 힌트 박스 내 빠른 선택 칩 */
+.unlisted-hint-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.quick-scope-selector {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.quick-scope-selector .selector-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #475569;
+}
+
+.btn-quick-scope {
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.btn-quick-scope:hover {
+  border-color: #94a3b8;
+  background: #f1f5f9;
+}
+
+.btn-quick-scope.active {
+  background: #1e293b;
+  color: #ffffff;
+  border-color: #1e293b;
+}
+
 .btn-toggle-accordion {
   background: transparent;
   border: none;

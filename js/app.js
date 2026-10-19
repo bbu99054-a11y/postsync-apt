@@ -97,8 +97,29 @@ document.addEventListener('DOMContentLoaded', () => {
   let latestWorkName = '';
 
   // Smart Keyword Dictionaries for Auto-Detection
-  const partialKeywords = ['봉', '기판', '센서', '수리', '보수', '덧칠', '패킹', '모터수리', '부품', '크랙', '손잡이', '힌지', '밸브', '전구', '램프'];
-  const fullKeywords = ['전체', '교체', '신설', '1대', '재도장', '전면'];
+  const partialKeywords = [
+    // 승강기 빈출 부품
+    'smps', '멀티빔', '안전빔', '세이프티슈', '도어슈', '가이드슈', '인버터', '조속기스위치', 
+    '도어인버터', '도어모터', '인디케이터', '버튼', '위치표시기', '홀버튼', '카내버튼', 
+    '비상호출기', '인터폰', '카도어센서', '리미트스위치', '릴레이', '콘덴서', '트랜스', 
+    '전자접촉기', '마그네트', '브레이크패드', '라이닝', '권상기오일', '감속기오일', 
+    '쉬브홈가공', '로프윤활', '와이어그리스', '카도어', '홀도어',
+    // 전기·소방·설비 부품
+    '기판', 'pcb', '모듈', '센서', '감지기', '발신기', '수신기기판', '안정기', 
+    '램프', '전구', '소켓', 'led모듈', '차단기교체', '누전차단기', '배선용차단기', 
+    '계량기', '마그네틱', '솔레노이드', '솔레노이드밸브', '볼탑', '정수위밸브고무', 
+    '체크밸브', '감압밸브', '스트레이너', '드레인밸브', '에어벤트', '압력계', '온도계', 
+    '패킹', '가스켓', '커플링', '임펠러', '메카니컬씰', '오일씰', '베어링',
+    // 영선·주차·토목 부품 및 작업
+    '차단기봉', '바교체', '루프코일', '경광등', '리모컨', '도어락수리', '힌지', '플로어힌지', 
+    '손잡이', '손스침', '유리교체', '실리콘', '코킹', '크랙', '균열보수', '부분도색', 
+    '덧칠', '보수', '수리', '부품', '소모품', '단품', '모터수리', '봉'
+  ];
+
+  // 명시적 전면수선 키워드 (1대 전체, 건물 전체 등)
+  const explicitFullKeywords = ['전체', '전면', '1대', '신설', '재도장', '리모델링', '완제품', '완전'];
+  // 일반 전면 키워드 ('교체' 등 - 단, 부분 부품명이 없을 때만 적용)
+  const generalFullKeywords = ['교체', '교환'];
   const exclusiveKeywords = ['세대', '전유', '싱크대', '도어락', '발코니', '거실', '안방', '양변기'];
   const emergencyKeywords = ['긴급', '누수', '동파', '파열', '침수', '역류', '화재'];
 
@@ -243,9 +264,59 @@ document.addEventListener('DOMContentLoaded', () => {
   setupSegmentGroup(planButtons, (v) => { currentInPlan = (v === 'true'); });
   setupSegmentGroup(emergencyButtons, (v) => { currentEmergency = (v === 'true'); });
 
+  // summaryScopeChip 원터치 토글 기능 설정
+  if (summaryScopeChip) {
+    summaryScopeChip.classList.add('clickable-scope-chip');
+    summaryScopeChip.setAttribute('role', 'button');
+    summaryScopeChip.setAttribute('tabindex', '0');
+    summaryScopeChip.setAttribute('title', '클릭 시 [전면] ⇄ [부분] 즉시 전환');
+
+    const toggleScopeDirectly = (e) => {
+      if (e) e.stopPropagation();
+      currentScope = (currentScope === 'full_min_unit') ? 'partial_sub_unit' : 'full_min_unit';
+      setSegmentActive(scopeButtons, currentScope);
+      trackEvent('toggle_scope_chip', { new_scope: currentScope });
+      
+      // 이미 검토 결과 카드가 열려있는 상태라면 바로 재계산 반영
+      if (officialReportCard && officialReportCard.style.display !== 'none') {
+        runEvaluation(false);
+      }
+    };
+
+    summaryScopeChip.addEventListener('click', toggleScopeDirectly);
+    summaryScopeChip.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleScopeDirectly(e);
+      }
+    });
+  }
+
   // =========================================================================
   // 2-1. Dynamic Work Presets (단골 세부작업 원클릭 선택기)
   // =========================================================================
+  function applyPresetWork(preset) {
+    if (!preset) return;
+    workInput.value = preset.title;
+    currentPresetId = preset.id;
+    currentCategoryId = preset.categoryId;
+    isCommonArea = preset.isCommon;
+    currentScope = preset.scope;
+    currentInPlan = preset.inPlan;
+    currentEmergency = preset.isEmergency;
+
+    // Update controls
+    setSegmentActive(locationButtons, isCommonArea ? 'common' : 'exclusive');
+    setSegmentActive(scopeButtons, currentScope);
+    setSegmentActive(planButtons, currentInPlan ? 'true' : 'false');
+    setSegmentActive(emergencyButtons, currentEmergency ? 'true' : 'false');
+    updateSummaryChips();
+
+    // Update hint
+    dynamicHintBox.style.display = 'flex';
+    hintText.innerHTML = `<strong>[선택 작업: ${preset.title}]</strong><br>👉 <em>${preset.hint}</em>`;
+  }
+
   function renderPresets(categoryId, keyword) {
     if (!workPresetsContainer || !presetsChipsGrid) return;
 
@@ -294,28 +365,7 @@ document.addEventListener('DOMContentLoaded', () => {
         chipElements.forEach(c => c.classList.remove('active'));
         const customBtn = document.getElementById('btn-custom-action-toggle');
         if (customBtn) customBtn.classList.remove('active');
-        chip.classList.add('active');
-
-        // Set input value
-        workInput.value = preset.title;
-
-        // Set state
-        currentPresetId = preset.id;
-        isCommonArea = preset.isCommon;
-        currentScope = preset.scope;
-        currentInPlan = preset.inPlan;
-        currentEmergency = preset.isEmergency;
-
-        // Update controls
-        setSegmentActive(locationButtons, isCommonArea ? 'common' : 'exclusive');
-        setSegmentActive(scopeButtons, currentScope);
-        setSegmentActive(planButtons, currentInPlan ? 'true' : 'false');
-        setSegmentActive(emergencyButtons, currentEmergency ? 'true' : 'false');
-        updateSummaryChips();
-
-        // Update hint
-        dynamicHintBox.style.display = 'flex';
-        hintText.innerHTML = `<strong>[선택 작업: ${preset.title}]</strong><br>👉 <em>${preset.hint}</em>`;
+        applyPresetWork(preset);
       });
     });
 
@@ -354,11 +404,21 @@ document.addEventListener('DOMContentLoaded', () => {
       setSegmentActive(locationButtons, 'common');
     }
 
-    // 2. Detect Scope (전면 vs 부분)
-    if (partialKeywords.some(kw => clean.includes(kw))) {
+    // 2. Detect Scope (전면 vs 부분) - 가중치 기반 정밀 분류
+    const hasExplicitFull = explicitFullKeywords.some(kw => clean.includes(kw));
+    const hasPartial = partialKeywords.some(kw => clean.includes(kw));
+    const hasGeneralFull = generalFullKeywords.some(kw => clean.includes(kw));
+
+    if (hasExplicitFull) {
+      // "승강기 1대 교체", "1개동 외벽 전체 재도장" 등 명시적 전면 수선
+      currentScope = 'full_min_unit';
+      setSegmentActive(scopeButtons, 'full_min_unit');
+    } else if (hasPartial) {
+      // "승강기 smps 교체", "배수펌프 베어링 교체" 등 부품명 포함 시 우선 부분수리 판정
       currentScope = 'partial_sub_unit';
       setSegmentActive(scopeButtons, 'partial_sub_unit');
-    } else if (fullKeywords.some(kw => clean.includes(kw))) {
+    } else if (hasGeneralFull) {
+      // "배수펌프 교체", "변압기 교체" 등 장비명+교체 조합
       currentScope = 'full_min_unit';
       setSegmentActive(scopeButtons, 'full_min_unit');
     }
@@ -396,7 +456,36 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!cat) {
       if (freeText) {
         dynamicHintBox.style.display = 'flex';
-        hintText.innerHTML = `<strong>'${freeText}'</strong>: 법정 [별표 1] 미명시 공종입니다. 자본적 지출이면 <strong>[장기수선계획 조정 후 장충금]</strong>, 소모성이면 <strong>[수선유지비]</strong>를 권장합니다.`;
+        hintText.innerHTML = `
+          <div class="unlisted-hint-wrapper">
+            <div><strong>'${freeText}'</strong>: 법정 [별표 1]에 없는 공종·부품입니다.</div>
+            <div class="quick-scope-selector">
+              <span class="selector-label">성격 빠른 선택:</span>
+              <button type="button" class="btn-quick-scope ${currentScope === 'partial_sub_unit' ? 'active' : ''}" data-target-scope="partial_sub_unit">
+                🟢 단순 소모품 부품 (수선유지비)
+              </button>
+              <button type="button" class="btn-quick-scope ${currentScope === 'full_min_unit' ? 'active' : ''}" data-target-scope="full_min_unit">
+                🔵 고액 시설 신설 (장기수선충당금)
+              </button>
+            </div>
+          </div>
+        `;
+
+        // Bind quick scope buttons
+        const quickBtns = hintText.querySelectorAll('.btn-quick-scope');
+        quickBtns.forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const targetScope = btn.dataset.targetScope;
+            currentScope = targetScope;
+            setSegmentActive(scopeButtons, targetScope);
+            quickBtns.forEach(b => b.classList.toggle('active', b.dataset.targetScope === targetScope));
+            trackEvent('click_quick_scope_hint', { target_scope: targetScope, keyword: freeText });
+            if (officialReportCard && officialReportCard.style.display !== 'none') {
+              runEvaluation(false);
+            }
+          });
+        });
       } else {
         dynamicHintBox.style.display = 'none';
       }
@@ -1006,9 +1095,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (presetParam && window.APP_DATA && Array.isArray(window.APP_DATA.workPresets)) {
     const targetPreset = window.APP_DATA.workPresets.find(p => p.id.toUpperCase() === presetParam.toUpperCase());
     if (targetPreset) {
-      workInput.value = targetPreset.title;
-      applyPresetCriteria(targetPreset);
-      evaluateAndShowResult(targetPreset.title, true);
+      applyPresetWork(targetPreset);
+      renderPresets(targetPreset.categoryId, targetPreset.title);
+      const activeChip = presetsChipsGrid ? presetsChipsGrid.querySelector(`[data-preset-id="${targetPreset.id}"]`) : null;
+      if (activeChip) activeChip.classList.add('active');
+      runEvaluation(true);
     } else {
       workInput.value = '지하주차장 배수펌프 1대 교체';
       analyzeAndSelectCandidate('지하주차장 배수펌프 1대 교체', false);
